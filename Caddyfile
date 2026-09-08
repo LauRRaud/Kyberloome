@@ -1,0 +1,7 @@
+xn--kberloome-q9a.ee {
+    encode zstd gzip
+    reverse_proxy web:3000
+}
+www.xn--kberloome-q9a.ee {
+    redir https://xn--kberloome-q9a.ee{uri} permanent
+}
