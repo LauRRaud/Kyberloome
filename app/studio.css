@@ -43,8 +43,8 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .footer-wordmark{display:flex;align-items:flex-start;justify-content:space-between;font-family:Manrope,Arial,sans-serif;font-size:clamp(52px,11.8vw,166px);font-weight:500;letter-spacing:-.025em;line-height:1.1;padding:0 0 42px;color:#d8d8d8;transition:color .4s}
 .footer-wordmark:hover{color:#fff}
 .footer-wordmark>span{font-size:.25em;letter-spacing:0;margin-top:.35em;font-weight:400}
-.studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:15px;color:#aaa;gap:20px}
-.footer-disciplines{font-size:12px;letter-spacing:.7px}
+.studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
+.footer-disciplines{font-size:16px;letter-spacing:.2px}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.product:hover{transform:translateY(-5px)}}
 @media(min-width:761px) and (max-width:1050px){.hero-sculpture{width:29%;opacity:.55}.hero h1{font-size:clamp(52px,6vw,64px)}header .nav-wrap{gap:16px}header nav{gap:16px;font-size:16px}.nav-cta{font-size:16px;padding-inline:0}}
 @media(max-width:760px){
@@ -59,6 +59,6 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
  .footer-invitation{gap:16px;font-size:28px}.footer-invitation span{font-size:23px}
  .back-to-top{font-size:12px;gap:12px}.back-to-top span{width:34px;height:34px}
  .footer-wordmark{font-size:12.2vw;padding-bottom:28px}
- .studio-footer .footer-bottom{align-items:flex-start;gap:17px;font-size:13px}.footer-disciplines{font-size:10px}
+ .studio-footer .footer-bottom{align-items:flex-start;gap:17px;font-size:14px}.footer-disciplines{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.hero-sculpture svg,.manifesto::before,.idea::before{animation:none}.product,.nav-cta span,.text-link span,.product-link span{transform:none!important}html{scroll-behavior:auto}}
