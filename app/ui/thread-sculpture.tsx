@@ -1,27 +1,21 @@
 type Stage = 'spiral' | 'orbit' | 'weave';
 
-// A single family of filaments: an open helix, a closed torus, then a torus knot.
+// One ribbon throughout: straight and twisted, bent into a loop, then twisted again.
 // Coordinates are generated on the server; only the finished SVG rotates in CSS.
 function filament(stage: Stage, strand: number) {
-  const phase = strand / 24 * Math.PI * 2;
+  const across = strand / 23 * 2 - 1;
+  const closed = stage !== 'spiral';
+  const twists = stage === 'weave' ? 2 : 1;
+  const halfWidth = closed ? 46 : 100;
   const points = Array.from({ length: 241 }, (_, step) => {
-    const t = step / 240 * Math.PI * 2;
-    let x: number, y: number, z: number;
-    if (stage === 'spiral') {
-      const angle = t * 1.12 - Math.PI * 1.12;
-      const radius = 105 + 24 * Math.cos(phase);
-      x = radius * Math.sin(angle);
-      y = (step / 240 - .5) * 330;
-      z = radius * Math.cos(angle) + 24 * Math.sin(phase);
-    } else {
-      const knot = stage === 'weave';
-      const tube = knot ? 38 : 27;
-      const radius = (knot ? 112 : 137) + tube * Math.cos((knot ? 3 * t : t) + phase * (knot ? .12 : 1));
-      x = radius * Math.cos(t * (knot ? 2 : 1));
-      y = radius * Math.sin(t * (knot ? 2 : 1));
-      z = tube * Math.sin((knot ? 3 * t : t) + phase * (knot ? .12 : 1));
-      if (knot) { x += 12 * Math.cos(phase) * Math.cos(2 * t); y += 12 * Math.cos(phase) * Math.sin(2 * t); z += 12 * Math.sin(phase); }
-    }
+    const t = (step / 240 - .5) * Math.PI * 2;
+    const taper = closed ? 1 : Math.pow(Math.sin(step / 240 * Math.PI), .6);
+    const offset = across * halfWidth * taper * Math.cos(twists * t + .45);
+    const z = across * halfWidth * taper * Math.sin(twists * t + .45);
+    // Bending the ribbon's centre line into a circle preserves the strand order.
+    // The final stage keeps that same circle and adds one turn to the ribbon.
+    const x = closed ? (132 + offset) * Math.cos(t) : offset;
+    const y = closed ? (132 + offset) * Math.sin(t) : t / Math.PI * 170;
     const tilt = stage === 'spiral' ? .18 : .48;
     const px = x * .96 + z * .28;
     const py = y * Math.cos(tilt) - z * Math.sin(tilt);
