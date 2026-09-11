@@ -2,6 +2,20 @@
 :root{--studio-ease:cubic-bezier(.2,.7,.2,1)}
 .hero{overflow:hidden;padding-bottom:60px}
 .hero h1,.hero-copy{position:relative;z-index:1}
+/* The full-width manifesto border owns this boundary. */
+.manifesto + .section{border-top:0}
+.development-visual{position:absolute;right:max(24px,calc((100% - 1280px)/2));top:50%;width:min(34vw,440px);transform:translateY(-50%);pointer-events:none}
+.development-visual svg{display:block;width:100%;height:auto;overflow:visible}
+.hero .development-visual{right:0;width:34%}
+.development-float{animation:development-float 7s ease-in-out infinite}
+.development-visual--system .development-float{animation-delay:-2s}
+.development-visual--application .development-float{animation-delay:-4s}
+.development-signal{animation:development-signal 5s linear infinite}
+@keyframes development-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes development-signal{to{stroke-dashoffset:-416}}
+@media(min-width:761px) and (max-width:1050px){.development-visual{width:29vw}.hero .development-visual{width:29%}}
+@media(max-width:760px){.development-visual,.hero .development-visual{position:relative;inset:auto;transform:none;width:min(85%,340px);margin:32px auto 0;order:2}}
+@media(prefers-reduced-motion:reduce){.development-float,.development-signal{animation:none}}
 .thread-sculpture{position:absolute;right:max(20px,calc((100% - 1280px)/2 - 30px));top:50%;width:min(39vw,520px);aspect-ratio:1;transform:translateY(-50%);pointer-events:none}
 .thread-sculpture svg{display:block;width:100%;height:100%;overflow:visible}
 .thread-rotation{transform-origin:260px 260px;animation:thread-turn 40s linear infinite}
