@@ -2,8 +2,28 @@
 :root{--studio-ease:cubic-bezier(.2,.7,.2,1)}
 .hero{overflow:hidden;padding-bottom:60px}
 .hero h1,.hero-copy{position:relative;z-index:1}
-.hero-sculpture{position:absolute;right:-3%;top:-42px;width:43%;height:calc(100% + 64px);pointer-events:none}
-.hero-sculpture svg{width:100%;height:100%;overflow:visible;animation:thread-drift 14s ease-in-out infinite alternate}
+.thread-sculpture{position:absolute;right:max(20px,calc((100% - 1280px)/2 - 30px));top:50%;width:min(39vw,520px);aspect-ratio:1;transform:translateY(-50%);pointer-events:none}
+.thread-sculpture svg{display:block;width:100%;height:100%;overflow:visible}
+.thread-rotation{transform-origin:260px 260px;animation:thread-turn 65s linear infinite}
+.thread-sculpture--orbit .thread-rotation{animation-duration:80s;animation-direction:reverse}
+.thread-sculpture--weave .thread-rotation{animation-duration:95s}
+.hero .thread-sculpture{right:-30px;width:44%;top:50%}
+.manifesto,.idea{isolation:isolate}
+.idea>.wrap{position:relative;z-index:1}
+.manifesto .wrap h2,.idea .wrap h2{max-width:70%}
+.idea .wrap p:not(.eyebrow){max-width:60%}
+@keyframes thread-turn{to{transform:rotate(360deg)}}
+@media(max-width:1000px){
+ .hero .thread-sculpture{right:0;width:36%;opacity:.7}
+ .manifesto .thread-sculpture,.idea .thread-sculpture{right:-10px;width:35%;opacity:.7}
+}
+@media(max-width:760px){
+ .hero .thread-sculpture,.manifesto .thread-sculpture,.idea .thread-sculpture{position:relative;top:auto;right:auto;transform:none;width:min(100%,320px);margin:28px auto 0;opacity:1}
+ .hero,.manifesto,.idea{display:flex;flex-direction:column}
+ .hero .thread-sculpture,.manifesto .thread-sculpture,.idea .thread-sculpture{order:2}
+ .manifesto .wrap h2,.idea .wrap h2,.idea .wrap p:not(.eyebrow){max-width:none}
+}
+@media(prefers-reduced-motion:reduce){.thread-rotation{animation:none}}
 .brand{font-family:Manrope,Arial,sans-serif;font-weight:500;font-size:36px;line-height:1;letter-spacing:1px}
 @keyframes thread-drift{from{transform:translateY(-8px) rotate(-7deg)}to{transform:translateY(8px) rotate(7deg)}}
 @keyframes line-shine{0%{transform:translateX(-280px);opacity:0}12%{opacity:.7}50%{opacity:.38}88%{opacity:.7}100%{transform:translateX(100vw);opacity:0}}
@@ -26,7 +46,6 @@
 .steps article:hover .step-number::before{width:100%}
 .manifesto{background:radial-gradient(ellipse at 85% 50%,#202020 0,transparent 55%),#121212}
 .manifesto::before,.idea::before{content:"";position:absolute;top:0;left:0;width:280px;height:1px;background:linear-gradient(90deg,transparent,#aaa 42%,#fff 50%,#aaa 58%,transparent);animation:line-shine 8s linear infinite;pointer-events:none}
-.manifesto::after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ffffff10;border-radius:50%;right:8%;top:50%;transform:translateY(-50%);box-shadow:0 0 0 42px #ffffff03,0 0 0 84px #ffffff02;pointer-events:none}
 .manifesto .wrap{z-index:1}
 .idea{background:linear-gradient(120deg,#191919,#111 70%);position:relative;overflow:hidden}
 input,textarea{transition:border-color .25s,background .25s}
