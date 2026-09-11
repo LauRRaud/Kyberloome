@@ -13,7 +13,7 @@ const steps = [
   ['Käivitamine', 'Testime, viime kasutusse ja arendame vajadusel edasi.'],
 ];
 function Arrow() { return <span aria-hidden="true">↗</span>; }
-function Brand() { return <a className="brand" href="#algus" aria-label="Küberloome — avalehe algusesse">KÜBERLOOME</a>; }
+function Brand() { return <a className="brand" href="#algus" aria-label="Kÿberloome — avalehe algusesse">Kÿberloome</a>; }
 export default function Home() {
   return <>
     <a className="skip" href="#sisu">Liigu põhisisu juurde</a>
