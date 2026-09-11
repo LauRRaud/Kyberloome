@@ -157,3 +157,8 @@ html{scroll-padding-top:24px}
 
 /* Give underlined links a small, deliberate breathing space. */
 .form-bottom p a{text-underline-offset:4px;text-decoration-thickness:1px}
+
+/* Keep the service list narrow and remove the outline from the header CTA. */
+.services{width:min(480px,100%)}
+.service-copy,.service p{max-width:480px}
+.nav-cta{border:0}
