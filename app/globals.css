@@ -110,3 +110,6 @@ input,textarea{border-bottom-color:#4a4a4a}
 .service-copy{max-width:650px;margin:0}
 @media (max-width:760px){.services{width:100%;margin-top:52px;padding-left:0}.service{padding:0 0 48px}}
 
+/* Give the supporting copy enough measure for its intended two-line rhythm. */
+@media (min-width:1101px){.section-intro{grid-template-columns:1fr 1.45fr 1.45fr}}
+
