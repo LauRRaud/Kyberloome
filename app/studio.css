@@ -61,7 +61,7 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1)}
 .step-number{position:relative}
 .step-number::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;background:#eee;transition:width .6s var(--studio-ease)}
 .steps article:hover .step-number::before{width:100%}
-.manifesto{background:radial-gradient(ellipse at 85% 50%,#202020 0,transparent 55%),#121212}
+.manifesto{background:var(--bg)}
 /* Paint the base line and its highlight on the same single-pixel surface. */
 header{border-bottom-color:transparent}
 .manifesto,.idea{border-top-color:transparent}
@@ -70,7 +70,7 @@ header::after{bottom:0}
 .manifesto::before,.idea::before{top:0}
 @keyframes divider-sweep{to{background-position:calc(100% + 280px) 0,0 0}}
 .manifesto .wrap{z-index:1}
-.idea{background:linear-gradient(120deg,#191919,#111 70%);position:relative;overflow:hidden}
+.idea{background:var(--bg);position:relative;overflow:hidden}
 input,textarea{transition:border-color .25s,background .25s}
 input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent 80%)}
 .studio-footer{border-top:1px solid #303030;background:#141414;padding:68px 0 30px;overflow:hidden}
