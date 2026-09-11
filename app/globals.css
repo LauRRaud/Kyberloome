@@ -113,3 +113,11 @@ input,textarea{border-bottom-color:#4a4a4a}
 /* Give the supporting copy enough measure for its intended two-line rhythm. */
 @media (min-width:1101px){.section-intro{grid-template-columns:1fr 1.45fr 1.45fr}}
 
+/* Let whitespace separate the footer instead of stacked rules. */
+footer{border-top:0;padding-top:74px;padding-bottom:42px}
+.footer-top{align-items:flex-end;margin-bottom:56px}
+.footer-bottom{border-top:0;padding-top:0;align-items:center}
+.footer-bottom>div{justify-content:flex-end}
+.contact-note::before{content:"";display:block;width:30px;height:1px;flex:0 0 auto;background:#d5d5d5}
+@media (max-width:760px){footer{padding-top:56px;padding-bottom:32px}.footer-top{align-items:flex-start;margin-bottom:36px}.footer-bottom{padding-top:0}.contact-note::before{width:24px}}
+
