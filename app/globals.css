@@ -211,3 +211,7 @@ nav{font-size:clamp(16px,1.5vw,22px)}
 /* Keep the page scrollable while removing the browser scrollbar chrome. */
 html{scrollbar-width:none;-ms-overflow-style:none}
 html::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* Ease the hero scale back slightly while keeping it the visual lead. */
+.hero h1{font-size:clamp(52px,6vw,86px)}
+@media (max-width:760px){.hero h1{font-size:clamp(37px,8.6vw,63px)}}
