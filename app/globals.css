@@ -101,3 +101,12 @@ input,textarea{border-bottom-color:#4a4a4a}
 
 .product-body p{flex:1}
 
+/* Keep the service group centered while aligning every line to one clean edge. */
+.services{width:min(800px,100%);margin:84px auto 0;padding-left:0}
+.services::before{display:none}
+.service{padding:0 0 70px;text-align:left}
+.service::before,.service::after{display:none}
+.service-index{margin-bottom:15px}
+.service-copy{max-width:650px;margin:0}
+@media (max-width:760px){.services{width:100%;margin-top:52px;padding-left:0}.service{padding:0 0 48px}}
+
