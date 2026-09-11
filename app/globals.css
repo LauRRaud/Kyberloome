@@ -196,3 +196,9 @@ nav{font-size:clamp(16px,1.5vw,22px)}
   #teenused .section-heading>p{margin-top:32px;max-width:420px}
 }
 @media (max-width:760px){#teenused .section-heading{position:static}#teenused .services{margin-top:36px}}
+
+/* Keep secondary arrows close, while product destinations sit at the card edge. */
+.nav-cta,.text-link{gap:8px}
+.product-link{justify-content:flex-end;gap:10px;white-space:nowrap}
+.form-bottom .button{gap:0}
+@media (max-width:760px){.product-link{gap:8px}.form-bottom .button{gap:0}}
