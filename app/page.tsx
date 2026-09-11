@@ -14,7 +14,7 @@ const steps = [
   ['Arendus', 'Ehitame etappide kaupa. Tulemust saad jooksvalt kontrollida.'],
   ['Käivitamine', 'Testime, viime kasutusse ja arendame vajadusel edasi.'],
 ];
-function Arrow() { return <span aria-hidden="true">↗</span>; }
+function Arrow() { return <span aria-hidden="true">↗︎</span>; }
 function Brand() { return <a className="brand" href="#algus" aria-label="Kÿberloome — avalehe algusesse">Kÿberloome</a>; }
 export default function Home() {
   return <>
@@ -35,8 +35,7 @@ export default function Home() {
       <section id="kontakt" className="section contact wrap"><div><p className="eyebrow">VÕTAME ÜHENDUST</p><h2>Loome midagi<br/><span className="muted">toimivat.</span></h2><p>Kirjelda paari lausega, mida soovid teha<br/>või millist probleemi tahad lahendada.</p><div className="contact-note">Iga hea lahendus algab vestlusest</div></div><ContactForm/></section>
     </main>
     <footer className="studio-footer"><div className="wrap">
-      <div className="footer-top"><div><p className="eyebrow">JÄRGMINE HEA IDEE VÕIB OLLA SINU.</p><a className="footer-invitation" href="#kontakt">Loome selle ellu.<Arrow/></a></div><a className="back-to-top" href="#algus">Tagasi üles <span aria-hidden="true">↑</span></a></div>
-      <a className="footer-wordmark" href="#algus" aria-label="Küberloome — tagasi lehe algusesse">Küberloome<span aria-hidden="true">✳</span></a>
+      <a className="footer-wordmark" href="#algus" aria-label="Kÿberloome — tagasi lehe algusesse">Kÿberloome</a>
       <div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span className="footer-disciplines">Tarkvara / SaaS / Veeb / Automatiseerimine</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div>
     </div></footer>
   </>;
