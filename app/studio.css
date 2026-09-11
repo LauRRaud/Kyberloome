@@ -88,7 +88,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .binary-size{visibility:hidden}
 .binary-output{position:absolute;top:0;left:50%;display:flex;width:max-content;transform:translateX(-50%)}
 .binary-value{display:block}
-.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:inherit}
+.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:#858a90}
 .studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
 .footer-disciplines{font-size:16px;letter-spacing:.2px}
 @media(min-width:761px) and (max-width:1050px){.hero-sculpture{width:29%;opacity:.55}.hero h1{font-size:clamp(52px,6vw,64px)}header .nav-wrap{gap:16px}header nav{gap:16px;font-size:16px}.nav-cta{font-size:16px;padding-inline:0}}
