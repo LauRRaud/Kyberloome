@@ -51,6 +51,10 @@ input,textarea{border-bottom-color:#4a4a4a}
 .product-body{display:flex;flex:1;flex-direction:column}
 .product-body p{flex:1}
 
+/* Give the process markers enough presence to anchor each step. */
+.step-number{font-size:18px;letter-spacing:1.2px}
+@media (max-width:760px){.step-number{font-size:15px}}
+
 /* Services follow a centered, left-aligned timeline instead of centering each row. */
 .services{width:min(900px,100%);margin:84px auto 0;padding-left:112px;position:relative}
 .services::before{content:"";position:absolute;left:18px;top:10px;bottom:76px;width:1px;background:#3a3a3a}
