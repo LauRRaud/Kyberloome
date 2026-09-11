@@ -173,3 +173,11 @@ html{scroll-padding-top:24px}
 .nav-cta,.text-link{gap:14px}
 .form-bottom .button{gap:16px}
 @media (max-width:760px){.form-bottom .button{gap:14px}}
+
+/* Loosen the recurring display headings for a more open reading rhythm. */
+h2{letter-spacing:-1.8px}
+.service h3{letter-spacing:-.8px}
+.product h3{letter-spacing:-.5px}
+.steps h3{letter-spacing:0}
+.manifesto h2,.idea h2{letter-spacing:-2.8px}
+@media (max-width:760px){h2{letter-spacing:-1.2px}.service h3{letter-spacing:-.5px}.product h3{letter-spacing:-.3px}.steps h3{letter-spacing:0}.manifesto h2,.idea h2{letter-spacing:-1px}}
