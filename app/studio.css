@@ -68,7 +68,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .back-to-top{display:flex;align-items:center;gap:18px;font-size:13px;color:#bbb;min-height:44px}
 .back-to-top span{width:42px;height:42px;border:1px solid #484848;border-radius:50%;display:grid;place-items:center;font-size:20px;transition:background .3s,color .3s}
 .back-to-top:hover span{background:#eee;color:#111}
-.footer-wordmark{display:flex;align-items:flex-start;justify-content:center;text-align:center;font-family:Manrope,Arial,sans-serif;font-size:clamp(44px,8vw,116px);font-weight:500;letter-spacing:-.025em;line-height:1.1;padding:0 0 42px;color:#d8d8d8;transition:color .4s}
+.footer-wordmark{display:flex;align-items:flex-start;justify-content:center;text-align:center;font-family:Manrope,Arial,sans-serif;font-size:clamp(44px,8vw,116px);font-weight:500;letter-spacing:-.025em;line-height:1.1;padding:0 0 68px;color:#d8d8d8;transition:color .4s}
 .footer-wordmark:hover{color:#fff}
 .footer-wordmark>span{font-size:.25em;letter-spacing:0;margin-top:.35em;font-weight:400}
 .studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
@@ -85,7 +85,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
  .studio-footer .eyebrow{font-size:9px;letter-spacing:1px}
  .footer-invitation{gap:16px;font-size:28px}.footer-invitation span{font-size:23px}
  .back-to-top{font-size:12px;gap:12px}.back-to-top span{width:34px;height:34px}
- .footer-wordmark{font-size:clamp(42px,16vw,66px);padding-bottom:28px}
+ .footer-wordmark{font-size:clamp(42px,16vw,66px);padding-bottom:48px}
  .studio-footer .footer-bottom{align-items:flex-start;gap:17px;font-size:14px}.footer-disciplines{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.hero-sculpture svg,.manifesto::before,.idea::before{animation:none}.product,.nav-cta span,.text-link span,.product-link span{transform:none!important}html{scroll-behavior:auto}}
