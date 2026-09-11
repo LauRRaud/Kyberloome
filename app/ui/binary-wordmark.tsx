@@ -27,20 +27,40 @@ export default function BinaryWordmark({ className }: { className: string }) {
     const play = () => {
       if (running || preference.matches || document.hidden) return;
       running = true;
+      // Keep full-height digits inside narrow letter slots without shifting the logo.
+      cells.forEach(cell => {
+        const size = parseFloat(getComputedStyle(cell).fontSize);
+        cell.style.setProperty('--binary-scale', String(Math.min(1, cell.clientWidth / (size * .6))));
+      });
       const started = performance.now();
+      const shuffle = <T,>(values: T[]) => {
+        for (let i = values.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [values[i], values[j]] = [values[j], values[i]];
+        }
+        return values;
+      };
+      const order = shuffle(cells.map((_, index) => index));
+      const settlesAt = cells.map((_, index) => 600 + order[index] * 95 + Math.random() * 80);
       const tick = () => {
         const elapsed = performance.now() - started;
-        if (elapsed >= 1450) { finish(); return; }
+        if (elapsed >= 1650) { finish(); return; }
+        const unresolved = cells.filter((_, index) => elapsed < settlesAt[index]);
+        const bits = shuffle(unresolved.map((_, index) => index % 2 ? '1' : '0'));
+        if (unresolved.every((cell, index) => cell.textContent === bits[index])) {
+          bits.forEach((bit, index) => { bits[index] = bit === '0' ? '1' : '0'; });
+        }
+        let bitIndex = 0;
         cells.forEach((cell, index) => {
-          if (elapsed >= 350 + index * 115) {
+          if (elapsed >= settlesAt[index]) {
             cell.textContent = wordmark[index];
             cell.removeAttribute('data-binary');
           } else {
-            cell.textContent = Math.random() < .5 ? '0' : '1';
+            cell.textContent = bits[bitIndex++];
             cell.setAttribute('data-binary', '');
           }
         });
-        timer = setTimeout(tick, 75);
+        timer = setTimeout(tick, 60 + Math.random() * 30);
       };
       tick();
     };

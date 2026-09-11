@@ -1,8 +1,9 @@
 import ContactForm from './ui/contact-form';
 import StudioEffects from './ui/studio-effects';
-import ThreadSculpture from './ui/thread-sculpture';
+
 import BinaryWordmark from './ui/binary-wordmark';
-import PointerField from './ui/pointer-field';
+import CustomCursor from './ui/custom-cursor';
+import CursorGrid from './ui/cursor-grid';
 import './studio.css';
 
 const services = [
@@ -22,20 +23,21 @@ function Brand() { return <BinaryWordmark className="brand"/>; }
 export default function Home() {
   return <>
     <StudioEffects/>
-    <PointerField/>
+    <CustomCursor/>
+    <CursorGrid color="#c8cdd3" cellSize={70} radius={140} maxOpacity={0.55} fillOpacity={0.025} holdTime={250} fadeDuration={900} clickPulse={false}/>
     <a className="skip" href="#sisu">Liigu põhisisu juurde</a>
     <header id="algus"><div className="nav-wrap"><Brand/><nav aria-label="Peamenüü"><a href="#teenused">Teenused</a><a href="#tooted">Tooted</a><a href="#protsess">Kuidas töötame</a><a href="#kontakt">Kontakt</a></nav><a className="nav-cta" href="#kontakt">Räägi oma ideest <Arrow/></a></div></header>
     <main id="sisu">
       <section className="hero wrap">
-        <ThreadSculpture stage="spiral"/>
+
         <h1>Ideest toimiva<br/><span className="muted">digilahenduseni.</span></h1>
         <p className="hero-copy">Loome tarkvara, SaaS-lahendusi ja veebilehti ning automatiseerime ettevõtete tööprotsesse.</p>
       </section>
       <section id="teenused" className="section wrap"><div className="section-heading"><div><p className="eyebrow">MIDA ME LOOME</p><h2>Hea idee väärib<br/><span className="muted">toimivat lahendust.</span></h2></div><p>Aitame ehitada digitaalseid tööriistu,<br/>mis teevad päriselt töö ära.</p></div><div className="services">{services.map(([title, description], i) => <article className="service" key={title}><span className="service-index" aria-hidden="true">0{i + 1}</span><div className="service-copy"><h3>{title}</h3><p>{description}</p></div></article>)}</div></section>
       <section id="tooted" className="section wrap"><div className="section-heading"><div><p className="eyebrow">MEIE TOOTED</p><h2>Loome ka oma<br/><span className="muted">digitooteid.</span></h2></div><p>Ideed, mille oleme ise ette võtnud.<br/>Lahendused, mille arengusse usume.</p></div><div className="products"><article className="product"><div className="product-body"><div className="product-title"><h3>Ajasta</h3></div><p>Paindlik broneerimise tarkvara teenusepakkujatele. Teenused, töötajad, kalender ja kliendi broneerimine — ettevõtte enda kujundusega.</p><a className="product-link" href="https://ajasta.ee" target="_blank" rel="noopener noreferrer">Vaata ajasta.ee <Arrow/></a></div></article><article className="product"><div className="product-body"><div className="product-title"><h3>SotsiaalAI</h3></div><p>Sotsiaalvaldkonna digitaalne lahendus, mis aitab infot, teenuseid ja võimalusi paremini kättesaadavaks teha.</p><a className="product-link" href="https://sotsiaal.ai" target="_blank" rel="noopener noreferrer">Vaata sotsiaal.ai <Arrow/></a></div></article><article className="product"><div className="product-body"><div className="product-title"><h3>BeyondFrames</h3></div><p>Kunsti- ja loomeplatvorm, kus kohtuvad kunstnikud, teosed ja visuaalsed lood — ruum, mis kutsub loomingut uue nurga alt nägema.</p><a className="product-link" href="https://beyondframes.art" target="_blank" rel="noopener noreferrer">Vaata beyondframes.art <Arrow/></a></div></article></div></section>
-      <section className="manifesto"><ThreadSculpture stage="orbit"/><div className="wrap"><p className="eyebrow">VÄHEM KEERUKUST. ROHKEM VÕIMALUSI.</p><h2>Lihtne kasutada.<br/><span className="muted">Turvaliselt ehitatud.</span><br/><span className="lime">Kasvamiseks valmis.</span></h2><span className="manifesto-star" aria-hidden="true">✳</span></div></section>
+      <section className="manifesto"><div className="wrap"><p className="eyebrow">VÄHEM KEERUKUST. ROHKEM VÕIMALUSI.</p><h2>Lihtne kasutada.<br/><span className="muted">Turvaliselt ehitatud.</span><br/><span className="lime">Kasvamiseks valmis.</span></h2><span className="manifesto-star" aria-hidden="true">✳</span></div></section>
       <section id="protsess" className="section wrap"><div className="section-heading"><div><p className="eyebrow">KUIDAS TÖÖTAME</p><h2>Ideest valmis<br/><span className="muted">lahenduseni.</span></h2></div><p>Selge protsess. Vahetu suhtlus.<br/>Igas etapis tead, kuhu liigume.</p></div><div className="steps">{steps.map(([title, text], i) => <article key={title}><div className="step-number">0{i + 1}<span aria-hidden="true">{i === 3 ? '↗' : '→'}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
-      <section className="idea"><ThreadSculpture stage="weave"/><div className="wrap"><p className="eyebrow">ERITELLIMUSEL LAHENDUSED</p><h2>Sul on idee, aga mitte<br/><span className="muted">tehnilist plaani?</span></h2><p>Sellest piisab. Aitame vajaduse läbi mõelda, valida sobiva lahenduse ja ehitada sellest toimiva veebilehe, tarkvara või SaaS-toote.</p><a className="text-link" href="#kontakt">Räägi oma ideest <Arrow/></a></div></section>
+      <section className="idea"><div className="wrap"><p className="eyebrow">ERITELLIMUSEL LAHENDUSED</p><h2>Sul on idee, aga mitte<br/><span className="muted">tehnilist plaani?</span></h2><p>Sellest piisab. Aitame vajaduse läbi mõelda, valida sobiva lahenduse ja ehitada sellest toimiva veebilehe, tarkvara või SaaS-toote.</p><a className="text-link" href="#kontakt">Räägi oma ideest <Arrow/></a></div></section>
       <section id="kontakt" className="section contact wrap"><div><p className="eyebrow">VÕTAME ÜHENDUST</p><h2>Loome midagi<br/><span className="muted">toimivat.</span></h2><p>Kirjelda paari lausega, mida soovid teha<br/>või millist probleemi tahad lahendada.</p><div className="contact-note">Iga hea lahendus algab vestlusest</div></div><ContactForm/></section>
     </main>
     <footer className="studio-footer"><div className="wrap">
