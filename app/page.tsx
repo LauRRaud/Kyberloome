@@ -1,6 +1,8 @@
 import ContactForm from './ui/contact-form';
 import StudioEffects from './ui/studio-effects';
 import ThreadSculpture from './ui/thread-sculpture';
+import BinaryWordmark from './ui/binary-wordmark';
+import PointerField from './ui/pointer-field';
 import './studio.css';
 
 const services = [
@@ -16,10 +18,11 @@ const steps = [
   ['Käivitamine', 'Testime, viime kasutusse ja arendame vajadusel edasi.'],
 ];
 function Arrow() { return <span aria-hidden="true">↗︎</span>; }
-function Brand() { return <a className="brand" href="#algus" aria-label="Kÿberloome — avalehe algusesse">Kÿberloome</a>; }
+function Brand() { return <BinaryWordmark className="brand"/>; }
 export default function Home() {
   return <>
     <StudioEffects/>
+    <PointerField/>
     <a className="skip" href="#sisu">Liigu põhisisu juurde</a>
     <header id="algus"><div className="nav-wrap"><Brand/><nav aria-label="Peamenüü"><a href="#teenused">Teenused</a><a href="#tooted">Tooted</a><a href="#protsess">Kuidas töötame</a><a href="#kontakt">Kontakt</a></nav><a className="nav-cta" href="#kontakt">Räägi oma ideest <Arrow/></a></div></header>
     <main id="sisu">
@@ -36,7 +39,7 @@ export default function Home() {
       <section id="kontakt" className="section contact wrap"><div><p className="eyebrow">VÕTAME ÜHENDUST</p><h2>Loome midagi<br/><span className="muted">toimivat.</span></h2><p>Kirjelda paari lausega, mida soovid teha<br/>või millist probleemi tahad lahendada.</p><div className="contact-note">Iga hea lahendus algab vestlusest</div></div><ContactForm/></section>
     </main>
     <footer className="studio-footer"><div className="wrap">
-      <a className="footer-wordmark" href="#algus" aria-label="Kÿberloome — tagasi lehe algusesse">Kÿberloome</a>
+      <BinaryWordmark className="footer-wordmark"/>
       <div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span className="footer-disciplines">Tarkvara / SaaS / Veeb / Automatiseerimine</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div>
     </div></footer>
   </>;
