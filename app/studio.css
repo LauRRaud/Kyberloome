@@ -2,10 +2,8 @@
 :root{--studio-ease:cubic-bezier(.2,.7,.2,1)}
 .hero{overflow:hidden;padding-bottom:60px}
 .hero h1,.hero-copy{position:relative;z-index:1}
-.hero-sculpture{position:absolute;right:0;top:12px;width:36%;height:calc(100% - 32px);pointer-events:none}
-.hero-sculpture svg{width:100%;height:100%;animation:thread-drift 14s ease-in-out infinite alternate}
-.sculpture-cross{position:absolute;right:12%;top:21%;font:300 23px Manrope,Arial,sans-serif;color:#a0a0a0}
-.sculpture-caption{position:absolute;bottom:8%;right:0;font-size:9px;letter-spacing:2px;color:#999;writing-mode:vertical-rl}
+.hero-sculpture{position:absolute;right:-3%;top:-42px;width:43%;height:calc(100% + 64px);pointer-events:none}
+.hero-sculpture svg{width:100%;height:100%;overflow:visible;animation:thread-drift 14s ease-in-out infinite alternate}
 @keyframes thread-drift{from{transform:translateY(-8px) rotate(-7deg)}to{transform:translateY(8px) rotate(7deg)}}
 header nav a{position:relative;padding-block:8px}
 header nav a::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:1px;background:#ddd;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--studio-ease)}
