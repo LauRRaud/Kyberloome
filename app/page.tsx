@@ -1,4 +1,6 @@
 import ContactForm from './ui/contact-form';
+import StudioEffects from './ui/studio-effects';
+import './studio.css';
 
 const services = [
   ['Veebilahendused', 'Kaasaegsed kodulehed, maandumislehed, kliendiportaalid ja veebirakendused.'],
@@ -16,10 +18,12 @@ function Arrow() { return <span aria-hidden="true">↗</span>; }
 function Brand() { return <a className="brand" href="#algus" aria-label="Kÿberloome — avalehe algusesse">Kÿberloome</a>; }
 export default function Home() {
   return <>
+    <StudioEffects/>
     <a className="skip" href="#sisu">Liigu põhisisu juurde</a>
     <header id="algus"><div className="nav-wrap"><Brand/><nav aria-label="Peamenüü"><a href="#teenused">Teenused</a><a href="#tooted">Tooted</a><a href="#protsess">Kuidas töötame</a><a href="#kontakt">Kontakt</a></nav><a className="nav-cta" href="#kontakt">Räägi oma ideest <Arrow/></a></div></header>
     <main id="sisu">
       <section className="hero wrap">
+        <div className="hero-sculpture" aria-hidden="true"><svg viewBox="0 0 480 520" fill="none"><defs><linearGradient id="thread-light" x1="40" y1="40" x2="420" y2="460" gradientUnits="userSpaceOnUse"><stop stopColor="#fff" stopOpacity=".05"/><stop offset=".46" stopColor="#eee" stopOpacity=".65"/><stop offset="1" stopColor="#fff" stopOpacity=".08"/></linearGradient></defs><g stroke="url(#thread-light)" strokeWidth=".8">{Array.from({length:24},(_,i)=><path key={i} d={`M ${75+i*5} 65 C ${430-i*4} ${75+i*5}, ${40+i*4} ${400-i*5}, ${405-i*5} 455`}/>)}</g></svg><span className="sculpture-cross">+</span><span className="sculpture-caption">MÕTESTATUD. LOODUD. TOIMIV.</span></div>
         <h1>Ideest toimiva<br/><span className="muted">digilahenduseni.</span></h1>
         <p className="hero-copy">Loome tarkvara, SaaS-lahendusi ja veebilehti ning automatiseerime ettevõtete tööprotsesse.</p>
       </section>
@@ -30,7 +34,11 @@ export default function Home() {
       <section className="idea"><div className="wrap"><p className="eyebrow">ERITELLIMUSEL LAHENDUSED</p><h2>Sul on idee, aga mitte<br/><span className="muted">tehnilist plaani?</span></h2><p>Sellest piisab. Aitame vajaduse läbi mõelda, valida sobiva lahenduse ja ehitada sellest toimiva veebilehe, tarkvara või SaaS-toote.</p><a className="text-link" href="#kontakt">Räägi oma ideest <Arrow/></a></div></section>
       <section id="kontakt" className="section contact wrap"><div><p className="eyebrow">VÕTAME ÜHENDUST</p><h2>Loome midagi<br/><span className="muted">toimivat.</span></h2><p>Kirjelda paari lausega, mida soovid teha<br/>või millist probleemi tahad lahendada.</p><div className="contact-note">Iga hea lahendus algab vestlusest</div></div><ContactForm/></section>
     </main>
-    <footer className="wrap"><div className="footer-top"><Brand/><span>Tarkvara · SaaS · Veebilahendused · Automatiseerimine</span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div></footer>
+    <footer className="studio-footer"><div className="wrap">
+      <div className="footer-top"><div><p className="eyebrow">JÄRGMINE HEA IDEE VÕIB OLLA SINU.</p><a className="footer-invitation" href="#kontakt">Loome selle ellu.<Arrow/></a></div><a className="back-to-top" href="#algus">Tagasi üles <span aria-hidden="true">↑</span></a></div>
+      <a className="footer-wordmark" href="#algus" aria-label="Küberloome — tagasi lehe algusesse">Küberloome<span aria-hidden="true">✳</span></a>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span className="footer-disciplines">Tarkvara / SaaS / Veeb / Automatiseerimine</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div>
+    </div></footer>
   </>;
 }
 
