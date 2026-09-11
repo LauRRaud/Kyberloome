@@ -29,8 +29,8 @@
 @keyframes line-shine{0%{transform:translateX(-280px);opacity:0}12%{opacity:.7}50%{opacity:.38}88%{opacity:.7}100%{transform:translateX(100vw);opacity:0}}
 .nav-cta,.text-link,.idea .text-link{gap:8px}
 header nav a{position:relative;text-decoration:none}
-header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:currentColor;opacity:0;pointer-events:none}
-header nav a:hover::after,header nav a:focus-visible::after{opacity:1}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:currentColor;opacity:1;transform:scaleX(0);transform-origin:left center;transition:transform .35s var(--studio-ease);pointer-events:none}
+header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1)}
 .nav-cta span,.text-link span,.product-link span{display:inline-block;transition:transform .3s var(--studio-ease)}
 .nav-cta:hover span,.text-link:hover span,.product-link:hover span{transform:translate(2px,-2px)}
 .product{position:relative;background:#131313;transition:border-color .4s,background .4s,transform .4s var(--studio-ease)}
