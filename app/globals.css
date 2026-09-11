@@ -155,3 +155,5 @@ footer{border-top:0;padding-top:74px;padding-bottom:42px}
 /* Align menu anchors close to the viewport edge since the header is not fixed. */
 html{scroll-padding-top:24px}
 
+/* Give underlined links a small, deliberate breathing space. */
+.form-bottom p a{text-underline-offset:4px;text-decoration-thickness:1px}
