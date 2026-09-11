@@ -30,7 +30,7 @@ export default function Home() {
       <section className="idea"><div className="wrap"><p className="eyebrow">ERITELLIMUSEL LAHENDUSED</p><h2>Sul on idee, aga mitte<br/>tehnilist plaani?</h2><p>Sellest piisab. Aitame vajaduse läbi mõelda, valida sobiva lahenduse ja ehitada sellest toimiva veebilehe, tarkvara või SaaS-toote.</p><a className="text-link" href="#kontakt">Räägi oma ideest <Arrow/></a></div></section>
       <section id="kontakt" className="section contact wrap"><div><p className="eyebrow">04 / VÕTAME ÜHENDUST</p><h2>Loome midagi<br/><span className="lime">toimivat.</span></h2><p>Kirjelda paari lausega, mida soovid teha<br/>või millist probleemi tahad lahendada.</p><div className="contact-note">Iga hea lahendus algab vestlusest</div></div><ContactForm/></section>
     </main>
-    <footer className="wrap"><div className="footer-top"><Brand/><span>Tarkvara · SaaS · Veebilahendused · Automatiseerimine</span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span>Teenusepakkuja: SotsiaalAI OÜ · 14206225 · Eesti</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div></footer>
+    <footer className="wrap"><div className="footer-top"><Brand/><span>Tarkvara · SaaS · Veebilahendused · Automatiseerimine</span></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div></footer>
   </>;
 }
 
