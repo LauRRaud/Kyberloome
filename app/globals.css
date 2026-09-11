@@ -191,8 +191,8 @@ nav{font-size:clamp(16px,1.5vw,22px)}
 /* Let the services section read as a two-column scroll with a gentle sticky-heading parallax. */
 @media (min-width:761px){
   #teenused{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.95fr);column-gap:clamp(64px,8vw,150px);align-items:start}
-  #teenused .services{grid-column:1;grid-row:1;width:auto;margin:0;padding-top:2px}
-  #teenused .section-heading{grid-column:2;grid-row:1;display:block;position:sticky;top:24px;align-self:start}
+  #teenused .services{grid-column:2;grid-row:1;width:auto;margin:0;padding-top:2px}
+  #teenused .section-heading{grid-column:1;grid-row:1;display:block;position:sticky;top:24px;align-self:start}
   #teenused .section-heading>p{margin-top:32px;max-width:420px}
 }
 @media (max-width:760px){#teenused .section-heading{position:static}#teenused .services{margin-top:36px}}
