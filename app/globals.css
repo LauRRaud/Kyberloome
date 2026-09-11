@@ -51,6 +51,11 @@ input,textarea{border-bottom-color:#4a4a4a}
 .product-body{display:flex;flex:1;flex-direction:column}
 .product-body p{flex:1}
 
+/* Let the closing contact line read as a confident statement. */
+.contact-note{display:flex;align-items:center;gap:14px;font-family:Manrope,Arial,sans-serif;font-size:clamp(20px,1.7vw,25px);line-height:1.4;letter-spacing:-.4px;color:#d5d5d5}
+.contact-note .status-dot{width:8px;height:8px;flex:0 0 auto;margin-right:0}
+@media (max-width:760px){.contact-note{gap:12px;font-size:18px}}
+
 /* Give the process markers enough presence to anchor each step. */
 .step-number{font-size:18px;letter-spacing:1.2px}
 @media (max-width:760px){.step-number{font-size:15px}}
