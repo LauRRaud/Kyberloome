@@ -202,3 +202,8 @@ nav{font-size:clamp(16px,1.5vw,22px)}
 .product-link{justify-content:space-between;gap:0;white-space:nowrap}
 .form-bottom .button{gap:0}
 @media (max-width:760px){.product-link{gap:0}.form-bottom .button{gap:0}}
+
+/* Keep the hero as the strongest typographic moment and calm the later headings. */
+.section h2{font-size:clamp(32px,3.7vw,50px)}
+.manifesto h2,.idea h2{font-size:clamp(34px,5vw,70px)}
+@media (max-width:760px){.section h2{font-size:clamp(29px,8vw,42px)}.manifesto h2,.idea h2{font-size:clamp(28px,6vw,42px)}}
