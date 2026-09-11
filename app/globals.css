@@ -162,3 +162,14 @@ html{scroll-padding-top:24px}
 .services{width:min(480px,100%)}
 .service-copy,.service p{max-width:480px}
 .nav-cta{border:0}
+
+/* Give service numbers more presence and keep the submit button compact. */
+.service-index{font-size:16px;letter-spacing:1.5px}
+.form-bottom .button{font-family:Manrope,Arial,sans-serif;font-size:16px;line-height:1.2;padding:15px 18px;gap:24px}
+.form-bottom .button span{font-size:18px}
+@media (max-width:760px){.service-index{font-size:13px}.form-bottom .button{font-size:14px;padding:13px 16px;gap:18px}.form-bottom .button span{font-size:17px}}
+
+/* Keep action arrows visually connected to their labels. */
+.nav-cta,.text-link{gap:14px}
+.form-bottom .button{gap:16px}
+@media (max-width:760px){.form-bottom .button{gap:14px}}
