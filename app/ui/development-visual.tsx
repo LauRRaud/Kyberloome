@@ -1,11 +1,6 @@
 import { useId } from 'react';
 
 type Stage = 'data' | 'system' | 'application';
-const labels: Record<Stage, string> = {
-  data: '01 / ANDMED JA IDEED',
-  system: '02 / SÜSTEEMI ÜLESEHITUS',
-  application: '03 / TOIMIV LAHENDUS',
-};
 
 export default function DevelopmentVisual({ stage }: { stage: Stage }) {
   const id = useId().replace(/:/g, '');
@@ -78,7 +73,6 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
           </g>
         </>}
       </g>
-      <text x="240" y="376" textAnchor="middle" fill="#818a92" fontSize="9" fontFamily="monospace" letterSpacing="2">{labels[stage]}</text>
     </svg>
   </div>;
 }
