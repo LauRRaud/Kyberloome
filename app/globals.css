@@ -124,3 +124,9 @@ footer{border-top:0;padding-top:74px;padding-bottom:42px}
 /* Keep service titles on the same left edge as their numbers and copy. */
 .service h3{display:block;text-align:left}
 
+/* Give the centered service section a wider, edge-to-edge content measure. */
+.services{width:min(920px,100%)}
+.service-copy,.service p{max-width:none}
+.service h3{display:block;text-align:left;justify-content:flex-start}
+@media (max-width:760px){.services{width:100%}}
+
