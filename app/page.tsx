@@ -24,7 +24,7 @@ export default function Home() {
   return <>
     <StudioEffects/>
     <CustomCursor/>
-    <CursorGrid color="#c8cdd3" cellSize={70} radius={140} maxOpacity={0.55} fillOpacity={0.025} holdTime={250} fadeDuration={900} clickPulse={false}/>
+    <CursorGrid color="#c8cdd3" cellSize={52} radius={115} maxOpacity={0.3} fillOpacity={0} holdTime={180} fadeDuration={700} clickPulse={false}/>
     <a className="skip" href="#sisu">Liigu põhisisu juurde</a>
     <header id="algus"><div className="nav-wrap"><Brand/><nav aria-label="Peamenüü"><a href="#teenused">Teenused</a><a href="#tooted">Tooted</a><a href="#protsess">Kuidas töötame</a><a href="#kontakt">Kontakt</a></nav><a className="nav-cta" href="#kontakt">Räägi oma ideest <Arrow/></a></div></header>
     <main id="sisu">

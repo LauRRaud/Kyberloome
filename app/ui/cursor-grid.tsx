@@ -286,6 +286,7 @@ const CursorGrid = ({
 
     const onPointerMove = (e: PointerEvent) => {
       if (!enabled.matches || document.hidden || e.pointerType !== 'mouse') return;
+      if (e.target instanceof Element && e.target.closest('.product')) return;
       const [x, y] = toLocal(e);
       energize(x, y);
       wake();

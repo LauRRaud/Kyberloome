@@ -33,7 +33,7 @@ header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1)}
 .nav-cta span,.text-link span,.product-link span{display:inline-block;transition:transform .3s var(--studio-ease)}
 .nav-cta:hover span,.text-link:hover span,.product-link:hover span{transform:translate(2px,-2px)}
-.product{position:relative;background:#131313;transition:border-color .4s,background .4s,transform .4s var(--studio-ease)}
+.product{position:relative;z-index:21;background:#131313;transition:border-color .4s,background .4s,transform .4s var(--studio-ease)}
 .product::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px circle at var(--light-x,50%) var(--light-y,0%),#ffffff0c,transparent 75%);opacity:0;transition:opacity .4s}
 .product:hover::before,.product:focus-within::before{opacity:1}
 .product:hover,.product:focus-within{border-color:#666;background:#161616}
@@ -100,7 +100,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .custom-cursor[data-visible]{opacity:1}
 .custom-cursor{top:0;left:0;z-index:10000;mix-blend-mode:difference}
 .custom-cursor::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#f2f5f7;transform:translate(-50%,-50%)}
-.custom-cursor span{position:absolute;width:24px;height:24px;border:1px solid #cbd5dfa6;border-radius:50%;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s}
-.custom-cursor[data-interactive] span{width:38px;height:38px;border-color:#f2f5f7;background:#dce5ef14}
+.custom-cursor span{position:absolute;width:24px;height:24px;border:1.5px solid #cbd5df66;border-radius:50%;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s}
+.custom-cursor[data-interactive] span{width:38px;height:38px;border-color:#f2f5f780;background:#dce5ef14}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){html[data-custom-cursor],html[data-custom-cursor] *{cursor:none!important}}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.custom-cursor,.cursor-grid{display:none}}
