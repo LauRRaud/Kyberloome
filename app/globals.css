@@ -51,6 +51,19 @@ input,textarea{border-bottom-color:#4a4a4a}
 .product-body{display:flex;flex:1;flex-direction:column}
 .product-body p{flex:1}
 
+/* Services follow a centered, left-aligned timeline instead of centering each row. */
+.services{width:min(900px,100%);margin:84px auto 0;padding-left:112px;position:relative}
+.services::before{content:"";position:absolute;left:18px;top:10px;bottom:76px;width:1px;background:#3a3a3a}
+.service{position:relative;display:block;border:0;padding:0 0 70px;text-align:left}
+.service:last-child{padding-bottom:0}
+.service::before{content:"";position:absolute;left:-99px;top:7px;width:13px;height:13px;border:1px solid #a9a9a9;border-radius:50%;background:var(--bg);box-shadow:0 0 0 5px var(--bg)}
+.service::after{content:"";position:absolute;left:-80px;top:13px;width:38px;height:1px;background:#3a3a3a}
+.service-index{display:block;margin-bottom:15px;font-family:var(--font);font-size:12px;font-weight:500;letter-spacing:1.5px;color:#9c9c9c}
+.service h3{display:block;margin:0 0 13px;font-size:clamp(28px,2.5vw,36px);letter-spacing:-1.5px}
+.service p{max-width:650px;font-size:20px}
+.service-copy{max-width:650px;margin:0}
+@media (max-width:760px){.services{margin-top:52px;padding-left:62px}.services::before{left:9px;top:8px;bottom:49px}.service{padding-bottom:48px}.service::before{left:-58px;top:5px;width:10px;height:10px;box-shadow:0 0 0 4px var(--bg)}.service::after{left:-44px;top:10px;width:22px}.service-index{margin-bottom:10px;font-size:10px}.service h3{font-size:25px;letter-spacing:-1px;margin-bottom:9px}.service p{font-size:16px}}
+
 /* Make section labels easier to scan without competing with the headings. */
 .eyebrow{font-size:16px}
 @media (max-width:760px){.eyebrow{font-size:13px}}
