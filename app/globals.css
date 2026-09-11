@@ -140,3 +140,12 @@ footer{border-top:0;padding-top:74px;padding-bottom:42px}
 .service-copy,.service p{max-width:640px}
 .contact{border-top:0}
 
+/* Balance the hero height now that its actions and lower strip are gone. */
+.hero{min-height:520px}
+@media (min-width:1500px){.hero{min-height:560px}}
+@media (max-width:760px){.hero{min-height:auto}}
+
+/* Keep the service descriptions in a tighter centered measure. */
+.services{width:min(560px,100%)}
+.service-copy,.service p{max-width:560px}
+
