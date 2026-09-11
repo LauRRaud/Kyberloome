@@ -27,3 +27,7 @@ input,textarea{font-size:20px}
 :root{--muted:#b0b0b0}
 @media (max-width:760px){.brand{font-size:21px}nav{font-size:16px}.nav-cta{font-size:16px}.hero-copy{font-size:18px}.eyebrow{font-size:11px}.micro{font-size:11px}.service p,.product-body p,.steps p{font-size:16px}.section-intro p:last-child,.section-heading>p,.idea p:not(.eyebrow),.contact>div>p:not(.eyebrow){font-size:17px}.text-link,.product-link{font-size:15px}.button{font-size:16px}.hero-bottom{font-size:11px}.contact-note{font-size:15px}form label{font-size:16px}input,textarea{font-size:17px}.form-bottom p,form [role=status]{font-size:13px}.footer-top>span,.footer-bottom{font-size:13px}}
 
+.products{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (min-width:761px) and (max-width:1100px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.products{grid-template-columns:1fr}}
+
