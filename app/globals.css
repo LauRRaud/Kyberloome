@@ -50,6 +50,12 @@ input,textarea{border-bottom-color:#4a4a4a}
 .product{min-height:430px;display:flex}
 .product-body{display:flex;flex:1;flex-direction:column}
 .product-body p{flex:1}
+
+.idea{width:100%;border:0;border-block:1px solid var(--line);border-radius:0;padding:106px 0;background:#141414}
+.idea>.wrap{width:min(1280px,calc(100% - 112px));max-width:none;margin-inline:auto}
+.idea h2{font-size:clamp(38px,5.9vw,82px);line-height:1.23;letter-spacing:-3.4px}
+.idea p:not(.eyebrow){max-width:760px;margin:24px 0}
+@media (max-width:760px){.idea{padding-block:64px}.idea>.wrap{width:calc(100% - 40px)}.idea h2{font-size:clamp(30px,6.7vw,48px);letter-spacing:-1.4px}}
 @media (max-width:760px){.product{min-height:470px}}
 
 .product{min-height:0}
