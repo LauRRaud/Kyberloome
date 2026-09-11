@@ -7,4 +7,8 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 
 .honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.product{border-radius:0}.product-body{padding:38px}.product-body p{min-height:96px}.product-title{min-height:45px}.badge{color:#ddd;border-color:#555}.manifesto-star,.idea-icon{display:none}.idea{display:block}.idea>div{max-width:760px;margin-left:auto}.brand-mark{color:white}
+/* The desktop header uses a deliberately oversized wordmark and navigation. */
+.brand{font-size:clamp(22px,2.64vw,38px)}
+nav{font-size:clamp(15px,1.81vw,26px)}
+@media (max-width:760px){.brand{font-size:22px}nav{font-size:15px}}
 
