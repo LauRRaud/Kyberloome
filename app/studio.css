@@ -25,7 +25,7 @@
 .step-number::before{content:"";position:absolute;top:-1px;left:0;height:1px;width:0;background:#eee;transition:width .6s var(--studio-ease)}
 .steps article:hover .step-number::before{width:100%}
 .manifesto{background:radial-gradient(ellipse at 85% 50%,#202020 0,transparent 55%),#121212}
-.manifesto::before,.idea::before{content:"";position:absolute;top:0;left:0;width:280px;height:1px;background:linear-gradient(90deg,transparent,#aaa 42%,#fff 50%,#aaa 58%,transparent);animation:line-shine 8s linear infinite;pointer-events:none}
+.manifesto::before,.idea::before{content:"";position:absolute;top:0;left:0;width:220px;height:1px;background:linear-gradient(90deg,transparent,#858585 42%,#d8d8d8 50%,#858585 58%,transparent);opacity:.72;animation:line-shine 8s linear infinite;pointer-events:none}
 .manifesto::after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ffffff10;border-radius:50%;right:8%;top:50%;transform:translateY(-50%);box-shadow:0 0 0 42px #ffffff03,0 0 0 84px #ffffff02;pointer-events:none}
 .manifesto .wrap{z-index:1}
 .idea{background:linear-gradient(120deg,#191919,#111 70%);position:relative;overflow:hidden}
