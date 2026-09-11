@@ -27,11 +27,6 @@ export default function BinaryWordmark({ className }: { className: string }) {
     const play = () => {
       if (running || preference.matches || document.hidden) return;
       running = true;
-      // Keep full-height digits inside narrow letter slots without shifting the logo.
-      cells.forEach(cell => {
-        const size = parseFloat(getComputedStyle(cell).fontSize);
-        cell.style.setProperty('--binary-scale', String(Math.min(1, cell.clientWidth / (size * .6))));
-      });
       const started = performance.now();
       const shuffle = <T,>(values: T[]) => {
         for (let i = values.length - 1; i > 0; i--) {
@@ -88,8 +83,11 @@ export default function BinaryWordmark({ className }: { className: string }) {
   }, []);
 
   return <a ref={link} className={`${className} binary-wordmark`} href="#algus" aria-label="Küberloome — tagasi lehe algusesse">
-    <span className="binary-text" aria-hidden="true">{Array.from(wordmark, (letter, index) =>
-      <span className="binary-cell" key={index}><span className="binary-size">{letter}</span><span className="binary-value">{letter}</span></span>
-    )}</span>
+    <span className="binary-text" aria-hidden="true">
+      <span className="binary-size">{wordmark}</span>
+      <span className="binary-output">{Array.from(wordmark, (letter, index) =>
+        <span className="binary-value" key={index}>{letter}</span>
+      )}</span>
+    </span>
   </a>;
 }

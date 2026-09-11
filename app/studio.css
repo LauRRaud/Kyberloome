@@ -70,11 +70,11 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .back-to-top:hover span{background:#eee;color:#111}
 .footer-wordmark{display:flex;align-items:flex-start;justify-content:center;text-align:center;font-family:Manrope,Arial,sans-serif;font-size:clamp(44px,8vw,116px);font-weight:500;letter-spacing:.06em;line-height:1.1;padding:0 0 68px;color:#d8d8d8;transition:color .4s}
 .footer-wordmark:hover{color:#fff}
-.binary-text{display:inline-flex;white-space:nowrap}
-.binary-cell{position:relative;display:inline-block}
+.binary-text{position:relative;display:inline-block;white-space:nowrap}
 .binary-size{visibility:hidden}
-.binary-value{position:absolute;inset:0;text-align:center}
-.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:inherit;transform:scaleX(var(--binary-scale,1))}
+.binary-output{position:absolute;top:0;left:50%;display:flex;width:max-content;transform:translateX(-50%)}
+.binary-value{display:block}
+.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:inherit}
 .studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
 .footer-disciplines{font-size:16px;letter-spacing:.2px}
 @media(min-width:761px) and (max-width:1050px){.hero-sculpture{width:29%;opacity:.55}.hero h1{font-size:clamp(52px,6vw,64px)}header .nav-wrap{gap:16px}header nav{gap:16px;font-size:16px}.nav-cta{font-size:16px;padding-inline:0}}
