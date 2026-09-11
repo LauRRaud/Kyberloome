@@ -181,3 +181,9 @@ h2{letter-spacing:-1.8px}
 .steps h3{letter-spacing:0}
 .manifesto h2,.idea h2{letter-spacing:-2.8px}
 @media (max-width:760px){h2{letter-spacing:-1.2px}.service h3{letter-spacing:-.5px}.product h3{letter-spacing:-.3px}.steps h3{letter-spacing:0}.manifesto h2,.idea h2{letter-spacing:-1px}}
+
+/* Final navigation and action-link spacing pass. */
+nav{font-size:clamp(16px,1.5vw,22px)}
+.product-link{justify-content:flex-start;gap:14px}
+.idea .text-link{font-size:20px;gap:12px}
+@media (max-width:760px){nav{font-size:18px}.product-link{gap:12px}.idea .text-link{font-size:17px;gap:10px}}
