@@ -20,10 +20,8 @@ export default function Home() {
     <header id="algus"><div className="nav-wrap"><Brand/><nav aria-label="Peamenüü"><a href="#teenused">Teenused</a><a href="#tooted">Tooted</a><a href="#protsess">Kuidas töötame</a><a href="#kontakt">Kontakt</a></nav><a className="nav-cta" href="#kontakt">Räägi oma ideest <Arrow/></a></div></header>
     <main id="sisu">
       <section className="hero wrap">
-        <p className="eyebrow"><span className="status-dot"/> SÕLTUMATU TARKVARASTUUDIO · EESTI</p>
         <h1>Ideest toimiva<br/><span className="muted">digilahenduseni.</span></h1>
         <p className="hero-copy">Loome tarkvara, SaaS-lahendusi ja veebilehti ning automatiseerime ettevõtete tööprotsesse.</p>
-        <div className="hero-actions"><a className="button" href="#kontakt">Räägi oma ideest <Arrow/></a><a className="text-link" href="#tooted">Vaata lahendusi <span aria-hidden="true">↓</span></a></div>
         <div className="hero-bottom"><span>TARKVARA <b>·</b> SAAS <b>·</b> VEEBILAHENDUSED <b>·</b> AUTOMATISEERIMINE</span><a href="#teenused" aria-label="Keri teenusteni">KERI ALLA <span aria-hidden="true">↓</span></a></div>
       </section>
       <section id="teenused" className="section wrap"><div className="section-intro"><p className="eyebrow">01 / MIDA ME LOOME</p><h2>Hea idee väärib<br/>toimivat lahendust.</h2><p>Aitame ehitada digitaalseid tööriistu,<br/>mis teevad päriselt töö ära.</p></div><div className="services">{services.map(([title, description, tag], i) => <article className="service" key={title}><span className="index">0{i + 1}</span><div><span className="micro">{tag}</span><h3>{title}</h3><p>{description}</p></div><span className="service-symbol" aria-hidden="true">{['↗', '⌘', '◈', '✳'][i]}</span></article>)}</div></section>
