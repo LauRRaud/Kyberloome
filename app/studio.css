@@ -10,9 +10,11 @@
 .development-float{animation:development-float 7s ease-in-out infinite}
 .development-visual--system .development-float{animation-delay:-2s}
 .development-visual--application .development-float{animation-delay:-4s}
-.development-signal{animation:development-signal 5s linear infinite}
+.development-signal{animation:development-signal var(--signal-duration,5s) linear infinite}
+/* One complete 16 + 50 dash period makes the chart loop without a jump. */
+.development-visual--application .development-signal{--signal-duration:8s;--signal-offset:-66}
 @keyframes development-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes development-signal{to{stroke-dashoffset:-416}}
+@keyframes development-signal{to{stroke-dashoffset:var(--signal-offset,-416)}}
 @media(min-width:761px) and (max-width:1050px){.development-visual{width:29vw}.hero .development-visual{width:29%}}
 @media(max-width:760px){.development-visual,.hero .development-visual{position:relative;inset:auto;transform:none;width:min(85%,340px);margin:32px auto 0;order:2}}
 @media(prefers-reduced-motion:reduce){.development-float,.development-signal{animation:none}}
@@ -46,6 +48,8 @@ header nav a{position:relative;text-decoration:none}
 header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:currentColor;opacity:1;transform:scaleX(0);transform-origin:left center;transition:transform .35s var(--studio-ease);pointer-events:none}
 header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1)}
 .nav-cta span,.text-link span,.product-link span{display:inline-block;transition:transform .3s var(--studio-ease)}
+.link-arrow{width:18px;height:18px;flex:0 0 18px;align-self:center;line-height:0}
+.link-arrow svg{display:block;width:18px;height:18px}
 .nav-cta:hover span,.text-link:hover span,.product-link:hover span{transform:translate(2px,-2px)}
 .product{position:relative;z-index:21;background:#131313;transition:border-color .4s,background .4s,transform .4s var(--studio-ease)}
 .product::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(360px circle at var(--light-x,50%) var(--light-y,0%),#ffffff0c,transparent 75%);opacity:0;transition:opacity .4s}
@@ -72,6 +76,9 @@ header::after{bottom:0}
 .manifesto .wrap{z-index:1}
 .idea{background:var(--bg);position:relative;overflow:hidden}
 input,textarea{transition:border-color .25s,background .25s}
+.form-bottom .button{background:linear-gradient(180deg,#26292b,#1b1d1f);color:#e5e8ea;border:1px solid #4b5258;border-radius:5px;box-shadow:inset 0 1px 0 #ffffff08;transition:background .2s,border-color .2s,transform .2s}
+.form-bottom .button:hover:not(:disabled){background:linear-gradient(180deg,#32373b,#25292d);border-color:#858f98;transform:translateY(-1px)}
+.form-bottom .button:active:not(:disabled){transform:translateY(0);background:#202427}
 input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent 80%)}
 .studio-footer{border-top:1px solid #303030;background:#141414;padding:68px 0 30px;overflow:hidden}
 .studio-footer .footer-top{align-items:center;margin-bottom:60px;gap:24px}
@@ -88,7 +95,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .binary-size{visibility:hidden}
 .binary-output{position:absolute;top:0;left:50%;display:flex;width:max-content;transform:translateX(-50%)}
 .binary-value{display:block}
-.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:#858a90}
+.binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;letter-spacing:-.06em;color:#858a90}
 .studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
 .footer-disciplines{font-size:16px;letter-spacing:.2px}
 @media(min-width:761px) and (max-width:1050px){.hero-sculpture{width:29%;opacity:.55}.hero h1{font-size:clamp(52px,6vw,64px)}header .nav-wrap{gap:16px}header nav{gap:16px;font-size:16px}.nav-cta{font-size:16px;padding-inline:0}}

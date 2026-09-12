@@ -19,7 +19,7 @@ const steps = [
   ['Arendus', 'Ehitame etappide kaupa. Tulemust saad jooksvalt kontrollida.'],
   ['Käivitamine', 'Testime, viime kasutusse ja arendame vajadusel edasi.'],
 ];
-function Arrow() { return <span aria-hidden="true">↗︎</span>; }
+function Arrow() { return <span className="link-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span>; }
 function Brand() { return <BinaryWordmark className="brand"/>; }
 export default function Home() {
   return <>
