@@ -11,6 +11,12 @@ export default function BinaryWordmark({ className }: { className: string }) {
     const element = link.current;
     if (!element) return;
     const cells = Array.from(element.querySelectorAll<HTMLElement>('.binary-value'));
+    const output = element.querySelector<HTMLElement>('.binary-output')!;
+    const size = element.querySelector<HTMLElement>('.binary-size')!;
+    const fit = () => {
+      const naturalWidth = parseFloat(getComputedStyle(output).width);
+      if (naturalWidth > 0) output.style.transform = `scaleX(${size.getBoundingClientRect().width / naturalWidth})`;
+    };
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer: ReturnType<typeof setTimeout> | undefined;
     let running = false;
@@ -23,6 +29,7 @@ export default function BinaryWordmark({ className }: { className: string }) {
         cell.textContent = wordmark[index];
         cell.removeAttribute('data-binary');
       });
+      fit();
     };
     const play = () => {
       if (running || preference.matches || document.hidden) return;
@@ -55,6 +62,7 @@ export default function BinaryWordmark({ className }: { className: string }) {
             cell.setAttribute('data-binary', '');
           }
         });
+        fit();
         timer = setTimeout(tick, 100 + Math.random() * 40);
       };
       tick();
@@ -68,6 +76,9 @@ export default function BinaryWordmark({ className }: { className: string }) {
       else if (!entry.isIntersecting) finish();
     }, { threshold: .6 });
     observer.observe(element);
+    const resizeObserver = new ResizeObserver(fit);
+    resizeObserver.observe(size);
+    fit();
     element.addEventListener('pointerenter', onPointer);
     element.addEventListener('focus', play);
     preference.addEventListener('change', finish);
@@ -75,6 +86,7 @@ export default function BinaryWordmark({ className }: { className: string }) {
     return () => {
       finish();
       observer.disconnect();
+      resizeObserver.disconnect();
       element.removeEventListener('pointerenter', onPointer);
       element.removeEventListener('focus', play);
       preference.removeEventListener('change', finish);

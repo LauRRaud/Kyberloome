@@ -93,7 +93,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .footer-wordmark:hover{color:#fff}
 .binary-text{position:relative;display:inline-block;white-space:nowrap}
 .binary-size{visibility:hidden}
-.binary-output{position:absolute;top:0;left:0;display:flex;justify-content:space-between;width:100%}
+.binary-output{position:absolute;top:0;left:0;display:flex;width:max-content;transform-origin:left center}
 .binary-value{display:block}
 .binary-value[data-binary]{font:inherit;font-variant-numeric:tabular-nums;color:#858a90}
 .studio-footer .footer-bottom{padding-top:25px;border-top:1px solid #333;font-size:16px;color:#aaa;gap:20px}
