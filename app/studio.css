@@ -141,9 +141,9 @@ header .nav-wrap{height:76px}
 .product:hover,.product:focus-within{border-color:#303030}
 .product::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:radial-gradient(240px circle at var(--light-x,50%) var(--light-y,0%),#f2f5f8 0%,#aab5bf 25%,#73808b55 55%,transparent 75%);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;opacity:0;transition:opacity .25s}
 .product:hover::after,.product:focus-within::after{opacity:1}
-.form-bottom .button{position:relative;isolation:isolate;overflow:hidden;border:0;box-shadow:none;background:linear-gradient(160deg,#303438,#1b1e21);padding:18px}
-.form-bottom .button:hover:not(:disabled){background:linear-gradient(160deg,#303438,#1b1e21);transform:none}
-.form-bottom .button::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(100px circle at var(--light-x,50%) var(--light-y,0%),#ecf3fa44,#aabac522 35%,transparent 75%);opacity:0;transition:opacity .25s}
+.form-bottom .button{position:relative;isolation:isolate;overflow:hidden;border:0;box-shadow:none;background:transparent;padding:18px}
+.form-bottom .button:hover:not(:disabled),.form-bottom .button:active:not(:disabled){background:transparent;transform:none}
+.form-bottom .button::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:radial-gradient(120px circle at var(--light-x,50%) var(--light-y,0%),#f2f5f8,#aab5bf 25%,#73808b55 55%,transparent 75%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;opacity:0;transition:opacity .25s}
 .form-bottom .button:hover:not(:disabled)::before,.form-bottom .button:focus-visible::before{opacity:1}
 @media(hover:none){.product::after,.form-bottom .button::before{display:none}}
 @media(prefers-reduced-motion:reduce){.product::after,.form-bottom .button::before{transition:none}}
