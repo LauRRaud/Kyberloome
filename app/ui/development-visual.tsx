@@ -32,14 +32,16 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
       </g>}
       <g className="development-float">
         {stage === 'data' && <>
-          {[[-12,5,-18],[76,-8,-30],[153,12,-6],[-3,77,-2],[74,76,-18],[156,84,-28],[7,151,-22],[82,162,-4],[160,158,-15]].map(([x,y,lift],i) =>
-            <g key={i} transform={`translate(0 ${lift})`}>
+          {dataBits.map((bit,i) => {
+            const x = (i % 3) * (200 / 3) + 3;
+            const y = Math.floor(i / 3) * (200 / 3) + 3;
+            return <g key={i}>
               <g transform={plane}>
-                <rect x={x} y={y} width="48" height="48" rx="2" fill={surface} stroke={edge}/>
-                <text x={x+24} y={y+24} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{dataBits[i]}</text>
+                <rect x={x} y={y} width={200 / 3 - 6} height={200 / 3 - 6} rx="2" fill={surface} stroke={edge}/>
+                <text x={x+100/3-3} y={y+100/3-3} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{bit}</text>
               </g>
-            </g>
-          )}
+            </g>;
+          })}
         </>}
         {stage === 'system' && <>
           {[48,24,0].map((lift,i) => <g key={lift} transform={`translate(0 ${lift})`}>
