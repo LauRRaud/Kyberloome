@@ -130,7 +130,7 @@ input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent
 .hero,.manifesto,.idea{background:#141414}
 .hero{box-shadow:0 0 0 100vmax #141414;clip-path:inset(0 -100vmax)}
 header{position:sticky;top:0;z-index:50;background:#141414;transition:transform .28s var(--studio-ease)}
-header.header-hidden{transform:translateY(-100%)}
+header.header-hidden{transform:translateY(-100%);transition-duration:.5s}
 header .nav-wrap{height:76px}
 @media(max-width:760px){header .nav-wrap{height:auto;min-height:68px;padding-block:12px}}
 @media(prefers-reduced-motion:reduce){header{transition:none}}
