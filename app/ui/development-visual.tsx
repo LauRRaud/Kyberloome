@@ -27,15 +27,14 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
         <path d="M40 249 240 349 440 249" stroke="#59636b"/>
       </g>
       {stage === 'data' && <g transform="matrix(.92 .46 -.92 .46 240 108)" stroke="#626d77" strokeWidth="1.2" strokeDasharray="10 7" strokeLinecap="round">
-            <rect x="10" y="10" width="180" height="180"/>
-            <path d="M70 10v180M130 10v180M10 70h180M10 130h180"/>
+            <rect x="0" y="0" width="200" height="200"/>
+            <path d="M66.667 0v200M133.333 0v200M0 66.667h200M0 133.333h200"/>
       </g>}
       <g className="development-float">
         {stage === 'data' && <>
           {[[-12,5,-18],[76,-8,-30],[153,12,-6],[-3,77,-2],[74,76,-18],[156,84,-28],[7,151,-22],[82,162,-4],[160,158,-15]].map(([x,y,lift],i) =>
             <g key={i} transform={`translate(0 ${lift})`}>
               <g transform={plane}>
-                <rect x={x} y={y+5} width="48" height="48" rx="2" fill="#111315" stroke="#454b50"/>
                 <rect x={x} y={y} width="48" height="48" rx="2" fill={surface} stroke={edge}/>
                 <text x={x+24} y={y+24} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{dataBits[i]}</text>
               </g>
