@@ -76,6 +76,7 @@ header::after{bottom:0}
 .manifesto .wrap{z-index:1}
 .idea{background:var(--bg);position:relative;overflow:hidden}
 input,textarea{transition:border-color .25s,background .25s}
+.contact input,.contact textarea{color:#b8b8b8;caret-color:#b8b8b8}
 .form-bottom .button{background:linear-gradient(180deg,#26292b,#1b1d1f);color:#e5e8ea;border:1px solid #4b5258;border-radius:5px;box-shadow:inset 0 1px 0 #ffffff08;transition:background .2s,border-color .2s}
 .form-bottom .button:hover:not(:disabled){background:linear-gradient(180deg,#32373b,#25292d);border-color:#858f98;transform:none}
 .form-bottom .button:active:not(:disabled){transform:none;background:#202427}
