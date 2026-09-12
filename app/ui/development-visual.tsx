@@ -35,7 +35,7 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
           {dataBits.map((bit,i) => {
             const x = (i % 3) * (200 / 3) + 3;
             const y = Math.floor(i / 3) * (200 / 3) + 3;
-            return <g key={i}>
+            return <g key={i} className={[0, 4, 8].includes(i) ? `data-tile-float data-tile-float--${i}` : undefined}>
               <g transform={plane}>
                 <rect x={x} y={y} width={200 / 3 - 6} height={200 / 3 - 6} rx="2" fill={surface} stroke={edge}/>
                 <text x={x+100/3-3} y={y+100/3-3} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{bit}</text>

@@ -153,3 +153,9 @@ header .nav-wrap{height:76px}
 .idea::before{animation-delay:-5s}
 .studio-footer::before{animation-delay:-7.5s}
 @media(prefers-reduced-motion:reduce){header::after,.manifesto::before,.idea::before,.studio-footer::before{animation:none;background-position:50% 0,0 0}}
+/* A few tiles drift independently above the stationary data grid. */
+.data-tile-float{animation:data-tile-drift 5.8s ease-in-out infinite}
+.data-tile-float--4{animation-duration:6.6s;animation-delay:-2.2s}
+.data-tile-float--8{animation-duration:7.4s;animation-delay:-4.1s}
+@keyframes data-tile-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){.data-tile-float{animation:none}}
