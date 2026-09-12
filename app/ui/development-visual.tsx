@@ -2,8 +2,8 @@ import { useId } from 'react';
 
 type Stage = 'data' | 'system' | 'application';
 
-// An irregular, stable sequence keeps the decorative tiles consistent across renders.
-const dataBits = [1, 0, 0, 0, 1, 1, 1, 1, 0] as const;
+// Alternate across rows and columns so edge-adjacent tiles always differ.
+const dataBits = [1, 0, 1, 0, 1, 0, 1, 0, 1] as const;
 
 export default function DevelopmentVisual({ stage }: { stage: Stage }) {
   const id = useId().replace(/:/g, '');
