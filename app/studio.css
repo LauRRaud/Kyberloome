@@ -69,10 +69,10 @@ header nav a:hover::after,header nav a:focus-visible::after{transform:scaleX(1)}
 /* Paint the base line and its highlight on the same single-pixel surface. */
 header{border-bottom-color:transparent}
 .manifesto,.idea{border-top-color:transparent}
-header::after,.manifesto::before,.idea::before{content:"";position:absolute;left:0;width:100%;height:1px;pointer-events:none;opacity:1;transform:none;background:linear-gradient(90deg,transparent,#aaa7 42%,#fffb 50%,#aaa7 58%,transparent) no-repeat,linear-gradient(var(--line),var(--line));background-size:280px 1px,100% 1px;background-position:-280px 0,0 0;animation:divider-sweep 8s linear infinite}
+header::after,.manifesto::before,.idea::before,.studio-footer::before{content:"";position:absolute;left:0;width:100%;height:1px;pointer-events:none;opacity:1;transform:none;background:linear-gradient(90deg,transparent,#aab7c00a 15%,#bac6cf30 34%,#dce4e97a 46%,#f4f6f8b3 50%,#dce4e97a 54%,#bac6cf30 66%,#aab7c00a 85%,transparent) no-repeat,linear-gradient(var(--line),var(--line));background-size:420px 1px,100% 1px;background-position:-420px 0,0 0;animation:divider-sweep 10s linear infinite}
 header::after{bottom:0}
-.manifesto::before,.idea::before{top:0}
-@keyframes divider-sweep{to{background-position:calc(100% + 280px) 0,0 0}}
+.manifesto::before,.idea::before,.studio-footer::before{top:0}
+@keyframes divider-sweep{to{background-position:calc(100% + 420px) 0,0 0}}
 .manifesto .wrap{z-index:1}
 .idea{background:var(--bg);position:relative;overflow:hidden}
 input,textarea{transition:border-color .25s,background .25s}
@@ -81,7 +81,7 @@ input,textarea{transition:border-color .25s,background .25s}
 .form-bottom .button:hover:not(:disabled){background:linear-gradient(180deg,#32373b,#25292d);border-color:#858f98;transform:none}
 .form-bottom .button:active:not(:disabled){transform:none;background:#202427}
 input:focus,textarea:focus{background:linear-gradient(0deg,#ffffff04,transparent 80%)}
-.studio-footer{border-top:1px solid #303030;background:#141414;padding:68px 0 30px;overflow:hidden}
+.studio-footer{position:relative;border-top:1px solid transparent;background:#141414;padding:68px 0 30px;overflow:hidden}
 .studio-footer .footer-top{align-items:center;margin-bottom:60px;gap:24px}
 .studio-footer .eyebrow{font-size:11px;letter-spacing:1.7px;margin-bottom:18px;color:#a0a0a0}
 .footer-invitation{display:inline-flex;align-items:center;gap:22px;font-family:Manrope,Arial,sans-serif;font-size:clamp(27px,3vw,40px);letter-spacing:-1px;line-height:1.3}
@@ -148,3 +148,8 @@ header .nav-wrap{height:76px}
 @media(hover:none){.product::after,.form-bottom .button::before{display:none}}
 @media(prefers-reduced-motion:reduce){.product::after,.form-bottom .button::before{transition:none}}
 .product::after{mask-composite:exclude}
+
+.manifesto::before{animation-delay:-2.5s}
+.idea::before{animation-delay:-5s}
+.studio-footer::before{animation-delay:-7.5s}
+@media(prefers-reduced-motion:reduce){header::after,.manifesto::before,.idea::before,.studio-footer::before{animation:none;background-position:50% 0,0 0}}
