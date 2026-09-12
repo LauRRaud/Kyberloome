@@ -12,7 +12,7 @@
 .development-visual--application .development-float{animation-delay:-4s}
 .development-signal{animation:development-signal var(--signal-duration,5s) linear infinite}
 /* One complete 16 + 50 dash period makes the chart loop without a jump. */
-.development-visual--application .development-signal{--signal-duration:8s;--signal-offset:-66}
+.development-visual--application .development-signal{--signal-duration:4s;--signal-offset:-66}
 @keyframes development-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes development-signal{to{stroke-dashoffset:var(--signal-offset,-416)}}
 @media(min-width:761px) and (max-width:1050px){.development-visual{width:29vw}.hero .development-visual{width:29%}}
