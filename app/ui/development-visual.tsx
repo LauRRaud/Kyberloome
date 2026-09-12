@@ -3,7 +3,7 @@ import { useId } from 'react';
 type Stage = 'data' | 'system' | 'application';
 
 // An irregular, stable sequence keeps the decorative tiles consistent across renders.
-const dataBits = [1, 0, 0, 1, 0, 1, 1, 0, 1] as const;
+const dataBits = [1, 0, 0, 0, 1, 1, 1, 1, 0] as const;
 
 export default function DevelopmentVisual({ stage }: { stage: Stage }) {
   const id = useId().replace(/:/g, '');
@@ -27,8 +27,8 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
         <path d="M40 249 240 349 440 249" stroke="#59636b"/>
       </g>
       {stage === 'data' && <g transform="matrix(.92 .46 -.92 .46 240 108)" stroke="#626d77" strokeWidth="1.2" strokeDasharray="10 7" strokeLinecap="round">
-            <rect x="-10" y="-10" width="220" height="220"/>
-            <path d="M63-10v220M137-10v220M-10 63h220M-10 137h220"/>
+            <rect x="10" y="10" width="180" height="180"/>
+            <path d="M70 10v180M130 10v180M10 70h180M10 130h180"/>
       </g>}
       <g className="development-float">
         {stage === 'data' && <>
@@ -37,8 +37,7 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
               <g transform={plane}>
                 <rect x={x} y={y+5} width="48" height="48" rx="2" fill="#111315" stroke="#454b50"/>
                 <rect x={x} y={y} width="48" height="48" rx="2" fill={surface} stroke={edge}/>
-                <path d={`M${x+14} ${y+35}h20`} stroke="#68737c" strokeWidth="1" strokeLinecap="round"/>
-                <text x={x+24} y={y+23} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{dataBits[i]}</text>
+                <text x={x+24} y={y+24} textAnchor="middle" dominantBaseline="middle" fill="#d0d6dc" fontFamily="monospace" fontSize="16">{dataBits[i]}</text>
               </g>
             </g>
           )}
