@@ -20,18 +20,18 @@ export default function DevelopmentVisual({ stage }: { stage: Stage }) {
           <stop stopColor="#e0e4e8"/><stop offset=".48" stopColor="#787f85"/><stop offset="1" stopColor="#353a3e"/>
         </linearGradient>
       </defs>
-      <g strokeWidth=".8" strokeLinejoin="round">
+      <g transform="translate(240 249) scale(.92) translate(-240 -249)" strokeWidth=".8" strokeLinejoin="round">
         <path d="M40 249 240 149 440 249 240 349Z" fill="#121416" stroke="#343b40"/>
         <path d="M40 249 240 349V357L40 257Z" fill="#15181a" stroke="#343b40"/>
         <path d="M240 349 440 249V257L240 357Z" fill="#101214" stroke="#343b40"/>
         <path d="M40 249 240 349 440 249" stroke="#59636b"/>
       </g>
-      <g className="development-float">
-        {stage === 'data' && <>
-          <g transform="matrix(.92 .46 -.92 .46 240 108)" stroke="#626d77" strokeWidth=".85" strokeDasharray="10 7" strokeLinecap="round">
+      {stage === 'data' && <g transform="matrix(.92 .46 -.92 .46 240 108)" stroke="#626d77" strokeWidth="1.2" strokeDasharray="10 7" strokeLinecap="round">
             <rect x="-10" y="-10" width="220" height="220"/>
             <path d="M63-10v220M137-10v220M-10 63h220M-10 137h220"/>
-          </g>
+      </g>}
+      <g className="development-float">
+        {stage === 'data' && <>
           {[[-12,5,-18],[76,-8,-30],[153,12,-6],[-3,77,-2],[74,76,-18],[156,84,-28],[7,151,-22],[82,162,-4],[160,158,-15]].map(([x,y,lift],i) =>
             <g key={i} transform={`translate(0 ${lift})`}>
               <g transform={plane}>
