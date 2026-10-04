@@ -162,6 +162,11 @@ html{scroll-padding-top:24px}
 .services{width:min(480px,100%)}
 .service-copy,.service p{max-width:480px}
 .nav-cta{border:0}
+.nav-actions{display:flex;align-items:center;gap:28px;white-space:nowrap}
+.language-link{font-family:Manrope,Arial,sans-serif;font-size:16px;line-height:1;letter-spacing:.5px;color:#d5d5d5;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 12px;border:1px solid #ffffff18;border-radius:6px;transition:background .2s,border-color .2s}
+.language-flag{display:block;width:24px;height:16px;flex:none;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px #ffffff18}
+.language-link:hover{color:var(--accent);background:#ffffff06;border-color:#ffffff38}
+@media(max-width:760px){.nav-actions{gap:10px}.language-link{font-size:14px;gap:8px;padding:10px}.language-flag{width:21px;height:14px}}
 
 /* Give service numbers more presence and keep the submit button compact. */
 .service-index{font-size:16px;letter-spacing:1.5px}
@@ -215,3 +220,29 @@ html::-webkit-scrollbar{display:none;width:0;height:0}
 /* Ease the hero scale back slightly while keeping it the visual lead. */
 .hero h1{font-size:clamp(52px,6vw,86px)}
 @media (max-width:760px){.hero h1{font-size:clamp(37px,8.6vw,63px)}}
+
+/* Longer legal pages: a date line, lists, sub-headings and links that read as links. */
+.privacy .updated{font-size:13px;margin:-18px 0 30px}
+.privacy h3{font-size:19px;margin:28px 0 10px;letter-spacing:-.2px}
+.privacy p+p,.privacy ul+p{margin-top:12px}
+.privacy ul{margin:12px 0 0;padding-left:20px;color:var(--muted);line-height:1.7}
+.privacy li+li{margin-top:6px}
+.privacy p a,.privacy li a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+
+/* Products come in two labelled groups: the web platforms as cards, and the Microsoft Store
+   apps and games as a plain list under them, so the two kinds do not read as one row. */
+.product-group{display:flex;align-items:center;gap:18px;margin:50px 0 0;font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:#8c8c8c}
+.product-group::after{content:"";flex:1;height:1px;background:var(--line);order:1}
+.product-group span{order:2;letter-spacing:.2px;text-transform:none;font-size:15px;font-weight:400}
+.product-group+.products{margin-top:26px}
+.products+.product-group{margin-top:64px}
+.apps{margin-top:6px}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;align-items:center;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.app h3{display:flex;align-items:center;gap:14px;font-size:23px;letter-spacing:-.4px}
+.app p{font-size:18px;color:var(--muted)}
+.app-soon{font-size:13px;letter-spacing:.3px;color:#ddd;border:1px solid #555;border-radius:20px;padding:6px 12px;white-space:nowrap}
+.app-link{display:flex;align-items:center;gap:12px;font-size:16px;white-space:nowrap}
+.apps-note{margin-top:18px;font-size:14px;text-align:right}
+.apps-note a{color:#8c8c8c;transition:color .3s}
+.apps-note a:hover{color:var(--text)}
+@media (max-width:760px){.product-group{margin-top:32px;font-size:11px;gap:12px;flex-wrap:wrap;row-gap:4px}.product-group span{font-size:13px;flex-basis:100%}.product-group+.products{margin-top:18px}.products+.product-group{margin-top:44px}.app{grid-template-columns:1fr;gap:8px;padding:20px 0}.app h3{font-size:21px;gap:12px}.app h3 img{width:36px;height:36px}.app p{font-size:16px}.app-soon,.app-link{justify-self:start;margin-top:6px}.apps-note{text-align:left}}
