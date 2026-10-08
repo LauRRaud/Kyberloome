@@ -246,3 +246,6 @@ html::-webkit-scrollbar{display:none;width:0;height:0}
 .apps-note a{color:#8c8c8c;transition:color .3s}
 .apps-note a:hover{color:var(--text)}
 @media (max-width:760px){.product-group{margin-top:32px;font-size:11px;gap:12px;flex-wrap:wrap;row-gap:4px}.product-group span{font-size:13px;flex-basis:100%}.product-group+.products{margin-top:18px}.products+.product-group{margin-top:44px}.app{grid-template-columns:1fr;gap:8px;padding:20px 0}.app h3{font-size:21px;gap:12px}.app h3 img{width:36px;height:36px}.app p{font-size:16px}.app-soon,.app-link{justify-self:start;margin-top:6px}.apps-note{text-align:left}}
+/* The company's legal details under the copyright line in the footer. */
+.footer-company small{display:block;margin-top:5px;font-size:13px;color:#8c8c8c}
+@media (max-width:760px){.footer-company small{font-size:12px}}

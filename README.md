@@ -21,4 +21,4 @@ Caddy hangib HTTPS-sertifikaadi ja suunab www põhidomeenile. Docker-konfigurats
 
 Vorm saadab päringu serveri kaudu SMTP-ga. Saaja aadressi kasutajale ei avaldata. Ilma SMTP seadistuseta vastab API 503 ning vorm kuvab ausa veateate. Edu kuvatakse alles SMTP-serveri kinnituse järel. Ühe serveriprotsessi saatmiskatsete limiit on 30 tunnis; suurema koormuse korral lisa püsiv piirang. Enne avaldamist kinnita privaatsuslehe säilitamistähtajad ja õiguste kasutamise kontakt ning testi tegelikku kirja saabumist.
 
-Teenusepakkuja: Küberloome OÜ (varem SotsiaalAI OÜ), registrikood 14206225. Tootelingid pärinevad tellija sisendist. Fontide laadimine toimub Google Fontsist.
+Teenusepakkuja: OÜ Küberloome (varem SotsiaalAI OÜ), registrikood 14206225. Tootelingid pärinevad tellija sisendist. Fontide laadimine toimub Google Fontsist.

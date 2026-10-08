@@ -14,7 +14,7 @@ export default function AppsPrivacy() {
       <h1>Rakenduste ja mängude privaatsustingimused</h1>
       <p className="updated">Viimati uuendatud: 3. oktoober 2026</p>
 
-      <p>Need tingimused kehtivad rakendustele ja mängudele, mille Küberloome avaldab Microsoft Store’is. Nende toodete väljaandja ja isikuandmete töötlemise korral vastutav töötleja on Küberloome OÜ (varem SotsiaalAI OÜ; registrikood 14206225, Eesti). Selle veebilehe enda andmekäsitlust kirjeldavad <a href="/privaatsus">veebilehe privaatsustingimused</a>.</p>
+      <p>Need tingimused kehtivad rakendustele ja mängudele, mille Küberloome avaldab Microsoft Store’is. Nende toodete väljaandja ja isikuandmete töötlemise korral vastutav töötleja on OÜ Küberloome (varem SotsiaalAI OÜ; registrikood 14206225, Eesti). Selle veebilehe enda andmekäsitlust kirjeldavad <a href="/privaatsus">veebilehe privaatsustingimused</a>.</p>
 
       <h2>Lühidalt</h2>
       <p>Meie rakendused ja mängud on tehtud töötama sinu seadmes. Kui allpool konkreetse toote juures pole öeldud teisiti, siis need:</p>

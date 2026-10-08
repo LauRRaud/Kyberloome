@@ -50,7 +50,7 @@ export default function Home() {
     </main>
     <footer className="studio-footer"><div className="wrap">
       <BinaryWordmark className="footer-wordmark"/>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span className="footer-disciplines">Tarkvara / SaaS / Veeb / Automatiseerimine</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div>
+      <div className="footer-bottom"><span className="footer-company">© {new Date().getFullYear()} OÜ Küberloome<small>Registrikood 14206225 · Harku vald, Harjumaa</small></span><span className="footer-disciplines">Tarkvara / SaaS / Veeb / Automatiseerimine</span><div><a href="#kontakt">Kontakt</a><a href="/privaatsus">Privaatsustingimused</a></div></div>
     </div></footer>
   </>;
 }

@@ -57,7 +57,7 @@ export default function EnglishHome() {
     </main>
     <footer className="studio-footer"><div className="wrap">
       <BinaryWordmark className="footer-wordmark"/>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} Küberloome</span><span className="footer-disciplines">Software / SaaS / Web / Automation</span><div><a href="#contact">Contact</a><a href="/en/privacy">Privacy policy</a></div></div>
+      <div className="footer-bottom"><span className="footer-company">© {new Date().getFullYear()} OÜ Küberloome<small>Registry code 14206225 · Harku Parish, Estonia</small></span><span className="footer-disciplines">Software / SaaS / Web / Automation</span><div><a href="#contact">Contact</a><a href="/en/privacy">Privacy policy</a></div></div>
     </div></footer>
   </>;
 }

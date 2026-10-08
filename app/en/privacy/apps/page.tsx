@@ -14,7 +14,7 @@ export default function AppsPrivacy() {
       <h1>Privacy policy for apps and games</h1>
       <p className="updated">Last updated: 3 October 2026</p>
 
-      <p>This policy covers the apps and games that Küberloome publishes in the Microsoft Store. These products are published by Küberloome OÜ (formerly SotsiaalAI OÜ; registry code 14206225, Estonia), which is the data controller wherever personal data is processed. How this website itself handles data is described in the <a href="/en/privacy">website privacy policy</a>.</p>
+      <p>This policy covers the apps and games that Küberloome publishes in the Microsoft Store. These products are published by OÜ Küberloome (formerly SotsiaalAI OÜ; registry code 14206225, Estonia), which is the data controller wherever personal data is processed. How this website itself handles data is described in the <a href="/en/privacy">website privacy policy</a>.</p>
 
       <h2>In short</h2>
       <p>Our apps and games are built to run on your device. Unless the section for a specific product below says otherwise, they:</p>
