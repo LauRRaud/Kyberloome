@@ -26,7 +26,7 @@ const steps = [
 // Name, description, icon, optional Microsoft Store address and coming-soon label.
 const apps: [string, string, StaticImageData, string?, boolean?][] = [
   ['Limit Notch', 'Töölauavidin, mis näitab sinu Claude’i ja ChatGPT kasutuslimiite.', limitNotchIcon],
-  ['Movie Sound Fixer', 'Teisendab videofaili heliribad AAC-vormingusse, et parandada mängijate heli ühilduvust. Tulemuseks on uus MKV-fail, kus video jääb muutmata.', movieSoundFixerIcon],
+  ['Movie Sound Fixer', 'Parandab filmide heli ühilduvust, videot muutmata.', movieSoundFixerIcon],
 ];
 function Arrow() { return <span className="link-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span>; }
 function Brand() { return <BinaryWordmark className="brand"/>; }

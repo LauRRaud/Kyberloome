@@ -32,7 +32,7 @@ const steps = [
 // Name, description, icon, optional Microsoft Store address and coming-soon label.
 const apps: [string, string, StaticImageData, string?, boolean?][] = [
   ['Limit Notch', 'A desktop widget that shows your Claude and ChatGPT usage limits.', limitNotchIcon],
-  ['Movie Sound Fixer', 'Converts a video’s audio tracks to AAC to help improve compatibility with media players. It creates a new MKV file and leaves the video unchanged.', movieSoundFixerIcon],
+  ['Movie Sound Fixer', 'Improves movie audio compatibility without changing the video.', movieSoundFixerIcon],
 ];
 function Arrow() { return <span className="link-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span>; }
 function Brand() { return <BinaryWordmark className="brand"/>; }
