@@ -237,11 +237,11 @@ html::-webkit-scrollbar{display:none;width:0;height:0}
 .product-group+.products{margin-top:26px}
 .products+.product-group{margin-top:64px}
 .apps{margin-top:6px}
-.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;align-items:center;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) 180px;align-items:center;gap:28px;padding:26px 0;border-bottom:1px solid var(--line)}
 .app h3{display:flex;align-items:center;gap:14px;font-size:23px;letter-spacing:-.4px}
 .app p{font-size:18px;color:var(--muted)}
-.app-soon{font-size:13px;letter-spacing:.3px;color:rgba(245,247,250,.92);border:0;border-radius:20px;padding:6px 12px;white-space:nowrap;background:rgba(255,255,255,.09);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);box-shadow:0 4px 14px rgba(0,0,0,.2)}
-.app-link{display:flex;align-items:center;gap:12px;font-size:16px;white-space:nowrap}
+.app-soon{font-size:13px;letter-spacing:.3px;color:rgba(245,247,250,.92);border:0;border-radius:20px;padding:6px 12px;white-space:nowrap;justify-self:end;background:rgba(255,255,255,.09);backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%);box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.app-link{display:flex;align-items:center;gap:12px;font-size:16px;white-space:nowrap;justify-self:end}
 .apps-note{margin-top:18px;font-size:14px;text-align:right}
 .apps-note a{color:#8c8c8c;transition:color .3s}
 .apps-note a:hover{color:var(--text)}
