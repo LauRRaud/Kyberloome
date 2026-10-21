@@ -38,7 +38,7 @@ const apps: [string, string, StaticImageData, string?][] = [
 const websites = [
   ['Marta Raudsoo', 'A personal brand website with services, pricing, a blog and booking.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'A painter’s portfolio with a gallery, biography and contact details.', 'https://kaljosimson.ee'],
-  ['RA·IO', 'A website for wooden kettlebells, with pre-orders.', 'https://raio.ee'],
+  ['RAIU', 'A website for wooden kettlebells, with pre-orders.', 'https://raiu.ee'],
 ];
 function Arrow() { return <span className="link-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span>; }
 function Brand() { return <BinaryWordmark className="brand"/>; }

@@ -32,7 +32,7 @@ const apps: [string, string, StaticImageData, string?][] = [
 const websites = [
   ['Marta Raudsoo', 'Isikliku brändi koduleht teenuste, hinnakirja, blogi ja broneerimisega.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'Maalikunstniku portfoolio galerii, eluloo ja kontaktidega.', 'https://kaljosimson.ee'],
-  ['RA·IO', 'Puidust sangpommide veebileht koos eeltellimusega.', 'https://raio.ee'],
+  ['RAIU', 'Puidust sangpommide veebileht koos eeltellimusega.', 'https://raiu.ee'],
 ];
 function Arrow() { return <span className="link-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" focusable="false"><path d="M6 18 18 6M6 6h12v12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span>; }
 function Brand() { return <BinaryWordmark className="brand"/>; }
