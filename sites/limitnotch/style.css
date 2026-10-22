@@ -367,7 +367,7 @@ h1 {
   white-space: nowrap;
 }
 .try .say { transition: opacity .18s ease-out; }
-/* Before it has been opened, "Try it" and "Click it" take turns: each comes out of a blur with a
+/* Before it has been opened, "Try" and "Click it" take turns: each comes out of a blur with a
    flash of light, stays a moment and fades, while the other comes. */
 .try .alt { display: grid; justify-items: center; }
 .try .alt b { grid-area: 1 / 1; font-weight: inherit; opacity: 0; animation: turn 3.4s ease-in-out infinite; }

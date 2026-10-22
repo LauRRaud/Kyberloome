@@ -24,7 +24,7 @@
   var steps = touch ? ['Try it', 'Tap again', 'Drag it'] : ['Try it', 'Click it', 'Drag it'];
   var step = 0, swapTimer = 0;
   // The first step: two words taking turns.
-  if (say) say.innerHTML = '<span class="alt"><b>Try it</b><b>' + (touch ? 'Tap it' : 'Click it') + '</b></span>';
+  if (say) say.innerHTML = '<span class="alt"><b>Try</b><b>' + (touch ? 'Tap it' : 'Click it') + '</b></span>';
   function reach(n) {
     if (!hint || n <= step) return;
     step = n;
