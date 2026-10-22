@@ -195,6 +195,11 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   else measure();
 
+  // The "Scroll" hint goes once the page has been scrolled, and comes back at the very top.
+  function scrolled() { document.documentElement.classList.toggle('scrolled', window.scrollY > 30); }
+  window.addEventListener('scroll', scrolled, { passive: true });
+  scrolled();
+
   // Sections come in as they are reached.
   var sections = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
