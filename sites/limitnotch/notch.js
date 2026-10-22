@@ -81,7 +81,7 @@
     notch.style.top = top + 'px';
     notch.style.width = s[0] + 'px';
     notch.style.height = s[1] + 'px';
-    if (hint) { hint.style.left = left + s[0] / 2 + 'px'; hint.style.top = s[1] + 15 + 'px'; }
+    if (hint) { hint.style.left = left + s[0] / 2 + 'px'; hint.style.top = s[1] + 6 + 'px'; }
     notch.classList.toggle('open', open);
     notch.classList.toggle('times', times);
     notch.classList.toggle('side', side());
