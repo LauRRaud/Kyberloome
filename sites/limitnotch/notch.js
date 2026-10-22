@@ -117,7 +117,7 @@
     open = value;
     if (!open) times = false;
     layout();
-    if (open) { reach(1); notch.classList.add('known'); }
+    if (open) reach(1);
   }
   function closeSoon() { closeTimer = setTimeout(function () { setOpen(false); }, 160); }
 
