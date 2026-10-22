@@ -12,7 +12,7 @@ export default function AppsPrivacy() {
       <a href="/en">← Back to the homepage</a>
       <p className="eyebrow">KÜBERLOOME</p>
       <h1>Privacy policy for apps and games</h1>
-      <p className="updated">Last updated: 3 October 2026</p>
+      <p className="updated">Last updated: 22 October 2026</p>
 
       <p>This policy covers the apps and games that Küberloome publishes in the Microsoft Store. These products are published by OÜ Küberloome (formerly SotsiaalAI OÜ; registry code 14206225, Estonia), which is the data controller wherever personal data is processed. How this website itself handles data is described in the <a href="/en/privacy">website privacy policy</a>.</p>
 
@@ -51,7 +51,7 @@ export default function AppsPrivacy() {
       <ul>
         <li>To show the numbers, it starts Claude Code and Codex — programs installed on your PC — in the background and asks them for your plan usage, and it reads Codex’s session files on your PC. Those programs contact Anthropic and OpenAI with your own sign-in, under those companies’ terms and privacy policies.</li>
         <li>The app does not read or store your sign-in details, sends no messages to the AI models and sends nothing to us.</li>
-        <li>It stores only its own settings — position, language, theme and the services you chose to show — in a folder under your user profile.</li>
+        <li>In a folder under your user profile it stores only its own settings — position, language, theme and the services you chose to show — and a small error log for troubleshooting. Neither leaves your PC.</li>
       </ul>
       <p>Limit Notch is not affiliated with, endorsed by, or sponsored by Anthropic or OpenAI. Claude and ChatGPT are trademarks of their respective owners.</p>
 
