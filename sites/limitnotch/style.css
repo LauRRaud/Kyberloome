@@ -689,9 +689,9 @@ html::-webkit-scrollbar { display: none; }
 .cur-caret, .cur-ring { position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none; opacity: 0; transition: opacity .3s; }
 .cursor-on .cur-caret, .cursor-on .cur-ring { opacity: 1; }
 .cur-caret {
-  width: 3px;
+  width: 5px;
   height: 16px;
-  margin: -8px 0 0 -1.5px;
+  margin: -8px 0 0 -2.5px;
   border-radius: 1px;
   background: var(--claude);
   box-shadow: 0 0 10px rgba(240, 136, 62, .5);
@@ -708,8 +708,8 @@ html::-webkit-scrollbar { display: none; }
 .cur-ring svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .cur-ring circle {
   fill: rgba(240, 136, 62, 0);
-  stroke: rgba(255, 255, 255, .4);
-  stroke-width: 1.2;
+  stroke: rgba(255, 255, 255, .5);
+  stroke-width: 1.8;
   vector-effect: non-scaling-stroke;
   transition: stroke .3s, fill .3s;
 }
