@@ -822,6 +822,7 @@
   var caret = document.createElement('div'), ring = document.createElement('div');
   caret.className = 'cur-caret';
   ring.className = 'cur-ring';
+  ring.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.4"/></svg>';
   [ring, caret].forEach(function (el) { el.setAttribute('aria-hidden', 'true'); document.body.appendChild(el); });
   root.classList.add('own-cursor');
   var GIVE = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 1 : 0.2;
