@@ -166,9 +166,9 @@ h1, h2, p { margin: 0; }
   transition: left 360ms var(--glide), top 360ms var(--glide), width 360ms var(--glide), height 360ms var(--glide), border-radius 260ms var(--glide),
     translate 520ms var(--glide), opacity 420ms var(--glide);
 }
-/* On arrival the live one lights up softly a few times, to be tried; once it has been opened it
+/* On arrival the live one lights up softly twice, to be tried; once it has been opened it
    no longer does. */
-.notch { animation: beckon 1.6s ease-in-out 1.8s 3; }
+.notch { animation: beckon 1.8s ease-in-out 1.8s 2; }
 .notch.known { animation: none; }
 @keyframes beckon {
   0%, 100% {
@@ -176,8 +176,8 @@ h1, h2, p { margin: 0; }
     box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 0 0 0 rgba(255, 255, 255, 0);
   }
   50% {
-    background-color: rgba(255, 255, 255, .1);
-    box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 0 30px 4px rgba(255, 255, 255, .2);
+    background-color: rgba(255, 255, 255, .045);
+    box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 0 20px 2px rgba(255, 255, 255, .09);
   }
 }
 .notch.open { transition-duration: 420ms, 420ms, 420ms, 420ms, 260ms, 520ms, 420ms; }
@@ -367,6 +367,18 @@ h1 {
   white-space: nowrap;
 }
 .try .say { transition: opacity .18s ease-out; }
+/* Before it has been opened, "Try it" and "Click it" take turns: each comes out of a blur with a
+   flash of light, stays a moment and fades, while the other comes. */
+.try .alt { display: grid; justify-items: center; }
+.try .alt b { grid-area: 1 / 1; font-weight: inherit; opacity: 0; animation: turn 3.4s ease-in-out infinite; }
+.try .alt b + b { animation-delay: -1.7s; }
+@keyframes turn {
+  0% { opacity: 0; filter: blur(4px); text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+  9% { opacity: 1; filter: blur(0); text-shadow: 0 0 18px rgba(255, 255, 255, .6); }
+  26% { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+  42% { opacity: 1; filter: blur(0); }
+  50%, 100% { opacity: 0; filter: blur(4px); text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+}
 .try.swap .say { opacity: 0; }
 .try.seen { opacity: 0; }
 @keyframes try-in { from { opacity: 0; transform: translate(-50%, -8px); } }

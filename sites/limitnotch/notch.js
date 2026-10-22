@@ -20,11 +20,11 @@
   // "Try it": three short steps under the panel - open it, click for the times, drag it - each
   // worded once the one before is done; gone after the drag.
   var say = hint && hint.querySelector('.say');
-  var steps = window.matchMedia('(hover: none)').matches
-    ? ['Try it', 'Tap again', 'Drag it']
-    : ['Try it', 'Click it', 'Drag it'];
+  var touch = window.matchMedia('(hover: none)').matches;
+  var steps = touch ? ['Try it', 'Tap again', 'Drag it'] : ['Try it', 'Click it', 'Drag it'];
   var step = 0, swapTimer = 0;
-  if (say) say.textContent = steps[0];
+  // The first step: two words taking turns.
+  if (say) say.innerHTML = '<span class="alt"><b>Try it</b><b>' + (touch ? 'Tap it' : 'Click it') + '</b></span>';
   function reach(n) {
     if (!hint || n <= step) return;
     step = n;
