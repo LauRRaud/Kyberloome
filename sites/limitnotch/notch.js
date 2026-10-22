@@ -710,7 +710,7 @@
       for (var i = 0; i < pieces.length; i++) {
         pieces[i].classList.add('on');
         pieces[i].after(caret);
-        await wait(70 + Math.random() * 90);
+        await wait(105 + Math.random() * 35);
       }
       await wait(2200);
       caret.classList.add('gone');
