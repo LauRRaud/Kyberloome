@@ -166,19 +166,13 @@ h1, h2, p { margin: 0; }
   transition: left 360ms var(--glide), top 360ms var(--glide), width 360ms var(--glide), height 360ms var(--glide), border-radius 260ms var(--glide),
     translate 520ms var(--glide), opacity 420ms var(--glide);
 }
-/* On arrival the live one lights up softly twice, to be tried; once it has been opened it
-   no longer does. */
+/* On arrival the live one's edge lights up softly twice, to be tried - the panel itself stays as
+   it is. Once it has been opened it no longer does. */
 .notch { animation: beckon 1.8s ease-in-out 1.8s 2; }
 .notch.known { animation: none; }
 @keyframes beckon {
-  0%, 100% {
-    background-color: rgba(0, 0, 0, .42);
-    box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-  50% {
-    background-color: rgba(255, 255, 255, .045);
-    box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 0 20px 2px rgba(255, 255, 255, .09);
-  }
+  0%, 100% { box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0); }
+  50% { box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(255, 255, 255, .16), 0 0 18px 1px rgba(255, 255, 255, .1); }
 }
 .notch.open { transition-duration: 420ms, 420ms, 420ms, 420ms, 260ms, 520ms, 420ms; }
 /* On the screen with the demo it steps out of the way, off the edge it is on: the demo shows it. */
