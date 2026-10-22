@@ -25,7 +25,7 @@ const steps = [
 ];
 // Name, description, icon and optional Microsoft Store address.
 const apps: [string, string, StaticImageData, string?][] = [
-  ['Limit Notch', 'Töölauavidin, mis näitab sinu Claude’i ja ChatGPT kasutuslimiite.', limitNotchIcon],
+  ['Limit Notch', 'Töölauavidin, mis näitab sinu Claude’i ja ChatGPT kasutuslimiite.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Parandab filmide heli ühilduvust, videot muutmata.', movieSoundFixerIcon],
 ];
 // Name, description and address.
