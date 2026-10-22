@@ -621,7 +621,6 @@ h1, .private h2 { padding-bottom: .14em; }
 }
 .get h2 { font-size: clamp(36px, 5vw, 64px); }
 .get .meta, .get .cta { animation: none; }
-.needs { margin-top: 10px; font-size: 14px; color: var(--faint); }
 
 footer {
   padding: 34px 20px 44px;
