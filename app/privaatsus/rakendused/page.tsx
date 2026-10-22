@@ -58,10 +58,10 @@ export default function AppsPrivacy() {
       <h3>Movie Sound Fixer</h3>
       <p>Movie Sound Fixer teisendab video heliriba vormingusse, mida rohkem mängijaid ja telereid mängida oskab, ilma videot muutmata.</p>
       <ul>
-        <li>Rakendus loeb ainult sinu valitud videofaili ja kirjutab uue faili selle kõrvale sinu arvutis, kasutades rakendusega kaasas olevaid meediatööriistu. Sinu videoid, subtiitreid, failinimesid ega kaustateid ei laadita kuhugi üles ning rakendus ise internetiühendusi ei loo.</li>
+        <li>Rakendus loeb ainult sinu valitud videofaili ja kirjutab uue faili selle kõrvale sinu arvutis, kasutades rakendusega kaasas olevaid meediatööriistu. Teisendamise ajal hoiab see samas kaustas ajutisi faile ja kustutab need, kui uus fail on valmis või teisendamine katkestatakse. Sinu videoid, subtiitreid, failinimesid ega kaustateid ei laadita kuhugi üles ning rakendus ise internetiühendusi ei loo.</li>
         <li>Kui lülitad sisse originaali kustutamise, viiakse originaal pärast uue faili valmimist Windowsi prügikasti, kust saad selle taastada.</li>
         <li>Kuulamisproov loob Windowsi ajutisse kausta kuni 15 sekundi pikkuse heliklipi. Rakendus kustutab selle, kui proov lõpeb.</li>
-        <li>Rakendus salvestab ainult oma seaded – keele ja välimuse – kausta sinu kasutajaprofiili all.</li>
+        <li>Rakendus salvestab ainult oma seaded – keele, välimuse ja selle, kas originaal pärast valmimist kustutada – kausta sinu kasutajaprofiili all.</li>
       </ul>
 
       <h2>Tingimuste muutmine</h2>
