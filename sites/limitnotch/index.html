@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limit Notch – your AI limits, always in sight</title>
+<meta name="description" content="Your Claude and ChatGPT (Codex) usage limits in a small notch at the top of your Windows screen. No passwords, no tokens, nothing leaves your PC.">
+<link rel="canonical" href="https://limitnotch.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://limitnotch.com/">
+<meta property="og:title" content="Limit Notch">
+<meta property="og:description" content="Your AI limits. Always in sight.">
+<meta property="og:image" content="https://limitnotch.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050508">
+<link rel="icon" href="assets/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="style.css">
+<script src="notch.js" defer></script>
+</head>
+<body>
+
+<!-- The product itself, at the top of this window: hover it, click it, drag it. -->
+<button class="np notch" id="notch" type="button" aria-expanded="false"
+  aria-label="Limit Notch demo. Claude: 5 hours 32 percent, week 61 percent. ChatGPT: 30 days 18 percent. Open it, then activate again for the reset times. Drag it to the top, a side or anywhere.">
+    <span class="lay row" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name">Claude</span><span class="label">5h</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span></span><span class="label">Week</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="gap"></span>
+        <span class="name">ChatGPT</span><span class="label">30d</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+      </span>
+    </span>
+    <span class="lay stack" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name head">Claude</span>
+        <span class="label">5h</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="label">Week</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="gap"></span>
+        <span class="name head">ChatGPT</span>
+        <span class="label">30d</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+      </span>
+    </span>
+</button>
+
+<main class="world" id="world">
+<div class="stage">
+<div class="plane" id="plane">
+  <section data-at="0 0" class="panel hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="floor" aria-hidden="true"></div>
+    <div class="try" id="try" aria-hidden="true"><i></i>Try it</div>
+    <div class="hero-inner">
+      <h1>Limit Notch</h1>
+      <p class="tagline">Your AI limits. Always in sight.</p>
+      <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website">Get it on Microsoft Store<span aria-hidden="true">→</span></a></span>
+      <p class="meta">Windows 10 &amp; 11 · Claude Code · Codex</p>
+    </div>
+  </section>
+
+  <!-- How it works: a screen where a cursor uses the panel, step by step, in a loop. -->
+  <section data-at="1 0" class="panel demo reveal" aria-label="How it works: the bars show your limits, hover for the numbers, click for the reset times, and drag it to the top, a side or anywhere">
+    <div class="monitor" aria-hidden="true">
+      <div class="screen" id="screen">
+        <div class="desk" id="desk">
+          <div class="aurora small"><span></span><span></span><span></span></div>
+          <div class="taskbar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="np dn" id="dn">
+            <span class="lay row">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name">Claude</span><span class="label">5h</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2h 14m</span></span>
+                <span></span><span class="label">Week</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2d 9h</span></span>
+                <span class="gap"></span>
+                <span class="name">ChatGPT</span><span class="label">30d</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22d 5h</span></span>
+              </span>
+            </span>
+            <span class="lay stack">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name head">Claude</span>
+                <span class="label">5h</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2h 14m</span></span>
+                <span class="label">Week</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2d 9h</span></span>
+                <span class="gap"></span>
+                <span class="name head">ChatGPT</span>
+                <span class="label">30d</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22d 5h</span></span>
+              </span>
+            </span>
+          </div>
+          <span class="ring" id="ring"></span>
+          <svg class="dcur" id="dcur" viewBox="0 0 16 20"><path d="M1 1v15.5l4.2-4 2.9 6.6 2.6-1.1-2.9-6.5H14z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <p class="caption" id="caption" aria-hidden="true">Glance.</p>
+  </section>
+
+  <section data-at="1 1" class="panel private reveal">
+    <h2>Nothing leaves your PC.</h2>
+    <p>No passwords · No tokens · No account</p>
+  </section>
+
+  <section data-at="0 1" class="panel get reveal">
+    <img class="get-icon" src="assets/icon-256.png" alt="" width="128" height="128">
+    <h2>Limit Notch</h2>
+    <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website">Get it on Microsoft Store<span aria-hidden="true">→</span></a></span>
+    <p class="meta">One-time purchase · Windows 10 &amp; 11</p>
+    <p class="needs">Needs Claude Code (Pro or Max) and/or the Codex app or CLI.</p>
+    <footer>
+      <p>© 2026 OÜ Küberloome<span>·</span><a href="https://kyberloome.ee/en/privacy/apps">Privacy</a><span>·</span><a href="https://kyberloome.ee/en#contact">Contact</a></p>
+      <p class="legal">Not affiliated with Anthropic or OpenAI. Claude and ChatGPT are trademarks of their respective owners.</p>
+    </footer>
+  </section>
+</div>
+</div>
+</main>
+
+<!-- Where you are, as four squares in the screens' own order; each one takes you there. -->
+<nav class="map" id="map" aria-label="Sections">
+  <button type="button" data-stop="0" aria-label="Start"></button>
+  <button type="button" data-stop="1" aria-label="How it works"></button>
+  <button type="button" data-stop="3" aria-label="Get it"></button>
+  <button type="button" data-stop="2" aria-label="Private"></button>
+</nav>
+
+</body>
+</html>

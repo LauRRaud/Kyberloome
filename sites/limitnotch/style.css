@@ -1,0 +1,587 @@
+/* Limit Notch - product page. One page, no build step, no outside requests.
+   The panels (.np) are drawn like the app's own: same sizes, colours and motion. */
+
+:root {
+  --bg: #050508;
+  --text: #f3f3f6;
+  --muted: rgba(243, 243, 246, .58);
+  --faint: rgba(243, 243, 246, .32);
+  --line: rgba(255, 255, 255, .08);
+  /* The icon's gradient, a little brighter for light on black. */
+  --red: #d2554a;
+  --plum: #7b4d6c;
+  --blue: #3a6f9e;
+  --claude: #f0883e;
+  --track: rgba(255, 255, 255, .25);
+  /* The app's motion curve: eases in, then out. */
+  --glide: cubic-bezier(.4, 0, .2, 1);
+  --font: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+h1, h2, p { margin: 0; }
+
+/* ---- the panel, shared by the live notch and the one on the demo screen ------------- */
+
+.np {
+  border-radius: 0 0 8px 8px;
+  background: rgba(0, 0, 0, .42);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06);
+  color: #fff;
+  overflow: hidden;
+}
+/* Both layers are centred on the panel; max-content keeps that from squeezing their columns
+   into the half of the panel that lies right of the centre. */
+.np .notch-mini {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max-content;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+  transition: opacity 200ms ease-out 170ms;
+}
+.np.open .notch-mini { opacity: 0; transition: opacity 100ms ease-out; }
+.mini-group { display: flex; flex-direction: column; gap: 3px; }
+.mini-bar {
+  display: block;
+  width: 52px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--track);
+  overflow: hidden;
+}
+.mini-bar b, .bar b {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--claude);
+}
+.mini-bar b { width: max(5px, calc(var(--p) * 1%)); }
+.chatgpt .mini-bar b, .bar.chatgpt b { background: #fff; }
+
+/* The open panel: service | label | bar | percent | time, rows of 24, as in the app. */
+.notch-full {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: max-content;
+  display: grid;
+  grid-template-columns: auto auto 140px auto auto;
+  grid-template-rows: 24px 24px 6px 24px;
+  align-items: center;
+  white-space: nowrap;
+  letter-spacing: .6px;
+  text-align: left;
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  transition: opacity 110ms ease-out, transform 140ms var(--glide);
+}
+.np.open .notch-full {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  transition: opacity 230ms ease-out 190ms, transform 230ms var(--glide) 190ms;
+}
+.gap, .name.head { grid-column: 1 / -1; }
+.name { font-size: 14px; font-weight: 600; padding-right: 12px; }
+.name.head { padding-right: 0; }
+.label { font-size: 14px; font-weight: 500; color: #d6d6d6; padding-right: 10px; }
+.bar {
+  width: 140px;
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  background: var(--track);
+  overflow: hidden;
+}
+.bar b { width: max(8px, calc(var(--p) * 1%)); }
+.pct { font-size: 15px; font-weight: 600; padding-left: 9px; }
+.time {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e6e6e6;
+  transition: max-width 420ms var(--glide), padding 420ms var(--glide), opacity 110ms ease-out;
+}
+.np.times .time {
+  max-width: 120px;
+  padding-left: 10px;
+  opacity: 1;
+  transition: max-width 420ms var(--glide), padding 420ms var(--glide), opacity 220ms ease-out 160ms;
+}
+.time svg { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+/* Sizes are measured once, without any motion. */
+.np.measure, .np.measure * { transition: none !important; }
+
+/* The two layouts: in a row, or - against a side edge - one service under the other, the
+   names above their rows. Changing between them cross-fades while the shape glides. */
+.np .lay { position: absolute; inset: 0; }
+/* As in the app: the old layout goes at once, the new one fades in. */
+.np:not(.side) .lay.stack, .np.side .lay.row { opacity: 0; }
+.np:not(.side) .lay.row, .np.side .lay.stack { animation: lay-in 220ms ease-out; }
+@keyframes lay-in { from { opacity: 0; } }
+.np .lay.stack .notch-mini { top: 8px; height: auto; flex-direction: column; gap: 6px; }
+.np .lay.stack .notch-full { grid-template-columns: auto 140px auto auto; grid-template-rows: 24px 24px 24px 6px 24px 24px; }
+/* Against an edge only the corners away from it are rounded; loose, all four are. */
+.np.loose { border-radius: 8px; }
+.np.right { border-radius: 8px 0 0 8px; }
+.np.left { border-radius: 0 8px 8px 0; }
+
+/* The live one, at the top of this window; script places and sizes it. Its place and size
+   move together, on the same curve, so it opens around its centre or from its edge. */
+.notch {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: calc(50% - 73px);
+  width: 146px;
+  height: 29px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  cursor: default;
+  touch-action: none;
+  transition: left 360ms var(--glide), top 360ms var(--glide), width 360ms var(--glide), height 360ms var(--glide), border-radius 260ms var(--glide);
+}
+.notch.open { transition-duration: 420ms, 420ms, 420ms, 420ms, 260ms; }
+/* While dragged it follows the pointer at once; joining or leaving an edge glides. */
+.notch.dragging { cursor: grabbing; transition: width 420ms var(--glide), height 420ms var(--glide), border-radius 260ms var(--glide); }
+.notch.dragging.morph { transition: left 220ms var(--glide), top 220ms var(--glide), width 220ms var(--glide), height 220ms var(--glide), border-radius 220ms var(--glide); }
+.notch:focus-visible { outline: 2px solid rgba(255, 255, 255, .7); outline-offset: 2px; }
+
+/* ---- hero ---------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Slow, soft light in the icon's colours: the wallpaper the notch sits on. Long ribbons that
+   cross and blend into each other. */
+.aurora { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+.aurora span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+}
+.aurora span:nth-child(1) {
+  width: 130vmax; height: 30vmax; left: -42vmax; top: -12vmax;
+  background: linear-gradient(90deg, transparent 5%, var(--red) 35%, var(--claude) 62%, transparent 92%);
+  transform: rotate(-14deg);
+  opacity: .72;
+  animation: ribbon-a 28s var(--glide) infinite alternate;
+}
+.aurora span:nth-child(2) {
+  width: 140vmax; height: 34vmax; right: -52vmax; top: -4vmax;
+  background: linear-gradient(90deg, transparent 5%, var(--plum) 32%, var(--blue) 66%, transparent 94%);
+  transform: rotate(17deg);
+  opacity: .8;
+  animation: ribbon-b 34s var(--glide) infinite alternate;
+}
+.aurora span:nth-child(3) {
+  width: 92vmax; height: 6vmax; left: calc(50% - 46vmax); top: 5vmax;
+  background: linear-gradient(90deg, transparent, rgba(240, 136, 62, .9) 50%, transparent);
+  filter: blur(26px);
+  transform: rotate(-5deg);
+  opacity: .55;
+  animation: ribbon-c 22s var(--glide) infinite alternate;
+}
+.hero .aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 30%, transparent 30%, var(--bg) 92%);
+}
+@keyframes ribbon-a { to { transform: rotate(-7deg) translate(8vmax, 5vmax) scaleX(1.1); } }
+@keyframes ribbon-b { to { transform: rotate(9deg) translate(-9vmax, 7vmax) scaleX(.9); } }
+@keyframes ribbon-c { to { transform: rotate(4deg) translate(5vmax, 4vmax); } }
+
+/* A faint grid running towards the horizon. */
+.floor {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  bottom: -2px;
+  height: 46vh;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .09) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(520px) rotateX(62deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(transparent, #000 55%);
+  mask-image: linear-gradient(transparent, #000 55%);
+  animation: floor 9s linear infinite;
+  opacity: .7;
+}
+@keyframes floor { to { background-position: 0 64px, 0 0; } }
+
+.hero-inner { text-align: center; padding: 0 20px; }
+h1 {
+  font-size: clamp(56px, 12vw, 164px);
+  font-weight: 600;
+  line-height: .95;
+  letter-spacing: -.045em;
+  background: linear-gradient(180deg, #fff 35%, rgba(255, 255, 255, .5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rise 1.2s var(--glide) both;
+}
+.tagline {
+  margin-top: 22px;
+  font-size: clamp(18px, 2.2vw, 25px);
+  font-weight: 400;
+  color: var(--muted);
+  animation: rise 1.2s var(--glide) .12s both;
+}
+/* The button is made of the panel's own glass, with its corners, over a soft glow that
+   shows through it the way the wallpaper shows through the notch. */
+.cta {
+  position: relative;
+  display: inline-block;
+  margin-top: 42px;
+  isolation: isolate;
+  animation: rise 1.2s var(--glide) .24s both;
+}
+.cta .glow {
+  position: absolute;
+  inset: -12px -36px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .22), transparent);
+  filter: blur(12px);
+  opacity: .8;
+  transition: opacity .4s var(--glide), transform .6s var(--glide);
+}
+.store {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 26px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .13);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .6px;
+  text-decoration: none;
+  transition: transform .35s var(--glide), background .35s var(--glide);
+}
+.store span { font-size: 18px; transition: transform .35s var(--glide); }
+.cta:hover .glow { opacity: 1; transform: scale(1.08); }
+.store:hover { background: rgba(255, 255, 255, .19); transform: translateY(-1px); }
+.store:hover span { transform: translateX(4px); }
+.store:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.meta {
+  margin-top: 20px;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--faint);
+  animation: rise 1.2s var(--glide) .36s both;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+
+/* "Try it", pointing up at the notch; gone once the notch has been opened. */
+.try {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .6);
+  animation: hint 2.6s var(--glide) 1.6s infinite both;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+.try i { width: 1px; height: 26px; background: linear-gradient(transparent, rgba(255, 255, 255, .7)); order: -1; }
+.try.seen { opacity: 0 !important; animation: none; }
+@keyframes hint { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+
+/* ---- sections ------------------------------------------------------------------------ */
+
+section:not(.hero) { padding: 16vh 20px; text-align: center; position: relative; }
+h2 {
+  font-size: clamp(38px, 6.4vw, 92px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+.reveal > * { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--glide), transform 1s var(--glide); }
+.reveal.in > * { opacity: 1; transform: none; }
+.reveal.in > *:nth-child(2) { transition-delay: .12s; }
+.reveal.in > *:nth-child(3) { transition-delay: .24s; }
+.reveal.in > *:nth-child(4) { transition-delay: .36s; }
+.reveal.in > *:nth-child(5) { transition-delay: .48s; }
+
+/* How it works: a screen, the panel on it, and a cursor using it. */
+.monitor {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: clamp(6px, 1.2vw, 12px);
+  border-radius: clamp(12px, 2vw, 22px);
+  background: linear-gradient(180deg, #1b1b22, #0b0b0f);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .07), 0 40px 120px -40px rgba(58, 111, 158, .5), 0 30px 90px -40px rgba(210, 85, 74, .45);
+}
+.screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: clamp(6px, 1.1vw, 12px);
+  overflow: hidden;
+  background: #0a0a10;
+}
+/* A 1100 x 687.5 desktop, scaled to the screen, so the panel keeps the app's own sizes. */
+.desk {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1100px;
+  height: 687.5px;
+  transform: scale(var(--s, .8));
+  transform-origin: 0 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* On the small screen the same ribbons, blurred much more for their size, so no edge shows. */
+.aurora.small span { filter: blur(70px); animation-duration: 40s; }
+.aurora.small span:nth-child(1) { width: 1500px; height: 330px; left: -430px; top: -90px; }
+.aurora.small span:nth-child(2) { width: 1600px; height: 380px; right: -580px; left: auto; top: -10px; }
+.aurora.small span:nth-child(3) { width: 1000px; height: 70px; left: 50px; top: 60px; filter: blur(34px); }
+.taskbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10, 10, 14, .6);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+}
+.taskbar i { width: 24px; height: 24px; border-radius: 6px; background: rgba(255, 255, 255, .14); }
+
+.dn {
+  position: absolute;
+  left: 477px;
+  top: 0;
+  width: 146px;
+  height: 29px;
+  transition: left var(--d, 420ms) var(--glide), top var(--d, 420ms) var(--glide),
+    width 420ms var(--glide), height 420ms var(--glide), border-radius 260ms var(--glide);
+}
+/* Joining or leaving an edge: one short glide for everything. */
+.dn.morph { transition: left 220ms var(--glide), top 220ms var(--glide), width 220ms var(--glide), height 220ms var(--glide), border-radius 220ms var(--glide); }
+
+.dcur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 20px;
+  height: 25px;
+  fill: #fff;
+  stroke: #15151a;
+  stroke-width: 1.1;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .6));
+  opacity: 0;
+  transform: translate(var(--x, 880px), var(--y, 560px));
+  transition: transform var(--d, 800ms) var(--glide), opacity .35s;
+}
+.dcur.on { opacity: 1; }
+.ring {
+  position: absolute;
+  left: -18px;
+  top: -18px;
+  z-index: 4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .85);
+  opacity: 0;
+  pointer-events: none;
+}
+.ring.go { animation: ring .6s var(--glide); }
+@keyframes ring {
+  from { opacity: .9; transform: translate(var(--x), var(--y)) scale(.25); }
+  to { opacity: 0; transform: translate(var(--x), var(--y)) scale(1.3); }
+}
+
+/* Four steps, shown as bars filling like the app's own. */
+.steps { display: flex; justify-content: center; gap: 10px; margin-top: 46px; }
+.steps i { display: block; width: 46px; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, .14); overflow: hidden; }
+.steps b { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--claude); }
+.caption {
+  margin-top: 22px;
+  min-height: 1.4em;
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+  transition: opacity .3s ease-out, transform .3s var(--glide);
+}
+.caption.out { opacity: 0; transform: translateY(8px); }
+.caption .w { opacity: .28; transition: opacity .35s ease-out; }
+.caption .w.on { opacity: 1; }
+
+/* Text painted with a gradient shows only inside its box: room below for the g's and y's. */
+h1, .private h2 { padding-bottom: .14em; }
+.private h2 {
+  background: linear-gradient(90deg, #fff, #fff 40%, var(--claude) 60%, #fff 80%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 7s linear infinite;
+}
+.private p { margin-top: 26px; letter-spacing: .04em; color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); }
+@keyframes sheen { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+
+.get { padding-bottom: 14vh; }
+/* The glow follows the icon's own shape (it has a clear margin of its own), so no dark ring
+   shows between the two. */
+.get-icon {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 34px;
+  filter: drop-shadow(0 0 26px rgba(210, 85, 74, .5)) drop-shadow(0 0 40px rgba(58, 111, 158, .45));
+}
+.get h2 { font-size: clamp(36px, 5vw, 64px); }
+.get .meta, .get .cta { animation: none; }
+.needs { margin-top: 10px; font-size: 14px; color: var(--faint); }
+
+footer {
+  padding: 34px 20px 44px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 13px;
+  color: var(--faint);
+}
+footer span { margin: 0 10px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--text); }
+footer .legal { margin-top: 10px; font-size: 11px; }
+
+/* ---- the trip: four screens side by side and one below the other, travelled through by
+   scrolling - right, down, then left. Script turns it on (class "travel"); without it, or with
+   less motion wanted, the page is an ordinary column. ------------------------------------- */
+
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
+.map { display: none; }
+.travel .world { position: relative; }
+.travel .stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  overflow: clip;
+}
+/* The ground the screens stand on: a faint dot grid that shows the travel. */
+.travel .plane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  will-change: transform;
+  background-image: radial-gradient(rgba(255, 255, 255, .075) 1px, transparent 1.6px);
+  background-size: 34px 34px;
+}
+.travel .panel {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  min-height: 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.travel .panel[data-at="0 0"] { left: 0; top: 0; }
+.travel .panel[data-at="1 0"] { left: 50%; top: 0; }
+.travel .panel[data-at="1 1"] { left: 50%; top: 50%; }
+.travel .panel[data-at="0 1"] { left: 0; top: 50%; }
+.travel .demo .monitor { width: min(980px, 100%, calc((100svh - 230px) * 1.6)); }
+.travel .get footer { position: absolute; left: 0; right: 0; bottom: 0; }
+
+/* Where you are: the four screens as squares, in their own arrangement. */
+.travel .map {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  gap: 5px;
+}
+.map button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .22);
+  cursor: pointer;
+  transition: background .3s, transform .3s var(--glide);
+}
+.map button:hover { background: rgba(255, 255, 255, .55); transform: scale(1.15); }
+.map button.on { background: var(--claude); }
+.map button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* ---- small screens and less motion --------------------------------------------------- */
+
+@media (max-width: 640px) {
+  section:not(.hero) { padding: 12vh 16px; }
+  .steps { margin-top: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal > * { opacity: 1; transform: none; }
+}
