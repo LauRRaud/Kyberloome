@@ -55,6 +55,15 @@ export default function AppsPrivacy() {
       </ul>
       <p>Limit Notch is not affiliated with, endorsed by, or sponsored by Anthropic or OpenAI. Claude and ChatGPT are trademarks of their respective owners.</p>
 
+      <h3>Movie Sound Fixer</h3>
+      <p>Movie Sound Fixer converts a video’s audio track into a format more players and TVs can play, without changing the video.</p>
+      <ul>
+        <li>It reads only the video file you choose and writes the new file next to it, on your PC, using media tools that come with the app. Your videos, subtitles, file names and folder paths are not uploaded anywhere, and the app makes no internet connections of its own.</li>
+        <li>If you turn on deleting the original when done, the original is moved to the Windows Recycle Bin once the new file is ready, so you can restore it.</li>
+        <li>A listening preview creates up to 15 seconds of audio in the Windows temporary folder. The app removes it when the preview ends.</li>
+        <li>It stores only its own settings — language and appearance — in a folder under your user profile.</li>
+      </ul>
+
       <h2>Changes to this policy</h2>
       <p>We update this policy when our products change. The date at the top shows the latest version, and a product that starts handling data differently is described in its own section before that change is released.</p>
     </main>

@@ -55,6 +55,15 @@ export default function AppsPrivacy() {
       </ul>
       <p>Limit Notch ei ole seotud Anthropicu ega OpenAI-ga ega nende poolt heaks kiidetud või toetatud. Claude ja ChatGPT on nende omanike kaubamärgid.</p>
 
+      <h3>Movie Sound Fixer</h3>
+      <p>Movie Sound Fixer teisendab video heliriba vormingusse, mida rohkem mängijaid ja telereid mängida oskab, ilma videot muutmata.</p>
+      <ul>
+        <li>Rakendus loeb ainult sinu valitud videofaili ja kirjutab uue faili selle kõrvale sinu arvutis, kasutades rakendusega kaasas olevaid meediatööriistu. Sinu videoid, subtiitreid, failinimesid ega kaustateid ei laadita kuhugi üles ning rakendus ise internetiühendusi ei loo.</li>
+        <li>Kui lülitad sisse originaali kustutamise, viiakse originaal pärast uue faili valmimist Windowsi prügikasti, kust saad selle taastada.</li>
+        <li>Kuulamisproov loob Windowsi ajutisse kausta kuni 15 sekundi pikkuse heliklipi. Rakendus kustutab selle, kui proov lõpeb.</li>
+        <li>Rakendus salvestab ainult oma seaded – keele ja välimuse – kausta sinu kasutajaprofiili all.</li>
+      </ul>
+
       <h2>Tingimuste muutmine</h2>
       <p>Uuendame neid tingimusi, kui meie tooted muutuvad. Lehe alguses olev kuupäev näitab viimast versiooni. Kui mõni toode hakkab andmeid teisiti käsitlema, kirjeldame seda toote jaotises enne muudatuse avaldamist.</p>
     </main>
