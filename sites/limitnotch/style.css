@@ -741,7 +741,6 @@ html::-webkit-scrollbar { display: none; }
   transition: stroke .3s, fill .3s;
 }
 .cursor-over .cur-ring { width: 30px; height: 30px; margin: -15px 0 0 -15px; }
-.cursor-over .cur-ring circle { stroke: rgba(240, 136, 62, .9); fill: rgba(240, 136, 62, .08); }
 .cursor-down .cur-ring { width: 18px; height: 18px; margin: -9px 0 0 -9px; }
 .cursor-over.cursor-down .cur-ring { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
 .cursor-drag .cur-ring { opacity: 0; }
