@@ -313,6 +313,8 @@ h1 {
 @media (prefers-reduced-motion: no-preference) { .reveal:not(.in) > .cta > * { opacity: 0; } }
 @keyframes lift { from { transform: translateY(18px); } }
 @keyframes fade { from { opacity: 0; } }
+/* On the first screen the button stands a little lower under the line above it. */
+.hero .cta { margin-top: 62px; }
 .cta .glow {
   position: absolute;
   inset: -12px -36px;
