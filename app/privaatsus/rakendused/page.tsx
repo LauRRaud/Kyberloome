@@ -12,7 +12,7 @@ export default function AppsPrivacy() {
       <a href="/">← Tagasi avalehele</a>
       <p className="eyebrow">KÜBERLOOME</p>
       <h1>Rakenduste ja mängude privaatsustingimused</h1>
-      <p className="updated">Viimati uuendatud: 22. oktoober 2026</p>
+      <p className="updated">Viimati uuendatud: 23. oktoober 2026</p>
 
       <p>Need tingimused kehtivad rakendustele ja mängudele, mille Küberloome avaldab Microsoft Store’is. Nende toodete väljaandja ja isikuandmete töötlemise korral vastutav töötleja on OÜ Küberloome (varem SotsiaalAI OÜ; registrikood 14206225, Eesti). Selle veebilehe enda andmekäsitlust kirjeldavad <a href="/privaatsus">veebilehe privaatsustingimused</a>.</p>
 
@@ -49,9 +49,9 @@ export default function AppsPrivacy() {
       <h3>Limit Notch</h3>
       <p>Limit Notch näitab, kui suure osa oma Claude’i ja ChatGPT paketi limiitidest oled ära kasutanud.</p>
       <ul>
-        <li>Numbrite näitamiseks käivitab rakendus taustal sinu arvutisse paigaldatud programmid Claude Code ja Codex ning küsib neilt sinu paketi kasutust; lisaks loeb see Codexi sessioonifaile sinu arvutis. Need programmid suhtlevad Anthropicu ja OpenAI-ga sinu enda sisselogimisega, nende ettevõtete tingimuste ja privaatsuspõhimõtete alusel.</li>
+        <li>Numbrite – ja Anthropicu või OpenAI antud limiidi lähtestuste – näitamiseks käivitab rakendus taustal sinu arvutisse paigaldatud programmid Claude Code ja Codex ning küsib neilt sinu paketi kasutust; lisaks loeb see Codexi sessioonifaile ja Claude Code’i salvestatud kasutuse kokkuvõtet sinu arvutis. Need programmid suhtlevad Anthropicu ja OpenAI-ga sinu enda sisselogimisega, nende ettevõtete tingimuste ja privaatsuspõhimõtete alusel.</li>
         <li>Rakendus ei loe ega salvesta sinu sisselogimisandmeid, ei saada tehisintellekti mudelitele sõnumeid ega saada midagi meile.</li>
-        <li>Rakendus salvestab kausta sinu kasutajaprofiili all ainult oma seaded – asukoha, keele, teema ja selle, milliseid teenuseid näidata – ning väikese vealogi tõrgete otsimiseks. Need ei lahku sinu arvutist.</li>
+        <li>Rakendus salvestab kausta sinu kasutajaprofiili all ainult oma seaded – asukoha, keele, teema ja selle, milliseid teenuseid näidata –, nimekirja limiidi lähtestustest, millest see on sulle juba teada andnud (et mitte kaks korda teada anda), ning väikese vealogi tõrgete otsimiseks. Need ei lahku sinu arvutist.</li>
       </ul>
       <p>Limit Notch ei ole seotud Anthropicu ega OpenAI-ga ega nende poolt heaks kiidetud või toetatud. Claude ja ChatGPT on nende omanike kaubamärgid.</p>
 

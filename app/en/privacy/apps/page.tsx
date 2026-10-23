@@ -12,7 +12,7 @@ export default function AppsPrivacy() {
       <a href="/en">← Back to the homepage</a>
       <p className="eyebrow">KÜBERLOOME</p>
       <h1>Privacy policy for apps and games</h1>
-      <p className="updated">Last updated: 22 October 2026</p>
+      <p className="updated">Last updated: 23 October 2026</p>
 
       <p>This policy covers the apps and games that Küberloome publishes in the Microsoft Store. These products are published by OÜ Küberloome (formerly SotsiaalAI OÜ; registry code 14206225, Estonia), which is the data controller wherever personal data is processed. How this website itself handles data is described in the <a href="/en/privacy">website privacy policy</a>.</p>
 
@@ -49,9 +49,9 @@ export default function AppsPrivacy() {
       <h3>Limit Notch</h3>
       <p>Limit Notch shows how much of your Claude and ChatGPT plan limits you have used.</p>
       <ul>
-        <li>To show the numbers, it starts Claude Code and Codex — programs installed on your PC — in the background and asks them for your plan usage, and it reads Codex’s session files on your PC. Those programs contact Anthropic and OpenAI with your own sign-in, under those companies’ terms and privacy policies.</li>
+        <li>To show the numbers — and any limit resets Anthropic or OpenAI have given you — it starts Claude Code and Codex, programs installed on your PC, in the background and asks them for your plan usage, and it reads Codex’s session files and the usage summary Claude Code saves on your PC. Those programs contact Anthropic and OpenAI with your own sign-in, under those companies’ terms and privacy policies.</li>
         <li>The app does not read or store your sign-in details, sends no messages to the AI models and sends nothing to us.</li>
-        <li>In a folder under your user profile it stores only its own settings — position, language, theme and the services you chose to show — and a small error log for troubleshooting. Neither leaves your PC.</li>
+        <li>In a folder under your user profile it stores only its own settings — position, language, theme and the services you chose to show — a list of the limit resets it has already told you about, so it does not tell you twice, and a small error log for troubleshooting. None of it leaves your PC.</li>
       </ul>
       <p>Limit Notch is not affiliated with, endorsed by, or sponsored by Anthropic or OpenAI. Claude and ChatGPT are trademarks of their respective owners.</p>
 
