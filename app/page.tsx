@@ -32,7 +32,7 @@ const apps: [string, string, StaticImageData, string?][] = [
 ];
 // Name, description and address.
 const websites = [
-  ['Limit Notch', 'Rakenduse tooteleht: animeeritud demo näitab, kuidas limiidinäidik töötab, ja nupp viib Microsoft Store’i.', 'https://limitnotch.com'],
+  ['Limit Notch', 'Töölauarakenduse tooteleht, kus limiidinäidikut saab kohe proovida ja animeeritud demo näitab, mida see oskab.', 'https://limitnotch.com'],
   ['Marta Raudsoo', 'Isikliku brändi koduleht teenuste, hinnakirja, blogi ja broneerimisega.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'Maalikunstniku portfoolio galerii, eluloo ja kontaktidega.', 'https://kaljosimson.ee'],
   ['RAIU', 'Puidust sangpommide veebileht koos eeltellimusega.', 'https://raiu.ee'],

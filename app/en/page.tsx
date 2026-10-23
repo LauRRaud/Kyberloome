@@ -38,7 +38,7 @@ const apps: [string, string, StaticImageData, string?][] = [
 ];
 // Name, description and address.
 const websites = [
-  ['Limit Notch', 'The app’s product page: an animated demo shows how the notch works, and a button leads to the Microsoft Store.', 'https://limitnotch.com'],
+  ['Limit Notch', 'A product page for a desktop app, where you can try the notch right away and an animated demo shows what it can do.', 'https://limitnotch.com'],
   ['Marta Raudsoo', 'A personal brand website with services, pricing, a blog and booking.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'A painter’s portfolio with a gallery, biography and contact details.', 'https://kaljosimson.ee'],
   ['RAIU', 'A website for wooden kettlebells, with pre-orders.', 'https://raiu.ee'],
