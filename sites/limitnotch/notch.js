@@ -546,9 +546,9 @@ function esc(text) {
   else play();
 })();
 
-// The trip: scrolling travels through the page's four screens - right, down, then left - with a
-// short stay at each. The page is as tall as the trip; the screens stay put while the view moves
-// over them. The squares in the corner show where you are and take you to a screen.
+// The trip: scrolling travels through the page's four screens - right, down, then left - a screen
+// at a time. The page is as tall as the trip; the screens stay put while the view moves over them.
+// The squares in the corner show where you are and take you to a screen.
 (function () {
   var world = document.getElementById('world');
   var plane = document.getElementById('plane');
@@ -567,19 +567,7 @@ function esc(text) {
   ];
   var MOVE = 0.7;
   var length = stops.reduce(function (n, s) { return n + s.stay; }, 0) + MOVE * (stops.length - 1);
-  // Where scrolling comes to rest: the middle of each screen's stay. One push of the wheel, or one
-  // swipe, goes on to the next screen and no further.
-  var snaps = stops.map(function () {
-    var mark = document.createElement('i');
-    mark.className = 'snap';
-    mark.setAttribute('aria-hidden', 'true');
-    world.appendChild(mark);
-    return mark;
-  });
-  function size() {
-    world.style.height = (length + 1) * window.innerHeight + 'px';
-    snaps.forEach(function (mark, i) { mark.style.top = (i ? startOf(i) : 0) + 'px'; });
-  }
+  function size() { world.style.height = (length + 1) * window.innerHeight + 'px'; }
 
   // Soft at both ends, but moving from the first bit of scrolling.
   function ease(t) { return t * t * (3 - 2 * t); }
@@ -601,73 +589,169 @@ function esc(text) {
     for (var j = 0; j < i; j++) p += stops[j].stay + MOVE;
     return (p + stops[i].stay / 2) * window.innerHeight;
   }
+  // Where the page rests at a screen: the middle of its stay, the first at the very top.
+  function restAt(i) { return i ? startOf(i) : 0; }
 
-  // The view follows the scroll in two stages - a lead that follows the scroll, the view that
-  // follows the lead - so a move to the next screen starts gently, glides and slows at its end,
-  // taking about 1.4 s however quickly the scroll itself jumps there.
-  var x = 0, y = 0, lx = 0, ly = 0, running = false, last = 0, shown = -1;
+  // The view. From screen to screen it moves by itself, along a slow curve of its own - soft to
+  // start, soft to end, about 1.7 s a screen - however it was asked to go: the mouse wheel, a
+  // swipe, a key or a square of the map. The page's scroll position goes straight to the screen's,
+  // so the browser's own, quicker scrolling has no say in it. Moved some other way - by the scroll
+  // bar, say - the page is followed a little behind, and once it stops the view settles on the
+  // nearest screen.
+  var x = 0, y = 0, running = false, last = 0, shown = -1;
+  // The screen it is on (or on its way to), the move under way, one more screen asked for while
+  // it is under way (1 on, -1 back), and the scroll position this script last put the page at.
+  var at = 0, move = null, queued = 0, ours = -1, rest = 0;
+  function place() {
+    ours = Math.round(restAt(at));
+    window.scrollTo(0, ours);
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(stops.length - 1, i));
+    if (move && move.to === i) return;
+    var b = stops[i].at, d = Math.sqrt((b[0] - x) * (b[0] - x) + (b[1] - y) * (b[1] - y));
+    move = d < 0.001 ? null : { fx: x, fy: y, to: i, way: i - at, start: performance.now(), time: 1700 * Math.sqrt(d) };
+    queued = 0;
+    at = i;
+    place();
+    wake();
+  }
+  // Asked to go on (1) or back (-1): at once when still; when already going that way, as soon as
+  // this move is done (one screen more at most); when going the other way, back at once.
+  function ask(dir) {
+    if (!move || move.way * dir <= 0) go(at + dir);
+    else if (at + dir >= 0 && at + dir < stops.length) queued = dir;
+  }
+
   function frame(now) {
-    var target = where(window.scrollY / window.innerHeight);
-    var k = last ? 1 - Math.pow(1 - 0.055, (now - last) / 16.7) : 1;
+    var still = false;
+    if (move) {
+      var t = Math.min(1, (now - move.start) / move.time), e = ease(t), b = stops[move.to].at;
+      x = move.fx + (b[0] - move.fx) * e;
+      y = move.fy + (b[1] - move.fy) * e;
+      if (t === 1) {
+        move = null;
+        if (queued) go(at + queued);
+      }
+    } else {
+      var target = where(window.scrollY / window.innerHeight);
+      var k = last ? 1 - Math.pow(1 - 0.12, (now - last) / 16.7) : 1;
+      x += (target.x - x) * k;
+      y += (target.y - y) * k;
+      still = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005;
+      if (still) { x = target.x; y = target.y; }
+    }
     last = now;
-    lx += (target.x - lx) * k;
-    ly += (target.y - ly) * k;
-    x += (lx - x) * k;
-    y += (ly - y) * k;
-    var settled = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005 && Math.abs(target.x - lx) < 0.0005 && Math.abs(target.y - ly) < 0.0005;
-    if (settled) { x = lx = target.x; y = ly = target.y; }
     // In halves of the ground (which is two screens wide and high), so it needs no measuring.
     plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
     // Nearer the demo's screen than any other, the live panel steps aside.
     notch.classList.toggle('away', x > 0.5 && y < 0.5);
     // The languages are chosen on the first screen; elsewhere the wheel steps aside.
     if (wheel) wheel.classList.toggle('away', x > 0.5 || y > 0.5);
-    if (target.stop !== shown) {
-      shown = target.stop;
+    var near = 0;
+    stops.forEach(function (s, i) {
+      if (Math.abs(s.at[0] - x) + Math.abs(s.at[1] - y) < Math.abs(stops[near].at[0] - x) + Math.abs(stops[near].at[1] - y)) near = i;
+    });
+    if (near !== shown) {
+      shown = near;
       Array.prototype.forEach.call(squares, function (b) { b.classList.toggle('on', +b.getAttribute('data-stop') === shown); });
     }
-    if (settled) { running = false; last = 0; return; }
+    if (still) { running = false; last = 0; return; }
     requestAnimationFrame(frame);
   }
   function wake() { if (!running) { running = true; requestAnimationFrame(frame); } }
-  window.addEventListener('scroll', wake, { passive: true });
-  window.addEventListener('resize', function () { size(); wake(); });
+  window.addEventListener('scroll', function () {
+    if (ours >= 0 && Math.abs(window.scrollY - ours) < 2) return;
+    ours = -1;
+    move = null;
+    queued = 0;
+    wake();
+    clearTimeout(rest);
+    rest = setTimeout(function () { go(where(window.scrollY / window.innerHeight).stop); }, 220);
+  }, { passive: true });
+  window.addEventListener('resize', function () {
+    size();
+    if (ours >= 0) place();
+    wake();
+  });
   Array.prototype.forEach.call(squares, function (b) {
-    b.addEventListener('click', function () {
-      window.scrollTo({ top: startOf(+b.getAttribute('data-stop')), behavior: 'smooth' });
-    });
+    b.addEventListener('click', function () { go(+b.getAttribute('data-stop')); });
   });
   size();
-  // The mouse wheel goes a screen at a time: a notch moves the page to the next screen (or the one
-  // before) by itself; while that move is under way (1.15 s, near its end) further notches are let
-  // go, so two at once do not go two screens; then each moves it again, screen by screen. A touchpad's drift - its
-  // small, fading steps straight after a swipe - moves nothing. The language wheel turns with its own.
-  var settledAt = 0, lastNotch = 0, aim = 0, aimedAt = -1e9;
-  function nearest() {
-    var at = window.scrollY, best = 0;
-    snaps.forEach(function (mark, i) { if (Math.abs(parseFloat(mark.style.top) - at) < Math.abs(parseFloat(snaps[best].style.top) - at)) best = i; });
-    return best;
-  }
+
+  // The mouse wheel: a push of it - a notch, a few notches at once, a touchpad's swipe with the
+  // drift after it - asks for one screen. A new push asks again, even while the page is still on
+  // its way, and so does a wheel kept turning; a drift dying out asks for nothing. The language
+  // wheel turns with its own.
+  var push = null;
   window.addEventListener('wheel', function (e) {
     if (e.ctrlKey || (wheel && wheel.contains(e.target))) return;
     e.preventDefault();
     // In pixels, whether the browser counts in pixels, lines or pages.
     var dy = e.deltaY * (e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? window.innerHeight : 1);
-    var now = performance.now(), quiet = now - lastNotch > 220;
-    lastNotch = now;
-    if (Math.abs(dy) < 4 || now < settledAt || (!quiet && Math.abs(dy) < 50)) return;
-    // From the screen the last move was going to, if it was lately; else from where the page is.
-    var from = now - aimedAt < 1500 ? aim : nearest();
-    var next = Math.max(0, Math.min(stops.length - 1, from + (dy > 0 ? 1 : -1)));
-    aim = next;
-    aimedAt = now;
-    settledAt = now + 1150;
-    window.scrollTo({ top: parseFloat(snaps[next].style.top), behavior: 'smooth' });
+    if (!dy) return;
+    var now = performance.now(), size = Math.abs(dy);
+    // A pause of a little under a fifth of a second, or a turn the other way, begins a new push.
+    if (!push || now - push.last > 180 || push.sum * dy < 0) push = { sum: 0, asked: null, peak: 0, low: 0, dipped: false };
+    push.last = now;
+    push.sum += dy;
+    // How it goes: up to its height, then (a drift) down to under half of that, and from that low
+    // up again (a new push before the drift has died out).
+    var anew = false;
+    if (push.dipped) {
+      push.low = Math.min(push.low, size);
+      anew = size >= 8 && size > push.low * 2.5;
+    } else {
+      push.peak = Math.max(push.peak, size);
+      if (size < push.peak * 0.5) { push.dipped = true; push.low = size; }
+    }
+    if (push.asked === null ? Math.abs(push.sum) < 12 : !anew && (push.dipped || now - push.asked < 900)) return;
+    push.asked = now;
+    if (anew) { push.peak = size; push.dipped = false; }
+    ask(dy > 0 ? 1 : -1);
   }, { passive: false });
 
-  // Arriving from a link or a reload part-way: start where the scroll already is.
+  // A swipe on a touch screen: a screen a swipe, as soon as the finger has gone a little way up or
+  // down. Not on what is dragged itself (the live panel, the language wheel), nor with two fingers.
+  var swipe = null;
+  function dragged(el) {
+    for (; el && el !== document.body; el = el.parentElement) if (getComputedStyle(el).touchAction === 'none') return true;
+    return false;
+  }
+  window.addEventListener('touchstart', function (e) {
+    swipe = e.touches.length === 1 && !dragged(e.target) ? { x: e.touches[0].clientX, y: e.touches[0].clientY, asked: false } : null;
+  }, { passive: true });
+  window.addEventListener('touchmove', function (e) {
+    if (!swipe || e.touches.length !== 1) return;
+    e.preventDefault();
+    var dy = swipe.y - e.touches[0].clientY, dx = swipe.x - e.touches[0].clientX;
+    if (swipe.asked || Math.abs(dy) < 24 || Math.abs(dy) < Math.abs(dx)) return;
+    swipe.asked = true;
+    ask(dy > 0 ? 1 : -1);
+  }, { passive: false });
+
+  // The keys that scroll a page: a screen at a time, the first or the last with Home and End.
+  window.addEventListener('keydown', function (e) {
+    var t = e.target, k = e.key;
+    if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    // On a button or a link the space bar presses it.
+    if (k === ' ' && t && /^(BUTTON|A)$/.test(t.tagName)) return;
+    var dir = k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey) ? 1 : k === 'ArrowUp' || k === 'PageUp' || k === ' ' ? -1 : 0;
+    if (k === 'Home' || k === 'End') { e.preventDefault(); go(k === 'Home' ? 0 : stops.length - 1); return; }
+    if (!dir) return;
+    e.preventDefault();
+    if (!e.repeat) ask(dir);
+  });
+
+  // Arriving from a link or a reload part-way: start where the scroll already is, and settle
+  // from there on the nearest screen.
   var first = where(window.scrollY / window.innerHeight);
-  x = lx = first.x; y = ly = first.y;
+  x = first.x;
+  y = first.y;
+  at = first.stop;
+  if (Math.abs(window.scrollY - restAt(at)) < 2) ours = Math.round(window.scrollY);
+  else go(at);
   wake();
 })();
 

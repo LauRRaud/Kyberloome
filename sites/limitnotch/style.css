@@ -291,8 +291,18 @@ h1 {
   display: inline-block;
   margin-top: 42px;
   isolation: isolate;
-  animation: rise 1.2s var(--glide) .24s both;
+  animation: lift 1.2s var(--glide) .24s both;
 }
+/* The glass takes its backdrop from all that lies behind it - but under a wrapper that is fading
+   in, from the wrapper alone, so it would show lighter until the fade ends and then turn darker
+   at once. So the wrapper only rises, and the glow and the glass fade in themselves. */
+.cta > * { animation: fade 1.2s var(--glide) .24s backwards; }
+.reveal > .cta { opacity: 1; }
+.reveal > .cta > * { animation: none; }
+.reveal.in > .cta > * { animation: fade 1s var(--glide) .24s backwards; }
+@media (prefers-reduced-motion: no-preference) { .reveal:not(.in) > .cta > * { opacity: 0; } }
+@keyframes lift { from { transform: translateY(18px); } }
+@keyframes fade { from { opacity: 0; } }
 .cta .glow {
   position: absolute;
   inset: -12px -36px;
@@ -921,14 +931,3 @@ html:not(.wheel-on) .wheel { display: none; }
 /* Without the trip (less motion wanted), the wheel is there only at the top of the page. */
 html:not(.travel).scrolled .wheel { opacity: 0; translate: -24px 0; pointer-events: none; }
 
-/* Where scrolling comes to rest (script places them): one screen a push or a swipe. */
-html.travel { scroll-snap-type: y mandatory; }
-.travel .snap {
-  position: absolute;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  pointer-events: none;
-}
