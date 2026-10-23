@@ -638,10 +638,11 @@ function esc(text) {
     });
   });
   size();
-  // A push of the mouse wheel goes to the next screen (or the one before) and no further: the
-  // notches that follow it while the move is under way are let go, and so is a touchpad's whole
-  // swipe, with the drift after it. The language wheel turns with its own.
-  var settledAt = 0, lastNotch = 0, pushed = false;
+  // The mouse wheel goes a screen at a time: a notch moves the page to the next screen (or the one
+  // before); for 0.7 s after, further notches are let go, so two at once do not go two screens;
+  // then each moves it again, so turning on goes on screen by screen. A touchpad's drift - its
+  // small, fading steps straight after a swipe - moves nothing. The language wheel turns with its own.
+  var settledAt = 0, lastNotch = 0, aim = 0, aimedAt = -1e9;
   function nearest() {
     var at = window.scrollY, best = 0;
     snaps.forEach(function (mark, i) { if (Math.abs(parseFloat(mark.style.top) - at) < Math.abs(parseFloat(snaps[best].style.top) - at)) best = i; });
@@ -650,14 +651,17 @@ function esc(text) {
   window.addEventListener('wheel', function (e) {
     if (e.ctrlKey || (wheel && wheel.contains(e.target))) return;
     e.preventDefault();
-    // A pause of a fifth of a second ends a push; each push moves the page once at most.
-    var now = performance.now();
-    if (now - lastNotch > 220) pushed = false;
+    // In pixels, whether the browser counts in pixels, lines or pages.
+    var dy = e.deltaY * (e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? window.innerHeight : 1);
+    var now = performance.now(), quiet = now - lastNotch > 220;
     lastNotch = now;
-    if (pushed || Math.abs(e.deltaY) < 4 || now < settledAt) return;
-    pushed = true;
-    var next = Math.max(0, Math.min(stops.length - 1, nearest() + (e.deltaY > 0 ? 1 : -1)));
-    settledAt = now + 1000;
+    if (Math.abs(dy) < 4 || now < settledAt || (!quiet && Math.abs(dy) < 50)) return;
+    // From the screen the last move was going to, if it was lately; else from where the page is.
+    var from = now - aimedAt < 1500 ? aim : nearest();
+    var next = Math.max(0, Math.min(stops.length - 1, from + (dy > 0 ? 1 : -1)));
+    aim = next;
+    aimedAt = now;
+    settledAt = now + 700;
     window.scrollTo({ top: parseFloat(snaps[next].style.top), behavior: 'smooth' });
   }, { passive: false });
 
