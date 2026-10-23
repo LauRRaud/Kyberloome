@@ -638,6 +638,29 @@ function esc(text) {
     });
   });
   size();
+  // A push of the mouse wheel goes to the next screen (or the one before) and no further: the
+  // notches that follow it while the move is under way are let go, and so is a touchpad's whole
+  // swipe, with the drift after it. The language wheel turns with its own.
+  var settledAt = 0, lastNotch = 0, pushed = false;
+  function nearest() {
+    var at = window.scrollY, best = 0;
+    snaps.forEach(function (mark, i) { if (Math.abs(parseFloat(mark.style.top) - at) < Math.abs(parseFloat(snaps[best].style.top) - at)) best = i; });
+    return best;
+  }
+  window.addEventListener('wheel', function (e) {
+    if (e.ctrlKey || (wheel && wheel.contains(e.target))) return;
+    e.preventDefault();
+    // A pause of a fifth of a second ends a push; each push moves the page once at most.
+    var now = performance.now();
+    if (now - lastNotch > 220) pushed = false;
+    lastNotch = now;
+    if (pushed || Math.abs(e.deltaY) < 4 || now < settledAt) return;
+    pushed = true;
+    var next = Math.max(0, Math.min(stops.length - 1, nearest() + (e.deltaY > 0 ? 1 : -1)));
+    settledAt = now + 1000;
+    window.scrollTo({ top: parseFloat(snaps[next].style.top), behavior: 'smooth' });
+  }, { passive: false });
+
   // Arriving from a link or a reload part-way: start where the scroll already is.
   var first = where(window.scrollY / window.innerHeight);
   x = lx = first.x; y = ly = first.y;
