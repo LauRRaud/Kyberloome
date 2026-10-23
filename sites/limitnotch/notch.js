@@ -780,7 +780,7 @@
 
   // The tagline, in pieces the size of a model's tokens.
   var tagline = document.querySelector('.tagline');
-  var TOKENS = ['Your', ' AI', ' lim', 'its.', ' Always', ' in', ' sight.'];
+  var TOKENS = ['Your', ' AI', ' lim', 'its', ' and', ' res', 'ets.', ' Always', ' in', ' sight.'];
   if (tagline && TOKENS.join('') === tagline.textContent) {
     tagline.textContent = '';
     var pieces = TOKENS.map(function (t) {
