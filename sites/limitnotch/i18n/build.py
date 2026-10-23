@@ -15,8 +15,6 @@ SITE = os.path.dirname(HERE)
 ORIGIN = 'https://limitnotch.com'
 STORE = 'https://apps.microsoft.com/detail/9P65S14KRHFR'
 CJK = ('ja', 'zh-hans', 'zh-hant')
-
-
 def esc(text):
     return html.escape(text, quote=True)
 
@@ -92,8 +90,11 @@ def page(template, language, languages):
         'offers': {'@type': 'Offer', 'price': '1.99', 'priceCurrency': 'EUR', 'url': STORE},
         'publisher': {'@type': 'Organization', 'name': 'Kÿberloome', 'url': maker_url},
     }
-    options = ''.join('<option value="%s" data-code="%s"%s>%s</option>' % (l['path'], l['code'], ' selected' if l is language else '', esc(l['name']))
-                      for l in languages)
+    # Every language a link of its own (search engines follow them), by its native name; the one
+    # shown is marked.
+    items = ''.join('<li><a href="%s" hreflang="%s" lang="%s" data-code="%s"%s>%s</a></li>'
+                    % (l['path'], l['hreflang'], l['hreflang'], l['code'], ' class="now" aria-current="page"' if l is language else '', esc(l['name']))
+                    for l in languages)
     # What the script writes: the hints, the demo's captions, the terminal's sessions, the units.
     script = {k: t[k] for k in ('tryWord', 'tryIt', 'clickIt', 'dragIt', 'tapIt', 'tapAgain', 'cap1', 'cap2', 'cap3', 'egg', 'flaky', 'rust')}
     script.update(join=join, units={'d': app['DayUnit'], 'h': app['HourUnit'], 'm': app['MinuteUnit']})
@@ -111,7 +112,7 @@ def page(template, language, languages):
         'cap1': esc(join.join(t['cap1'])), 'privateTitle': esc(t['privateTitle']), 'privateLine': esc(t['privateLine']),
         'makerUrl': maker_url, 'privacyUrl': privacy_url, 'contactUrl': contact_url,
         'privacy': esc(t['privacy']), 'contact': esc(t['contact']),
-        'languageMenu': esc(app['LanguageMenu']), 'languageOptions': options,
+        'languageMenu': esc(app['LanguageMenu']), 'languageItems': items,
         'sections': esc(t['sections']), 'navStart': esc(t['navStart']), 'navHow': esc(t['navHow']),
         'navGet': esc(t['navGet']), 'navPrivate': esc(t['navPrivate']),
         'textJson': json.dumps(script, ensure_ascii=False).replace('</', '<\\/'),

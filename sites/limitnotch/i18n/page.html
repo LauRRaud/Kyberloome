@@ -129,7 +129,7 @@
     <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="{{getItLabel}}">{{getIt}}</a></span>
     <p class="meta">Windows · Claude Code · Codex</p>
     <footer>
-      <p>© 2026 <a href="{{makerUrl}}" data-bits>Kÿberloome</a><span>·</span><a href="{{privacyUrl}}">{{privacy}}</a><span>·</span><a href="{{contactUrl}}">{{contact}}</a><span>·</span><label class="lang"><select id="lang" aria-label="{{languageMenu}}">{{languageOptions}}</select></label></p>
+      <div class="foot">© 2026 <a href="{{makerUrl}}" data-bits>Kÿberloome</a><span>·</span><a href="{{privacyUrl}}">{{privacy}}</a><span>·</span><a href="{{contactUrl}}">{{contact}}</a></div>
     </footer>
   </section>
 </div>
@@ -143,6 +143,9 @@
   <button type="button" data-stop="3" style="grid-area: 2 / 1" aria-label="{{navGet}}"></button>
   <button type="button" data-stop="2" style="grid-area: 2 / 2" aria-label="{{navPrivate}}"></button>
 </nav>
+
+<!-- The languages: a wheel at the left edge of the window (the script turns it). -->
+<nav class="wheel" id="wheel" aria-label="{{languageMenu}}"><ul>{{languageItems}}</ul></nav>
 
 <!-- What the script writes, in this page's language. -->
 <script type="application/json" id="text">{{textJson}}</script>

@@ -535,6 +535,7 @@ function esc(text) {
   if (!world || !plane || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var squares = document.querySelectorAll('#map button');
   var notch = document.getElementById('notch');
+  var wheel = document.getElementById('wheel');
   document.documentElement.classList.add('travel');
 
   // The screens in the order of the trip, and how long (in screen heights of scrolling) it stays.
@@ -584,6 +585,7 @@ function esc(text) {
     plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
     // Nearer the demo's screen than any other, the live panel steps aside.
     notch.classList.toggle('away', x > 0.5 && y < 0.5);
+    if (wheel) wheel.classList.toggle('away', x > 0.5 && y < 0.5);
     if (target.stop !== shown) {
       shown = target.stop;
       Array.prototype.forEach.call(squares, function (b) { b.classList.toggle('on', +b.getAttribute('data-stop') === shown); });
@@ -1067,7 +1069,7 @@ function esc(text) {
     if (!placed) { placed = true; rx = x; ry = y; }
     caret.style.translate = x + 'px ' + y + 'px';
     root.classList.add('cursor-on');
-    root.classList.toggle('cursor-over', !!(e.target.closest && e.target.closest('a, button, select')));
+    root.classList.toggle('cursor-over', !!(e.target.closest && e.target.closest('a, button')));
     root.classList.toggle('cursor-drag', notch.classList.contains('dragging'));
     caret.classList.remove('idle');
     clearTimeout(idleTimer);
@@ -1079,14 +1081,112 @@ function esc(text) {
   document.documentElement.addEventListener('mouseleave', function () { root.classList.remove('cursor-on'); });
 })();
 
-// The language picker at the foot of the page: the choice is remembered, so the English page
-// takes you to it next time.
+// The languages, as a wheel at the left edge of the window: this page's in the middle, the others
+// curving away above and below it - tilted, fading and blurring the further they are, as on a
+// dial seen from its edge. The mouse wheel, a drag or the arrow keys turn it; it settles on a
+// language, and a click or Enter goes there (the choice is remembered). Without the script it
+// is not shown; its links are still there for search engines.
 (function () {
-  var pick = document.getElementById('lang');
-  if (!pick) return;
-  pick.addEventListener('change', function () {
-    var option = pick.options[pick.selectedIndex];
-    try { localStorage.setItem('limitnotch-lang', option.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
-    location.href = option.value;
+  var wheel = document.getElementById('wheel');
+  if (!wheel) return;
+  var links = Array.prototype.slice.call(wheel.querySelectorAll('a'));
+  var now = 0;
+  links.forEach(function (a, i) { if (a.classList.contains('now')) now = i; });
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos = now, target = now, last = 0, running = false, near = false, drag = null, wheeled = 0;
+  document.documentElement.classList.add('wheel-on');
+
+  // Its look, from the style sheet: the font size, rows apart, degrees between rows, blur and
+  // opacity lost per row away from the middle (less with the pointer on it).
+  function look() {
+    var css = getComputedStyle(wheel);
+    function n(name, dflt) { var v = parseFloat(css.getPropertyValue(name)); return isNaN(v) ? dflt : v; }
+    return { size: n('--size', 15), rows: n('--rows', 1.9), tilt: n('--tilt', 9), blur: n('--blur', 1.4), fade: n('--fade', 0.26) };
+  }
+  var L = look();
+  function gap() { return L.size * L.rows; }
+
+  function draw() {
+    var radius = gap() / Math.sin(L.tilt * Math.PI / 180);
+    var fade = near ? L.fade * 0.6 : L.fade;
+    links.forEach(function (a, i) {
+      var d = i - pos, far = Math.abs(d), angle = d * L.tilt * Math.PI / 180;
+      if (far > 5.5) {
+        a.style.visibility = 'hidden';
+        a.classList.remove('mid');
+        a.tabIndex = -1;
+        return;
+      }
+      a.style.visibility = '';
+      // On a circle round a point beyond the left edge: further rows come nearer the edge.
+      var x = -radius * (1 - Math.cos(angle)), y = radius * Math.sin(angle);
+      a.style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px) rotate(' + (d * L.tilt).toFixed(2) + 'deg)';
+      a.style.opacity = Math.max(0.04, 1 - far * fade).toFixed(3);
+      a.style.filter = far < 0.02 ? 'none' : 'blur(' + (far * L.blur).toFixed(2) + 'px)';
+      a.classList.toggle('mid', far < 0.5);
+      a.tabIndex = far < 0.5 ? 0 : -1;
+    });
+  }
+  function frame(t) {
+    var k = still || !last ? 1 : 1 - Math.exp(-(t - last) / 160);
+    last = t;
+    pos += (target - pos) * k;
+    if (Math.abs(target - pos) < 0.0015) pos = target;
+    draw();
+    if (pos === target && !drag) { running = false; last = 0; return; }
+    requestAnimationFrame(frame);
+  }
+  function wake() { if (!running) { running = true; requestAnimationFrame(frame); } }
+  function turnTo(i) { target = Math.max(0, Math.min(links.length - 1, i)); wake(); }
+
+  // The mouse wheel turns it a row a notch; a touchpad's small steps add up to rows.
+  wheel.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    wheeled += e.deltaY;
+    var rows = Math.trunc(wheeled / 90);
+    if (rows) { wheeled -= rows * 90; turnTo(Math.round(target) + rows); }
+  }, { passive: false });
+  wheel.addEventListener('pointerenter', function () { near = true; wake(); });
+  wheel.addEventListener('pointerleave', function () { near = false; wake(); });
+
+  // Dragged, it follows the pointer and settles on the nearest row when let go.
+  wheel.addEventListener('pointerdown', function (e) {
+    drag = { y: e.clientY, from: pos, moved: false, id: e.pointerId };
+    try { wheel.setPointerCapture(e.pointerId); } catch (err) { /* it then ends at the wheel's edge */ }
   });
+  wheel.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dy = e.clientY - drag.y;
+    if (!drag.moved && Math.abs(dy) < 4) return;
+    drag.moved = true;
+    pos = target = Math.max(-0.4, Math.min(links.length - 0.6, drag.from - dy / gap()));
+    wake();
+  });
+  function letGo(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var moved = drag.moved;
+    drag = null;
+    turnTo(Math.round(pos));
+    // The end of a drag is no click.
+    if (moved) wheel.addEventListener('click', function stop(c) { c.preventDefault(); wheel.removeEventListener('click', stop, true); }, true);
+  }
+  wheel.addEventListener('pointerup', letGo);
+  wheel.addEventListener('pointercancel', letGo);
+
+  links.forEach(function (a, i) {
+    a.addEventListener('click', function () {
+      try { localStorage.setItem('limitnotch-lang', a.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
+    });
+    a.addEventListener('focus', function () { turnTo(i); });
+    a.addEventListener('keydown', function (e) {
+      var step = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      var next = links[Math.max(0, Math.min(links.length - 1, i + step))];
+      next.tabIndex = 0;
+      next.focus({ preventScroll: true });
+    });
+  });
+  window.addEventListener('resize', function () { L = look(); draw(); });
+  draw();
 })();
