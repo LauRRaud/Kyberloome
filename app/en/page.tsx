@@ -32,13 +32,13 @@ const steps = [
 ];
 // Name, description, icon and optional Microsoft Store address.
 const apps: [string, string, StaticImageData, string?][] = [
-  ['Limit Notch', 'A small limit indicator at the top of your screen. It shows how much of your Claude and ChatGPT usage limits you have used and when they reset, and tells you when a limit reset arrives. No passwords or keys needed.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
+  ['Limit Notch', 'A small limit indicator at the top of your screen. It shows your Claude and ChatGPT usage limits and tells you when a limit reset arrives.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Improves movie audio compatibility without changing the video.', movieSoundFixerIcon],
   ['Movie & Video Player', 'A movie player that also plays AC-3, E-AC-3 and DTS audio without converting the file, and shows subtitles.', movieAndVideoPlayerIcon],
 ];
 // Name, description and address.
 const websites = [
-  ['Limit Notch', 'A product page for a desktop app, where you can try the notch right away and an animated demo shows what it can do.', 'https://limitnotch.com'],
+  ['Limit Notch', 'A website for a desktop app, with an interactive demo.', 'https://limitnotch.com'],
   ['Marta Raudsoo', 'A personal brand website with services, pricing, a blog and booking.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'A painter’s portfolio with a gallery, biography and contact details.', 'https://kaljosimson.ee'],
   ['RAIU', 'A website for wooden kettlebells, with pre-orders.', 'https://raiu.ee'],

@@ -26,13 +26,13 @@ const steps = [
 ];
 // Name, description, icon and optional Microsoft Store address.
 const apps: [string, string, StaticImageData, string?][] = [
-  ['Limit Notch', 'Väike limiidinäidik ekraani ülaservas. Näitab, kui suure osa oma Claude’i ja ChatGPT kasutuslimiitidest oled ära kasutanud ja millal need uuenevad, ning annab teada, kui saad limiidi lähtestuse. Paroole ega võtmeid ei küsi.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
+  ['Limit Notch', 'Väike limiidinäidik ekraani ülaservas. Näitab sinu Claude’i ja ChatGPT kasutuslimiite ning annab teada, kui saad limiidi lähtestuse.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Parandab filmide heli ühilduvust, videot muutmata.', movieSoundFixerIcon],
   ['Movie & Video Player', 'Filmimängija, mis mängib ka AC-3-, E-AC-3- ja DTS-heli faili teisendamata ning näitab subtiitreid.', movieAndVideoPlayerIcon],
 ];
 // Name, description and address.
 const websites = [
-  ['Limit Notch', 'Töölauarakenduse tooteleht, kus limiidinäidikut saab kohe proovida ja animeeritud demo näitab, mida see oskab.', 'https://limitnotch.com'],
+  ['Limit Notch', 'Töölauarakenduse koduleht interaktiivse demoga.', 'https://limitnotch.com'],
   ['Marta Raudsoo', 'Isikliku brändi koduleht teenuste, hinnakirja, blogi ja broneerimisega.', 'https://martaraudsoo.com'],
   ['Kaljo Simson', 'Maalikunstniku portfoolio galerii, eluloo ja kontaktidega.', 'https://kaljosimson.ee'],
   ['RAIU', 'Puidust sangpommide veebileht koos eeltellimusega.', 'https://raiu.ee'],
