@@ -313,7 +313,7 @@ h1 {
   color: #fff;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: .6px;
+  letter-spacing: .12em;
   text-decoration: none;
   transition: transform .35s var(--glide), background .35s var(--glide);
 }
@@ -326,7 +326,7 @@ h1 {
   margin-top: 20px;
   font-family: var(--mono);
   font-size: 13px;
-  letter-spacing: .02em;
+  letter-spacing: .1em;
   color: var(--faint);
   animation: rise 1.2s var(--glide) .36s both;
 }
@@ -645,7 +645,7 @@ h1, .private h2 { padding-bottom: .14em; }
   color: transparent;
   animation: sheen 6s linear infinite;
 }
-.private p { margin-top: 26px; letter-spacing: .04em; color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); }
+.private p { margin-top: 26px; letter-spacing: .1em; color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); }
 @keyframes sheen { from { background-position: 0 0; } to { background-position: -200% 0; } }
 
 .get { position: relative; isolation: isolate; padding-bottom: 14vh; }
@@ -695,9 +695,10 @@ footer {
   border-top: 1px solid var(--line);
   text-align: center;
   font-size: 15px;
+  letter-spacing: .16em;
   color: var(--muted);
 }
-footer span { margin: 0 10px; }
+footer span { margin: 0 16px; }
 footer a { text-decoration: none; }
 footer a:hover { color: var(--text); }
 
