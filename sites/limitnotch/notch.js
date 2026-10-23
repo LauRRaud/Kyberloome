@@ -604,11 +604,11 @@ function esc(text) {
 
   // The view follows the scroll in two stages - a lead that follows the scroll, the view that
   // follows the lead - so a move to the next screen starts gently, glides and slows at its end,
-  // taking about a second however quickly the scroll itself jumps there.
+  // taking about 1.4 s however quickly the scroll itself jumps there.
   var x = 0, y = 0, lx = 0, ly = 0, running = false, last = 0, shown = -1;
   function frame(now) {
     var target = where(window.scrollY / window.innerHeight);
-    var k = last ? 1 - Math.pow(1 - 0.075, (now - last) / 16.7) : 1;
+    var k = last ? 1 - Math.pow(1 - 0.055, (now - last) / 16.7) : 1;
     last = now;
     lx += (target.x - lx) * k;
     ly += (target.y - ly) * k;
@@ -639,8 +639,8 @@ function esc(text) {
   });
   size();
   // The mouse wheel goes a screen at a time: a notch moves the page to the next screen (or the one
-  // before); for 0.7 s after, further notches are let go, so two at once do not go two screens;
-  // then each moves it again, so turning on goes on screen by screen. A touchpad's drift - its
+  // before) by itself; while that move is under way (1.15 s, near its end) further notches are let
+  // go, so two at once do not go two screens; then each moves it again, screen by screen. A touchpad's drift - its
   // small, fading steps straight after a swipe - moves nothing. The language wheel turns with its own.
   var settledAt = 0, lastNotch = 0, aim = 0, aimedAt = -1e9;
   function nearest() {
@@ -661,7 +661,7 @@ function esc(text) {
     var next = Math.max(0, Math.min(stops.length - 1, from + (dy > 0 ? 1 : -1)));
     aim = next;
     aimedAt = now;
-    settledAt = now + 700;
+    settledAt = now + 1150;
     window.scrollTo({ top: parseFloat(snaps[next].style.top), behavior: 'smooth' });
   }, { passive: false });
 
