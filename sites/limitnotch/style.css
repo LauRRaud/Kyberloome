@@ -701,6 +701,9 @@ h1, .private h2 { padding-bottom: .14em; }
   color: transparent;
 }
 .get .meta, .get .cta { animation: none; }
+/* On the last screen the button and the line under it stand a little lower, clear of the name. */
+.get .cta { margin-top: 64px; }
+.get .meta { margin-top: 26px; }
 
 /* The maker on one side, the links on the other; on a phone, one under the other. */
 footer {
