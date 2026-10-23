@@ -359,7 +359,7 @@
       cur.classList.add('on');
 
       // 1. Hover for the numbers, click for the time until each limit resets.
-      step(1, '<span class="w">Hover</span> for the numbers, <span class="w">click</span> for the times.', 6200);
+      step(1, '<span class="w">Hover.</span> <span class="w">Click.</span>', 6200);
       await wait(400);
       cursor(W / 2, 14, 1100);
       await wait(1150);
