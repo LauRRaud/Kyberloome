@@ -1049,16 +1049,19 @@ function esc(text) {
     while (term.children.length > 14) term.removeChild(term.firstChild);
     return p;
   }
+  // Another language: the session on the screen starts again, in it.
+  var anew = false;
+  document.addEventListener('language', function () { anew = true; });
   (async function () {
     for (var run = 0; ; run++) {
       var all = sessions(), SESSION = all[run % all.length];
-      for (var i = 0; i < SESSION.length; i++) {
+      for (var i = 0; i < SESSION.length && !anew; i++) {
         await ready();
         var kind = SESSION[i][0], text = SESSION[i][1];
         if (kind === 'you') {
           await wait(900);
           var p = line('you typing', '');
-          for (var k = 1; k <= text.length; k++) { p.textContent = text.slice(0, k); await wait(32 + Math.random() * 40); }
+          for (var k = 1; k <= text.length && !anew; k++) { p.textContent = text.slice(0, k); await wait(32 + Math.random() * 40); }
           await wait(350);
           p.classList.remove('typing');
           await wait(500);
@@ -1067,9 +1070,16 @@ function esc(text) {
           await wait(kind === 'tool' ? 650 : kind === 'add' ? 220 : 450);
         }
       }
-      await wait(2600);
-      term.classList.add('out');
-      await wait(600);
+      if (anew) {
+        anew = false;
+        run--;
+        term.classList.add('out');
+        await wait(300);
+      } else {
+        await wait(2600);
+        term.classList.add('out');
+        await wait(600);
+      }
       term.textContent = '';
       term.classList.remove('out');
     }
