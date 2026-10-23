@@ -602,16 +602,20 @@ function esc(text) {
     return (p + stops[i].stay / 2) * window.innerHeight;
   }
 
-  // The view follows the scroll with a little give, so the travel stays smooth.
-  var x = 0, y = 0, running = false, last = 0, shown = -1;
+  // The view follows the scroll in two stages - a lead that follows the scroll, the view that
+  // follows the lead - so a move to the next screen starts gently, glides and slows at its end,
+  // taking about a second however quickly the scroll itself jumps there.
+  var x = 0, y = 0, lx = 0, ly = 0, running = false, last = 0, shown = -1;
   function frame(now) {
     var target = where(window.scrollY / window.innerHeight);
-    var k = last ? 1 - Math.pow(1 - 0.11, (now - last) / 16.7) : 1;
+    var k = last ? 1 - Math.pow(1 - 0.075, (now - last) / 16.7) : 1;
     last = now;
-    x += (target.x - x) * k;
-    y += (target.y - y) * k;
-    var settled = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005;
-    if (settled) { x = target.x; y = target.y; }
+    lx += (target.x - lx) * k;
+    ly += (target.y - ly) * k;
+    x += (lx - x) * k;
+    y += (ly - y) * k;
+    var settled = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005 && Math.abs(target.x - lx) < 0.0005 && Math.abs(target.y - ly) < 0.0005;
+    if (settled) { x = lx = target.x; y = ly = target.y; }
     // In halves of the ground (which is two screens wide and high), so it needs no measuring.
     plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
     // Nearer the demo's screen than any other, the live panel steps aside.
@@ -636,7 +640,7 @@ function esc(text) {
   size();
   // Arriving from a link or a reload part-way: start where the scroll already is.
   var first = where(window.scrollY / window.innerHeight);
-  x = first.x; y = first.y;
+  x = lx = first.x; y = ly = first.y;
   wake();
 })();
 
