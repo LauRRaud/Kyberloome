@@ -673,12 +673,12 @@ h1, .private h2 { padding-bottom: .14em; }
   inset: 0;
   z-index: -1;
   background: url(assets/icon-256.png) center / contain no-repeat;
-  filter: blur(56px) saturate(1.6);
-  opacity: .6;
-  transform: translateY(14px) scale(1.5);
+  filter: blur(40px) saturate(1.6);
+  opacity: .7;
+  transform: translateY(12px) scale(1.28);
   animation: halo 7s ease-in-out infinite alternate;
 }
-@keyframes halo { to { opacity: .42; transform: translateY(18px) scale(1.7); } }
+@keyframes halo { to { opacity: .5; transform: translateY(15px) scale(1.4); } }
 .get-icon { display: block; width: 128px; height: 128px; }
 .get h2 {
   font-size: clamp(36px, 5vw, 64px);
