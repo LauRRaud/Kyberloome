@@ -203,13 +203,22 @@ function esc(text) {
   function closeSoon() { closeTimer = setTimeout(function () { setOpen(false); }, 160); }
 
   function near(edge, distance) { return distance < (at.dock === edge ? DETACH : ATTACH); }
+  // A finger brought this close to a side of the screen brings the panel there (and it stays while
+  // the finger is not much further off). A panel nearly as wide as the window - an open one on a
+  // phone - is close to both sides wherever it is, so for it only the pointer counts.
+  var REACH = 28, LEAVE = 44;
+  function sideNear(edge, panelGap, pointerGap, wide) {
+    var reached = pointerGap < (at.dock === edge ? LEAVE : REACH);
+    if (wide) return reached;
+    return near(edge, panelGap) || (drag.touch && reached);
+  }
   // One step of a drag, the pointer at (cx, cy). The top edge wins in a corner.
   function dragTo(cx, cy) {
     var v = viewport(), s = current(), before = at.dock;
-    var x = cx - drag.grab.x, y = cy - drag.grab.y;
+    var x = cx - drag.grab.x, y = cy - drag.grab.y, wide = v.w - s[0] < 2 * LEAVE;
     var dock = near('top', y) ? 'top'
-      : near('left', x - s[0] / 2) ? 'left'
-      : near('right', v.w - (x + s[0] / 2)) ? 'right'
+      : sideNear('left', x - s[0] / 2, cx, wide) ? 'left'
+      : sideNear('right', v.w - (x + s[0] / 2), v.w - cx, wide) ? 'right'
       : 'loose';
     if (dock !== before) glide();
     at = { dock: dock, x: x, y: y };
@@ -231,7 +240,7 @@ function esc(text) {
   notch.addEventListener('pointerdown', function (e) {
     if (e.button !== 0) return;
     var p = standing();
-    drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, moved: false, grab: { x: e.clientX - p.x, y: e.clientY - p.y } };
+    drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, moved: false, touch: e.pointerType !== 'mouse', grab: { x: e.clientX - p.x, y: e.clientY - p.y } };
     try { notch.setPointerCapture(e.pointerId); } catch (err) { /* drags then end at the edge of the panel */ }
   });
   notch.addEventListener('pointermove', function (e) {
