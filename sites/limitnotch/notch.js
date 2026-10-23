@@ -227,6 +227,7 @@
   var cur = document.getElementById('dcur');
   var ring = document.getElementById('ring');
   var caption = document.getElementById('caption');
+  var toast = document.getElementById('toast');
   var steps = section.querySelectorAll('.steps b');
   var W = 1100, H = 687.5, TASKBAR = 48;
 
@@ -249,6 +250,10 @@
     size.rowTimes = [withTimes + 32, rowFull.offsetHeight + 22];
     size.stackClosed = [stackMini.offsetWidth + 32, stackMini.offsetHeight + 16];
     size.stackOpen = [stackFull.offsetWidth + 32, stackFull.offsetHeight + 22];
+    // With a reset to use, its line is longer by the reset at its end.
+    dn.classList.add('reset');
+    size.rowReset = [rowFull.offsetWidth + 32, rowFull.offsetHeight + 22];
+    dn.classList.remove('reset');
     void dn.offsetWidth;
     dn.classList.remove('measure');
   }
@@ -258,7 +263,7 @@
   function show(ms) {
     var side = panel.dock === 'right';
     var s = side ? (panel.open ? size.stackOpen : size.stackClosed)
-      : panel.open ? (panel.times ? size.rowTimes : size.rowOpen) : size.rowClosed;
+      : panel.open ? (panel.times ? size.rowTimes : panel.reset ? size.rowReset : size.rowOpen) : size.rowClosed;
     var left = side ? W - s[0] : Math.max(0, Math.min(W - s[0], panel.x - s[0] / 2));
     var top = panel.dock === 'top' ? 0 : Math.max(0, Math.min(H - TASKBAR - s[1], panel.y));
     dn.style.setProperty('--d', (ms || 420) + 'ms');
@@ -271,6 +276,7 @@
     dn.classList.toggle('side', side);
     dn.classList.toggle('right', side);
     dn.classList.toggle('loose', panel.dock === 'loose');
+    dn.classList.toggle('reset', !!panel.reset);
   }
 
   var cursorAt = { x: 860, y: 540 };
@@ -306,7 +312,7 @@
     return wait(240).then(function () { dn.classList.remove('morph'); });
   }
 
-  // Step n of four: its bar fills for as long as the step lasts.
+  // Step n of three: its bar fills for as long as the step lasts.
   function step(n, text, ms) {
     Array.prototype.forEach.call(steps, function (bar, i) {
       bar.style.transition = 'none';
@@ -339,36 +345,52 @@
     }, { threshold: 0.2 }).observe(section);
   } else visible = true;
 
+  // The open panel's width now: with a reset to use, its line is longer.
+  function openWidth() { return (panel.reset ? size.rowReset : size.rowOpen)[0]; }
+
   async function play() {
     for (;;) {
-      panel = { dock: 'top', open: false, times: false, x: W / 2, y: 0 };
+      panel = { dock: 'top', open: false, times: false, reset: false, x: W / 2, y: 0 };
       show(0);
+      toast.classList.remove('in');
       cur.classList.remove('on');
       cursor(860, 540, 0);
-
-      // 1. The bars at the top edge: the limits at a glance.
-      step(1, 'Glance.', 2600);
-      await wait(900);
+      await wait(700);
       cur.classList.add('on');
-      await wait(1700);
 
-      // 2. Hover: the numbers.
-      step(2, 'Hover for the numbers.', 3000);
+      // 1. Hover for the numbers, click for the time until each limit resets.
+      step(1, '<span class="w">Hover</span> for the numbers, <span class="w">click</span> for the times.', 6200);
+      await wait(400);
       cursor(W / 2, 14, 1100);
       await wait(1150);
+      word(0);
       panel.open = true; show();
-      await wait(1850);
-
-      // 3. Click: the time until each limit resets.
-      step(3, 'Click for the reset times.', 3100);
+      await wait(1700);
+      word(1);
       click(); panel.times = true; show();
-      await wait(2600);
+      await wait(2300);
       click(); panel.times = false; show();
-      await wait(500);
+      await wait(400);
 
-      // 4. Drag it. Pulled down it comes off the top edge; at the right edge it joins it and
+      // 2. A limit reset: the notification comes in, and the panel, opened, shows it at the end
+      //    of ChatGPT's line - where it stays while the panel is dragged about.
+      step(2, 'Never miss a <span class="fresh">reset</span>.', 6600);
+      cursor(800, 430, 800);
+      await wait(250);
+      panel.open = false; show();
+      await wait(700);
+      toast.classList.add('in');
+      panel.reset = true;
+      await wait(1400);
+      cursor(W / 2, 14, 900);
+      await wait(950);
+      panel.open = true; show();
+      await wait(2900);
+
+      // 3. Drag it. Pulled down it comes off the top edge; at the right edge it joins it and
       //    stands upright; from there out onto the screen; and back up to the top edge.
-      step(4, '<span class="w">Top.</span> <span class="w">Side.</span> <span class="w">Anywhere.</span>', 13800);
+      step(3, '<span class="w">Top.</span> <span class="w">Side.</span> <span class="w">Anywhere.</span>', 13800);
+      toast.classList.remove('in');
       await wait(350);
       word(0);
       await wait(450);
@@ -376,7 +398,7 @@
       await dock({ dock: 'loose', x: W / 2, y: 18 });
       drag(762, 184, { dock: 'loose', x: 762, y: 170 }, 650);
       await wait(650);
-      var edge = W - 12 - size.rowOpen[0] / 2;
+      var edge = W - 12 - openWidth() / 2;
       drag(edge, 214, { dock: 'loose', x: edge, y: 200 }, 550);
       await wait(560);
       word(1);
@@ -390,7 +412,7 @@
       await wait(820);
       panel.open = true; show();
       await wait(550);
-      var off = W - 16 - size.rowOpen[0] / 2;
+      var off = W - 16 - openWidth() / 2;
       await dock({ dock: 'loose', x: off, y: 200 });
       drag(420 + (W - 40 - off), 362, { dock: 'loose', x: 420, y: 340 }, 850);
       word(2);
@@ -431,94 +453,8 @@
   else play();
 })();
 
-// Limit resets: a small screen of their own. A notification of a new reset comes in, the cursor
-// goes up to the notch, and the notch, opening, shows the reset at the end of ChatGPT's line - in
-// a loop, while the screen is in view. With less motion wanted it all just stands there.
-(function () {
-  var screen = document.getElementById('rscreen');
-  if (!screen) return;
-  var desk = document.getElementById('rdesk'), rn = document.getElementById('rn');
-  var toast = document.getElementById('toast'), cur = document.getElementById('rcur');
-  var mini = rn.querySelector('.notch-mini'), full = rn.querySelector('.notch-full');
-  var W = 1100, closed, open;
-
-  function fit() { desk.style.setProperty('--s', screen.clientWidth / W); }
-  fit();
-  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(screen);
-  else window.addEventListener('resize', fit);
-
-  // Its sizes, open and closed, from its own content - as the app's.
-  function measure() {
-    rn.classList.add('measure');
-    closed = [mini.offsetWidth + 32, 29];
-    open = [full.offsetWidth + 32, full.offsetHeight + 22];
-    rn.classList.remove('measure');
-  }
-  function show(isOpen) {
-    var s = isOpen ? open : closed;
-    rn.style.width = s[0] + 'px';
-    rn.style.height = s[1] + 'px';
-    rn.style.left = (W - s[0]) / 2 + 'px';
-    rn.classList.toggle('open', isOpen);
-  }
-  function cursor(x, y, ms) {
-    cur.style.setProperty('--d', ms + 'ms');
-    cur.style.setProperty('--x', (x - 1) + 'px');
-    cur.style.setProperty('--y', (y - 1) + 'px');
-  }
-
-  // Paused while the screen is out of view.
-  var visible = false, resume = null;
-  function wait(ms) {
-    return new Promise(function (done) { setTimeout(done, ms); }).then(function () {
-      if (visible) return;
-      return new Promise(function (done) { resume = done; });
-    });
-  }
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting;
-      if (visible && resume) { var go = resume; resume = null; go(); }
-    }).observe(screen);
-  } else visible = true;
-
-  async function play() {
-    for (;;) {
-      show(false);
-      cursor(820, 470, 0);
-      await wait(900);
-      // The notification comes in...
-      toast.classList.add('in');
-      await wait(1400);
-      // ...and the cursor goes up to the notch, which opens on it: the reset is there.
-      cur.classList.add('on');
-      cursor(W / 2 + 30, 14, 900);
-      await wait(950);
-      show(true);
-      await wait(3200);
-      cursor(800, 430, 900);
-      await wait(300);
-      show(false);
-      await wait(600);
-      toast.classList.remove('in');
-      cur.classList.remove('on');
-      await wait(1600);
-    }
-  }
-
-  measure();
-  show(false);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    toast.classList.add('in');
-    show(true);
-    return;
-  }
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); show(false); play(); });
-  else play();
-})();
-
-// The trip: scrolling travels through the page's five screens - right, right, down, then left -
-// with a short stay at each. The page is as tall as the trip; the screens stay put while the view moves
+// The trip: scrolling travels through the page's four screens - right, down, then left - with a
+// short stay at each. The page is as tall as the trip; the screens stay put while the view moves
 // over them. The squares in the corner show where you are and take you to a screen.
 (function () {
   var world = document.getElementById('world');
@@ -532,9 +468,8 @@
   var stops = [
     { at: [0, 0], stay: 0.05 },
     { at: [1, 0], stay: 0.35 },
-    { at: [2, 0], stay: 0.35 },
-    { at: [2, 1], stay: 0.2 },
-    { at: [1, 1], stay: 0.3 }
+    { at: [1, 1], stay: 0.2 },
+    { at: [0, 1], stay: 0.3 }
   ];
   var MOVE = 0.6;
   var length = stops.reduce(function (n, s) { return n + s.stay; }, 0) + MOVE * (stops.length - 1);
@@ -572,10 +507,9 @@
     y += (target.y - y) * k;
     var settled = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005;
     if (settled) { x = target.x; y = target.y; }
-    // In parts of the ground (three screens wide, two high), so it needs no measuring.
-    plane.style.transform = 'translate3d(' + (-x * 100 / 3) + '%,' + (-y * 50) + '%,0)';
-    // Nearer one of the screens with a panel of its own (the demo's, the resets') than any other,
-    // the live panel steps aside.
+    // In halves of the ground (which is two screens wide and high), so it needs no measuring.
+    plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
+    // Nearer the demo's screen than any other, the live panel steps aside.
     notch.classList.toggle('away', x > 0.5 && y < 0.5);
     if (target.stop !== shown) {
       shown = target.stop;
