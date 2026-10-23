@@ -31,7 +31,7 @@ const steps = [
 ];
 // Name, description, icon and optional Microsoft Store address.
 const apps: [string, string, StaticImageData, string?][] = [
-  ['Limit Notch', 'A desktop widget that shows your Claude and ChatGPT usage limits.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
+  ['Limit Notch', 'A desktop widget that shows your Claude and ChatGPT usage limits and tells you when a limit reset arrives.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Improves movie audio compatibility without changing the video.', movieSoundFixerIcon],
 ];
 // Name, description and address.
