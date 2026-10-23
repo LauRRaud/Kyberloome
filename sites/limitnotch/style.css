@@ -360,7 +360,8 @@ h1 {
   letter-spacing: .22em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .8);
-  text-shadow: 0 1px 12px rgba(0, 0, 0, .5);
+  /* Tight, so the shadows of the spaced-out letters do not run together into a dark band. */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .35);
   white-space: nowrap;
 }
 .try .say { transition: opacity .18s ease-out; }
