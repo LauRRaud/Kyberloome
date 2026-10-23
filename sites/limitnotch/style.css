@@ -306,10 +306,10 @@ h1 {
   padding: 15px 44px 16px;
   border: 0;
   border-radius: 8px;
-  background: rgba(255, 255, 255, .13);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .17), rgba(255, 255, 255, .08));
   -webkit-backdrop-filter: blur(22px) saturate(150%);
   backdrop-filter: blur(22px) saturate(150%);
-  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 -1px 0 rgba(255, 255, 255, .06);
+  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, .9), inset 0 0 0 1px rgba(255, 255, 255, .1), inset 0 1px 0 rgba(255, 255, 255, .22);
   color: #fff;
   font-size: 15px;
   font-weight: 600;
@@ -320,7 +320,7 @@ h1 {
 .cta, .store { transition: translate .6s var(--glide), transform .35s var(--glide), background .35s var(--glide); }
 .cta.pull, .cta.pull .store { transition: translate .18s ease-out, transform .35s var(--glide), background .35s var(--glide); }
 .cta:hover .glow { opacity: 1; transform: scale(1.08); }
-.store:hover { background: rgba(255, 255, 255, .19); transform: translateY(-1px); }
+.store:hover { background: linear-gradient(180deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .12)); transform: translateY(-1px); }
 .store:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
 .meta {
   margin-top: 20px;
@@ -648,17 +648,46 @@ h1, .private h2 { padding-bottom: .14em; }
 .private p { margin-top: 26px; letter-spacing: .04em; color: var(--muted); font-size: clamp(16px, 1.6vw, 19px); }
 @keyframes sheen { from { background-position: 0 0; } to { background-position: -200% 0; } }
 
-.get { padding-bottom: 14vh; }
-/* The glow follows the icon's own shape (it has a clear margin of its own), so no dark ring
-   shows between the two. */
-.get-icon {
+.get { position: relative; isolation: isolate; padding-bottom: 14vh; }
+/* The code on the ground fades out towards the icon, the name and the button. */
+.get::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse 44% 54% at 50% 47%, var(--bg) 50%, rgba(5, 5, 8, .8) 72%, transparent);
+  pointer-events: none;
+}
+/* The icon lights the dark around it in its own colours: a blurred copy of it behind, which
+   breathes slowly. */
+.get-mark {
+  position: relative;
   display: block;
   width: 128px;
   height: 128px;
-  margin: 0 auto 34px;
-  filter: drop-shadow(0 0 26px rgba(210, 85, 74, .5)) drop-shadow(0 0 40px rgba(58, 111, 158, .45));
+  margin: 0 auto 40px;
 }
-.get h2 { font-size: clamp(36px, 5vw, 64px); }
+.get-mark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url(assets/icon-256.png) center / contain no-repeat;
+  filter: blur(30px) saturate(1.8);
+  opacity: 1;
+  transform: translateY(12px) scale(1.25);
+  animation: halo 7s ease-in-out infinite alternate;
+}
+@keyframes halo { to { opacity: .7; transform: translateY(16px) scale(1.4); } }
+.get-icon { display: block; width: 128px; height: 128px; }
+.get h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -.02em;
+  background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, .62));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 .get .meta, .get .cta { animation: none; }
 
 footer {
