@@ -218,10 +218,10 @@ h1, h2, p { margin: 0; }
   animation: ribbon-a 28s var(--glide) infinite alternate;
 }
 .aurora span:nth-child(2) {
-  width: 102vmax; height: 23vmax; right: -16vmax; top: -5vmax;
+  width: 102vmax; height: 23vmax; right: -16vmax; top: -10vmax;
   background: linear-gradient(90deg, transparent 5%, var(--plum) 32%, var(--blue) 66%, transparent 94%);
   transform: rotate(17deg);
-  opacity: .86;
+  opacity: .76;
   animation: ribbon-b 34s var(--glide) infinite alternate;
 }
 .aurora span:nth-child(3) {
