@@ -64,6 +64,15 @@ export default function AppsPrivacy() {
         <li>Rakendus salvestab ainult oma seaded – keele, välimuse ja selle, kas originaal pärast valmimist kustutada – kausta sinu kasutajaprofiili all.</li>
       </ul>
 
+      <h3>Movie &amp; Video Player</h3>
+      <p>Movie &amp; Video Player mängib sinu arvutis videofaile, sealhulgas heli, mida Windowsi enda mängija ei mängi, näiteks AC-3, E-AC-3 ja DTS, ilma faili teisendamata.</p>
+      <ul>
+        <li>Rakendus loeb sinu avatud videot ja samas kaustas olevaid samanimelisi subtiitrifaile või subtiitrifaile, mille ise lisad. See mängib neid sinu arvutis ega muuda neid. Sinu videoid, subtiitreid, failinimesid ega failiteid ei laadita kuhugi üles ning filmide mängimiseks ei ühendu rakendus internetti.</li>
+        <li>Rakendus salvestab ainult oma seaded – helitugevuse, keele ja subtiitrite välimuse – kausta MoviePlayer sinu kasutajaprofiili kohalike rakenduseandmete all (%LOCALAPPDATA%\MoviePlayer). Kui rakendus ootamatult sulgub, kirjutab see vea tehnilised üksikasjad samas kaustas olevasse logifaili. Need ei lahku sinu arvutist.</li>
+        <li>Rakendusel pole kontot, reklaame, analüütikat ega telemeetriat.</li>
+        <li>Kui video vajab Microsoft Store’i videolaiendust, näiteks HEVC-d, saab rakendus sinu valikul avada selle laienduse poelehe. Laiendust pakub Microsoft oma tingimuste alusel.</li>
+      </ul>
+
       <h2>Tingimuste muutmine</h2>
       <p>Uuendame neid tingimusi, kui meie tooted muutuvad. Lehe alguses olev kuupäev näitab viimast versiooni. Kui mõni toode hakkab andmeid teisiti käsitlema, kirjeldame seda toote jaotises enne muudatuse avaldamist.</p>
     </main>

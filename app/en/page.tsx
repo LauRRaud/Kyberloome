@@ -8,6 +8,7 @@ import CursorGrid from '../ui/cursor-grid';
 import DevelopmentVisual from '../ui/development-visual';
 import limitNotchIcon from '../ui/limit-notch-icon.png';
 import movieSoundFixerIcon from '../ui/movie-sound-fixer-icon.png';
+import movieAndVideoPlayerIcon from '../ui/movie-and-video-player-icon.png';
 import type { StaticImageData } from 'next/image';
 import '../studio.css';
 
@@ -33,6 +34,7 @@ const steps = [
 const apps: [string, string, StaticImageData, string?][] = [
   ['Limit Notch', 'A desktop widget that shows your Claude and ChatGPT usage limits and tells you when a limit reset arrives.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Improves movie audio compatibility without changing the video.', movieSoundFixerIcon],
+  ['Movie & Video Player', 'A movie player that also plays AC-3, E-AC-3 and DTS audio without converting the file, and shows subtitles.', movieAndVideoPlayerIcon],
 ];
 // Name, description and address.
 const websites = [

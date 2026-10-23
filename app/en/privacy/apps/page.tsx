@@ -64,6 +64,15 @@ export default function AppsPrivacy() {
         <li>It stores only its own settings — language, appearance and whether to delete the original when done — in a folder under your user profile.</li>
       </ul>
 
+      <h3>Movie &amp; Video Player</h3>
+      <p>Movie &amp; Video Player plays video files on your PC, including audio that Windows’ own player cannot play, such as AC-3, E-AC-3 and DTS, without converting the file.</p>
+      <ul>
+        <li>It reads the video you open and any subtitle files with the same name in the same folder, or subtitle files you add yourself. It plays them on your PC and does not change them. Your videos, subtitles, file names and file paths are not uploaded anywhere, and the app does not connect to the internet to play them.</li>
+        <li>It stores only its own settings — volume, language and subtitle appearance — in the MoviePlayer folder under your user profile’s local app data (%LOCALAPPDATA%\MoviePlayer). If the app stops unexpectedly, it writes technical details of the error to a log file in the same folder. None of it leaves your PC.</li>
+        <li>It has no account, advertising, analytics or telemetry.</li>
+        <li>If a video needs a video extension from Microsoft Store, such as HEVC, the app can open that extension’s Store page when you choose to. The extension is provided by Microsoft under its own terms.</li>
+      </ul>
+
       <h2>Changes to this policy</h2>
       <p>We update this policy when our products change. The date at the top shows the latest version, and a product that starts handling data differently is described in its own section before that change is released.</p>
     </main>
