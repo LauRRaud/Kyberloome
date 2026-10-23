@@ -238,6 +238,16 @@ h1, h2, p { margin: 0; }
   inset: 0;
   background: radial-gradient(ellipse 80% 70% at 50% 30%, transparent 30%, var(--bg) 92%);
 }
+/* On the trip the next screens lie to the right and below: there the light dies out softly into
+   the ground before the edge, rather than being cut off by it. */
+.travel .hero .aurora {
+  -webkit-mask-image: linear-gradient(90deg, #000 45%, rgba(0, 0, 0, .55) 72%, rgba(0, 0, 0, .15) 88%, transparent 99%),
+    linear-gradient(180deg, #000 40%, rgba(0, 0, 0, .5) 70%, transparent 97%);
+  mask-image: linear-gradient(90deg, #000 45%, rgba(0, 0, 0, .55) 72%, rgba(0, 0, 0, .15) 88%, transparent 99%),
+    linear-gradient(180deg, #000 40%, rgba(0, 0, 0, .5) 70%, transparent 97%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
 @keyframes ribbon-a { to { transform: rotate(-7deg) translate(8vmax, 5vmax) scaleX(1.1); } }
 @keyframes ribbon-b { to { transform: rotate(9deg) translate(-9vmax, 7vmax) scaleX(.9); } }
 @keyframes ribbon-c { to { transform: rotate(4deg) translate(5vmax, 4vmax); } }

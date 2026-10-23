@@ -452,18 +452,18 @@ function esc(text) {
       cur.classList.add('on');
 
       // 1. Hover for the numbers, click for the time until each limit resets.
-      step(1, captionOf(1), 6200);
-      await wait(400);
-      cursor(W / 2, 14, 1100);
-      await wait(1150);
+      step(1, captionOf(1), 4600);
+      await wait(250);
+      cursor(W / 2, 14, 850);
+      await wait(900);
       word(0);
       panel.open = true; show();
-      await wait(1700);
+      await wait(1200);
       word(1);
       click(); panel.times = true; show();
-      await wait(2300);
+      await wait(1700);
       click(); panel.times = false; show();
-      await wait(400);
+      await wait(300);
 
       // 2. A limit reset: the notification comes in, and the panel, opened, shows it at the end
       //    of ChatGPT's line - where it stays while the panel is dragged about.
@@ -613,6 +613,7 @@ function esc(text) {
     move = d < 0.001 ? null : { fx: x, fy: y, to: i, way: i - at, start: performance.now(), time: 1700 * Math.sqrt(d) };
     queued = 0;
     at = i;
+    clearTimeout(rest);
     place();
     wake();
   }
@@ -684,30 +685,44 @@ function esc(text) {
   // its way, and so does a wheel kept turning; a drift dying out asks for nothing. The language
   // wheel turns with its own.
   var push = null;
+  function fresh() { return { sum: 0, asked: null, peak: 0, min: Infinity, max: 0, below: 0, dipped: false, low: false, above: 0 }; }
   window.addEventListener('wheel', function (e) {
     if (e.ctrlKey || (wheel && wheel.contains(e.target))) return;
     e.preventDefault();
     // In pixels, whether the browser counts in pixels, lines or pages.
     var dy = e.deltaY * (e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? window.innerHeight : 1);
     if (!dy) return;
-    var now = performance.now(), size = Math.abs(dy);
-    // A pause of a little under a fifth of a second, or a turn the other way, begins a new push.
-    if (!push || now - push.last > 180 || push.sum * dy < 0) push = { sum: 0, asked: null, peak: 0, low: 0, dipped: false };
-    push.last = now;
-    push.sum += dy;
-    // How it goes: up to its height, then (a drift) down to under half of that, and from that low
-    // up again (a new push before the drift has died out).
+    var now = performance.now(), size = Math.abs(dy), p = push;
+    // A wheel's notches come in steps of one size (or two at once); a touchpad's vary widely.
+    var notches = p && p.max <= p.min * 2.01, quiet = p ? now - p.last : Infinity;
+    // A turn the other way begins a new push, and so does a pause: a fifth of a second after
+    // notches; after a touchpad's steps nearly half a second, as its drift comes slower and
+    // slower before it stops - unless what comes after the pause is stronger than the push was.
+    if (!p || p.sum * dy < 0 || quiet > (notches ? 180 : 450) || (quiet > 180 && size > p.peak * 1.2)) p = push = fresh();
+    else if (quiet > 180) { p.dipped = true; p.low = size < p.peak * 0.4; p.above = 0; }
+    p.last = now;
+    p.sum += dy;
+    p.min = Math.min(p.min, size);
+    p.max = Math.max(p.max, size);
+    // How a push goes: up to its height, then, as it dies down, a few steps in a row under 40 % of
+    // that (or a pause). A new push before it has died out comes up again from such a low step to
+    // over 60 % for two steps in a row; a step or two out of line on the way is not one.
     var anew = false;
-    if (push.dipped) {
-      push.low = Math.min(push.low, size);
-      anew = size >= 8 && size > push.low * 2.5;
-    } else {
-      push.peak = Math.max(push.peak, size);
-      if (size < push.peak * 0.5) { push.dipped = true; push.low = size; }
+    if (!p.dipped) {
+      p.peak = Math.max(p.peak, size);
+      p.below = size < p.peak * 0.4 ? p.below + 1 : 0;
+      if (p.below >= 3) p.dipped = p.low = true;
+    } else if (size < p.peak * 0.4) {
+      p.low = true;
+      p.above = 0;
+    } else if (p.low && size >= 8 && size > p.peak * 0.6) {
+      anew = ++p.above >= 2 && p.asked !== null && now - p.asked > 350;
     }
-    if (push.asked === null ? Math.abs(push.sum) < 12 : !anew && (push.dipped || now - push.asked < 900)) return;
-    push.asked = now;
-    if (anew) { push.peak = size; push.dipped = false; }
+    // Notches turned on and on ask again each 0.9 s.
+    var steady = p.asked !== null && !p.dipped && p.max <= p.min * 2.01 && now - p.asked >= 900;
+    if (p.asked === null ? Math.abs(p.sum) < 12 : !anew && !steady) return;
+    p.asked = now;
+    if (anew) { p.peak = size; p.below = 0; p.dipped = p.low = false; p.above = 0; }
     ask(dy > 0 ? 1 : -1);
   }, { passive: false });
 
