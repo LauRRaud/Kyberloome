@@ -34,7 +34,7 @@ const steps = [
 const apps: [string, string, StaticImageData, string?][] = [
   ['Limit Notch', 'A small limit indicator at the top of your screen. It shows your Claude and ChatGPT usage limits and tells you when a limit reset arrives.', limitNotchIcon, 'https://apps.microsoft.com/detail/9P65S14KRHFR'],
   ['Movie Sound Fixer', 'Improves movie audio compatibility without changing the video.', movieSoundFixerIcon, 'https://apps.microsoft.com/detail/9PH7QF6TTCSP'],
-  ['Movie & Video Player', 'A movie player that also plays AC-3, E-AC-3 and DTS audio without converting the file, and shows subtitles.', movieAndVideoPlayerIcon],
+  ['Movie & Video Player', 'A movie player that also plays AC-3, E-AC-3 and DTS audio without converting the file, and shows subtitles.', movieAndVideoPlayerIcon, 'https://apps.microsoft.com/detail/9PMZFSJT1JHP'],
 ];
 // Name, description and address.
 const websites = [
