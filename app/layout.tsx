@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: 'Küberloome',
   description: 'Loome tarkvara, SaaS-lahendusi ja veebilehti ning automatiseerime ettevõtete tööprotsesse.',
   alternates: { canonical: '/', languages: { et: '/', en: '/en' } },
+  openGraph: { type: 'website', siteName: 'Küberloome', locale: 'et_EE', alternateLocale: ['en_GB'] },
+  twitter: { card: 'summary_large_image' },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="et"><body>{children}</body></html>;
