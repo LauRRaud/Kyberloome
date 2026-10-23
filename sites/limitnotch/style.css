@@ -137,7 +137,8 @@ h1, h2, p { margin: 0; }
   opacity: 1;
   transition: max-width 420ms var(--glide), padding 420ms var(--glide), opacity 220ms ease-out 160ms;
 }
-.time svg { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+/* A pixel lower, as in the app, so the icons sit level with the digits beside them. */
+.time svg { width: 12px; height: 12px; margin-top: 1px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 /* Sizes are measured once, without any motion. */
 .np.measure, .np.measure * { transition: none !important; }
 
@@ -583,10 +584,11 @@ h2 {
 .notch .name.head, .dn .name.head { display: flex; align-items: center; justify-content: space-between; }
 .notch.open .badge { animation: badge-in 1.4s ease-out .45s both; }
 .badge .time { color: var(--fresh); }
+.np.times .badge .time { padding-left: 6px; }
 .dn .badge { display: none; }
 .dn.reset .badge { display: flex; }
 .badge { align-items: center; gap: 4px; padding-left: 12px; font-size: 14px; font-weight: 600; color: var(--fresh); }
-.badge svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.badge svg { width: 12px; height: 12px; margin-top: 1px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .dn.open.reset .badge { animation: badge-in 1.4s ease-out .45s both; }
 @keyframes badge-in {
   0% { opacity: 0; transform: scale(.6); }
