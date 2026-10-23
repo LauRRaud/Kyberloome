@@ -782,10 +782,98 @@
     Array.prototype.forEach.call(lines, function (el) { seen.observe(el); });
   }
 
+  // The maker's name in the footer, as on its own site: its letters show as ones and zeros, which
+  // flicker and settle into the letters one by one, in no order - when it comes into view, and
+  // again when the mouse comes over it.
+  var maker = document.querySelector('[data-bits]');
+  if (maker) {
+    var name = maker.textContent, letters = Array.from(name), cells, size, out, timer = 0, playing = false;
+    var shuffle = function (values) {
+      for (var i = values.length - 1; i > 0; i--) {
+        var j = Math.random() * (i + 1) | 0, v = values[i];
+        values[i] = values[j];
+        values[j] = v;
+      }
+      return values;
+    };
+    var wrap = document.createElement('span');
+    wrap.className = 'bits';
+    wrap.setAttribute('aria-hidden', 'true');
+    size = document.createElement('span');
+    size.className = 'size';
+    size.textContent = name;
+    out = document.createElement('span');
+    out.className = 'out';
+    cells = letters.map(function (ch) {
+      var cell = document.createElement('span');
+      cell.textContent = ch;
+      out.appendChild(cell);
+      return cell;
+    });
+    wrap.appendChild(size);
+    wrap.appendChild(out);
+    maker.textContent = '';
+    maker.appendChild(wrap);
+    maker.setAttribute('aria-label', name);
+    var fit = function () {
+      if (out.offsetWidth > 0) out.style.transform = 'scaleX(' + size.offsetWidth / out.offsetWidth + ')';
+    };
+    var finish = function () {
+      clearTimeout(timer);
+      playing = false;
+      cells.forEach(function (cell, i) {
+        cell.textContent = letters[i];
+        cell.removeAttribute('data-bit');
+      });
+      fit();
+    };
+    var play = function () {
+      if (playing || document.hidden) return;
+      playing = true;
+      var start = performance.now();
+      var order = shuffle(cells.map(function (_, i) { return i; }));
+      var settles = cells.map(function (_, i) { return 850 + order[i] * 130 + Math.random() * 110; });
+      var tick = function () {
+        var t = performance.now() - start;
+        if (t >= 850 + cells.length * 130 + 150) { finish(); return; }
+        var open = cells.filter(function (_, i) { return t < settles[i]; });
+        // As many ones as zeros, shuffled; flipped if that would change nothing.
+        var bits = shuffle(open.map(function (_, k) { return k % 2 ? '1' : '0'; }));
+        if (open.every(function (cell, k) { return cell.textContent === bits[k]; }))
+          bits = bits.map(function (bit) { return bit === '0' ? '1' : '0'; });
+        var k = 0;
+        cells.forEach(function (cell, i) {
+          if (t >= settles[i]) {
+            cell.textContent = letters[i];
+            cell.removeAttribute('data-bit');
+          } else {
+            cell.textContent = bits[k++];
+            cell.setAttribute('data-bit', '');
+          }
+        });
+        fit();
+        timer = setTimeout(tick, 100 + Math.random() * 40);
+      };
+      tick();
+    };
+    maker.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') play(); });
+    maker.addEventListener('focus', play);
+    document.addEventListener('visibilitychange', function () { if (document.hidden) finish(); });
+    if ('IntersectionObserver' in window) {
+      var revealed = false;
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting && !revealed) { revealed = true; play(); }
+        else if (!entries[0].isIntersecting) finish();
+      }, { threshold: 0.6 }).observe(maker);
+    }
+  }
+
   // The terminal: a short session, typed and answered, again and again while it is in view.
+  // Every third time it is another one, for whoever watches that long: the AI asked about its
+  // own limit.
   var term = document.getElementById('term');
   if (!term) return;
-  var SESSION = [
+  var WORK = [
     ['you', 'add a retry to the sync job'],
     ['tool', 'Read src/sync.ts'],
     ['tool', 'Edit src/sync.ts  +18 \u22123'],
@@ -795,6 +883,16 @@
     ['you', 'write the changelog entry'],
     ['tool', 'Edit CHANGELOG.md  +4'],
     ['say', 'Added under 1.4.0.']
+  ];
+  var EGG = [
+    ['you', 'how much of my limit is left?'],
+    ['say', 'Look up. \u2191'],
+    ['you', 'and when it runs low?'],
+    ['tool', 'Edit src/notch.ts  +3'],
+    ['add', 'if (left < limit.max * 0.1) {'],
+    ['add', '  notch.warn(limit.name);'],
+    ['add', '}'],
+    ['say', 'It turns red before you run out.']
   ];
   var visible = false, resume = null;
   function ready() { return visible ? Promise.resolve() : new Promise(function (done) { resume = done; }); }
@@ -814,7 +912,8 @@
     return p;
   }
   (async function () {
-    for (;;) {
+    for (var run = 0; ; run++) {
+      var SESSION = run % 3 === 1 ? EGG : WORK;
       for (var i = 0; i < SESSION.length; i++) {
         await ready();
         var kind = SESSION[i][0], text = SESSION[i][1];
@@ -827,7 +926,7 @@
           await wait(500);
         } else {
           line(kind, text);
-          await wait(kind === 'tool' ? 650 : 450);
+          await wait(kind === 'tool' ? 650 : kind === 'add' ? 220 : 450);
         }
       }
       await wait(2600);

@@ -497,6 +497,9 @@ h2 {
 .term-body .tool::before { content: "\25CF  "; color: var(--claude); }
 .term-body .dim { color: rgba(255, 255, 255, .45); }
 .term-body .say { color: rgba(255, 255, 255, .92); }
+/* Lines an edit adds, as the terminal shows them: green, on a band of their own. */
+.term-body .add { margin: 0 -22px; padding: 0 22px; background: rgba(90, 208, 143, .1); color: #a6e9c3; }
+.term-body .add::before { content: "  + "; color: var(--fresh); }
 .term-body .typing::after {
   content: "";
   display: inline-block;
@@ -698,8 +701,14 @@ footer {
   letter-spacing: .16em;
   color: var(--muted);
 }
-footer span { margin: 0 16px; }
+footer p > span { margin: 0 16px; }
 footer a { text-decoration: none; }
+/* The maker's name comes out of ones and zeros, as it does on its own site: over the name itself,
+   unseen, the changing one is squeezed or stretched to the same width. */
+.bits { position: relative; display: inline-block; white-space: nowrap; }
+.bits .size { visibility: hidden; }
+.bits .out { position: absolute; top: 0; left: 0; display: flex; width: max-content; transform-origin: left center; }
+.bits [data-bit] { font-variant-numeric: tabular-nums; color: var(--faint); }
 footer a:hover { color: var(--text); }
 
 /* ---- the trip: four screens side by side and one below the other, travelled through by
