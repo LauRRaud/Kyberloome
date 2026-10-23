@@ -214,14 +214,14 @@ h1, h2, p { margin: 0; }
   width: 96vmax; height: 21vmax; left: -22vmax; top: -9vmax;
   background: linear-gradient(90deg, transparent 5%, var(--red) 35%, var(--claude) 62%, transparent 92%);
   transform: rotate(-14deg);
-  opacity: .66;
+  opacity: .72;
   animation: ribbon-a 28s var(--glide) infinite alternate;
 }
 .aurora span:nth-child(2) {
-  width: 102vmax; height: 23vmax; right: -16vmax; top: -10vmax;
+  width: 102vmax; height: 23vmax; right: -30vmax; top: -5vmax;
   background: linear-gradient(90deg, transparent 5%, var(--plum) 32%, var(--blue) 66%, transparent 94%);
   transform: rotate(17deg);
-  opacity: .76;
+  opacity: .9;
   animation: ribbon-b 34s var(--glide) infinite alternate;
 }
 .aurora span:nth-child(3) {
@@ -239,12 +239,11 @@ h1, h2, p { margin: 0; }
   background: radial-gradient(ellipse 80% 70% at 50% 30%, transparent 30%, var(--bg) 92%);
 }
 /* On the trip the next screens lie to the right and below: there the light dies out softly into
-   the ground before the edge, rather than being cut off by it - and a little at the left too, so
-   the warm side and the cool side stay even. */
+   the ground before the edge, rather than being cut off by it. */
 .travel .hero .aurora {
-  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, .7), #000 20%, #000 60%, rgba(0, 0, 0, .62) 80%, rgba(0, 0, 0, .22) 92%, transparent),
+  -webkit-mask-image: linear-gradient(90deg, #000 45%, rgba(0, 0, 0, .55) 72%, rgba(0, 0, 0, .15) 88%, transparent 99%),
     linear-gradient(180deg, #000 40%, rgba(0, 0, 0, .5) 70%, transparent 97%);
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, .7), #000 20%, #000 60%, rgba(0, 0, 0, .62) 80%, rgba(0, 0, 0, .22) 92%, transparent),
+  mask-image: linear-gradient(90deg, #000 45%, rgba(0, 0, 0, .55) 72%, rgba(0, 0, 0, .15) 88%, transparent 99%),
     linear-gradient(180deg, #000 40%, rgba(0, 0, 0, .5) 70%, transparent 97%);
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
