@@ -868,31 +868,41 @@
     }
   }
 
-  // The terminal: a short session, typed and answered, again and again while it is in view.
-  // Every third time it is another one, for whoever watches that long: the AI asked about its
-  // own limit.
+  // The terminal: short sessions, typed and answered, in turn, again and again while it is in
+  // view - the AI asked how much of its own limit is left, a flaky test found out, and a rewrite
+  // talked down to what is left of the week. The numbers are the panel's on the screen above.
   var term = document.getElementById('term');
   if (!term) return;
-  var WORK = [
-    ['you', 'add a retry to the sync job'],
-    ['tool', 'Read src/sync.ts'],
-    ['tool', 'Edit src/sync.ts  +18 \u22123'],
-    ['tool', 'Bash npm test'],
-    ['dim', '  42 passed'],
-    ['say', 'Done. A failed sync now retries three times.'],
-    ['you', 'write the changelog entry'],
-    ['tool', 'Edit CHANGELOG.md  +4'],
-    ['say', 'Added under 1.4.0.']
-  ];
-  var EGG = [
-    ['you', 'how much of my limit is left?'],
-    ['say', 'Look up. \u2191'],
-    ['you', 'and when it runs low?'],
-    ['tool', 'Edit src/notch.ts  +3'],
-    ['add', 'if (left < limit.max * 0.1) {'],
-    ['add', '  notch.warn(limit.name);'],
-    ['add', '}'],
-    ['say', 'It turns red before you run out.']
+  var SESSIONS = [
+    [
+      ['you', 'how much of my limit is left?'],
+      ['say', 'Look up. \u2191'],
+      ['you', 'and when it runs low?'],
+      ['tool', 'Edit src/notch.ts  +3'],
+      ['add', 'if (left < limit.max * 0.1) {'],
+      ['add', '  notch.warn(limit.name);'],
+      ['add', '}'],
+      ['say', 'It turns red before you run out.']
+    ],
+    [
+      ['you', 'fix the flaky test'],
+      ['tool', 'Bash npm test  ×50'],
+      ['fail', '  3 of 50 failed'],
+      ['tool', 'Edit src/sync.ts  +1 \u22121'],
+      ['add', 'await queue.drain();'],
+      ['tool', 'Bash npm test  ×50'],
+      ['dim', '  50 passed'],
+      ['say', 'Done. It was a missing await.']
+    ],
+    [
+      ['you', 'now rewrite it all in Rust'],
+      ['say', 'That would use most of what is left of your week.'],
+      ['you', 'fine. just the parser'],
+      ['tool', 'Write src/parser.rs  +184'],
+      ['tool', 'Bash cargo test'],
+      ['dim', '  21 passed'],
+      ['say', 'Done. The parser is Rust now.']
+    ]
   ];
   var visible = false, resume = null;
   function ready() { return visible ? Promise.resolve() : new Promise(function (done) { resume = done; }); }
@@ -913,7 +923,7 @@
   }
   (async function () {
     for (var run = 0; ; run++) {
-      var SESSION = run % 3 === 1 ? EGG : WORK;
+      var SESSION = SESSIONS[run % SESSIONS.length];
       for (var i = 0; i < SESSION.length; i++) {
         await ready();
         var kind = SESSION[i][0], text = SESSION[i][1];

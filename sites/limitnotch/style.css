@@ -496,6 +496,7 @@ h2 {
 .term-body .you::before { content: "> "; color: var(--claude); }
 .term-body .tool::before { content: "\25CF  "; color: var(--claude); }
 .term-body .dim { color: rgba(255, 255, 255, .45); }
+.term-body .fail { color: #ff8a80; }
 .term-body .say { color: rgba(255, 255, 255, .92); }
 /* Lines an edit adds, as the terminal shows them: green, on a band of their own. */
 .term-body .add { margin: 0 -22px; padding: 0 22px; background: rgba(90, 208, 143, .1); color: #a6e9c3; }
