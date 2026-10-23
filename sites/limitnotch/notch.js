@@ -864,10 +864,22 @@ function esc(text) {
     document.addEventListener('language', function () { stream(120); });
   }
 
-  // Lines that decode as they come into view: each letter in turn, out of code characters.
+  // Lines that decode as they come into view: each letter in turn, out of code characters. The
+  // line's own words are kept aside (data-text), so a decode begun while another runs - or after
+  // another language is put in - starts from them and not from the other's noise; the newer one
+  // stops the older; and if frames stop coming (a browser pausing them), the words are put back
+  // all the same.
   var NOISE = '01{}[]<>/=+*#$%&;:abcdefx';
   function decode(el) {
-    var text = el.textContent, letters = Array.from(text);
+    if (!el.hasAttribute('data-text')) el.setAttribute('data-text', el.textContent);
+    var text = el.getAttribute('data-text'), letters = Array.from(text), id = (el.decodeId || 0) + 1;
+    el.decodeId = id;
+    function finish() {
+      if (el.decodeId !== id) return;
+      el.classList.remove('decoding');
+      el.textContent = text;
+    }
+    setTimeout(finish, 1500);
     el.classList.add('decoding');
     el.textContent = '';
     var spans = letters.map(function (ch) {
@@ -881,6 +893,7 @@ function esc(text) {
     spans.forEach(function (span, i) { span.style.width = widths[i] + 'px'; });
     var start = performance.now(), length = 650;
     function frame(now) {
+      if (el.decodeId !== id) return;
       var t = now - start, done = true;
       spans.forEach(function (span, i) {
         if (letters[i] === ' ' || span.done) return;
@@ -890,8 +903,7 @@ function esc(text) {
         if (Math.random() < 0.4) span.textContent = NOISE.charAt(Math.random() * NOISE.length | 0);
       });
       if (!done) { requestAnimationFrame(frame); return; }
-      el.classList.remove('decoding');
-      el.textContent = text;
+      finish();
     }
     requestAnimationFrame(frame);
   }
@@ -1214,7 +1226,10 @@ function esc(text) {
   function put(doc) {
     WORDS.forEach(function (sel) {
       var from = doc.querySelectorAll(sel), to = document.querySelectorAll(sel);
-      for (var i = 0; i < to.length && i < from.length; i++) to[i].textContent = from[i].textContent;
+      for (var i = 0; i < to.length && i < from.length; i++) {
+        to[i].textContent = from[i].textContent;
+        if (to[i].hasAttribute('data-text')) to[i].setAttribute('data-text', from[i].textContent);
+      }
     });
     NAMES.forEach(function (pair) {
       var from = doc.querySelectorAll(pair[0]), to = document.querySelectorAll(pair[0]);
