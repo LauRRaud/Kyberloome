@@ -431,8 +431,94 @@
   else play();
 })();
 
-// The trip: scrolling travels through the page's four screens - right, down, then left - with a
-// short stay at each. The page is as tall as the trip; the screens stay put while the view moves
+// Limit resets: a small screen of their own. A notification of a new reset comes in, the cursor
+// goes up to the notch, and the notch, opening, shows the reset at the end of ChatGPT's line - in
+// a loop, while the screen is in view. With less motion wanted it all just stands there.
+(function () {
+  var screen = document.getElementById('rscreen');
+  if (!screen) return;
+  var desk = document.getElementById('rdesk'), rn = document.getElementById('rn');
+  var toast = document.getElementById('toast'), cur = document.getElementById('rcur');
+  var mini = rn.querySelector('.notch-mini'), full = rn.querySelector('.notch-full');
+  var W = 1100, closed, open;
+
+  function fit() { desk.style.setProperty('--s', screen.clientWidth / W); }
+  fit();
+  if ('ResizeObserver' in window) new ResizeObserver(fit).observe(screen);
+  else window.addEventListener('resize', fit);
+
+  // Its sizes, open and closed, from its own content - as the app's.
+  function measure() {
+    rn.classList.add('measure');
+    closed = [mini.offsetWidth + 32, 29];
+    open = [full.offsetWidth + 32, full.offsetHeight + 22];
+    rn.classList.remove('measure');
+  }
+  function show(isOpen) {
+    var s = isOpen ? open : closed;
+    rn.style.width = s[0] + 'px';
+    rn.style.height = s[1] + 'px';
+    rn.style.left = (W - s[0]) / 2 + 'px';
+    rn.classList.toggle('open', isOpen);
+  }
+  function cursor(x, y, ms) {
+    cur.style.setProperty('--d', ms + 'ms');
+    cur.style.setProperty('--x', (x - 1) + 'px');
+    cur.style.setProperty('--y', (y - 1) + 'px');
+  }
+
+  // Paused while the screen is out of view.
+  var visible = false, resume = null;
+  function wait(ms) {
+    return new Promise(function (done) { setTimeout(done, ms); }).then(function () {
+      if (visible) return;
+      return new Promise(function (done) { resume = done; });
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible && resume) { var go = resume; resume = null; go(); }
+    }).observe(screen);
+  } else visible = true;
+
+  async function play() {
+    for (;;) {
+      show(false);
+      cursor(820, 470, 0);
+      await wait(900);
+      // The notification comes in...
+      toast.classList.add('in');
+      await wait(1400);
+      // ...and the cursor goes up to the notch, which opens on it: the reset is there.
+      cur.classList.add('on');
+      cursor(W / 2 + 30, 14, 900);
+      await wait(950);
+      show(true);
+      await wait(3200);
+      cursor(800, 430, 900);
+      await wait(300);
+      show(false);
+      await wait(600);
+      toast.classList.remove('in');
+      cur.classList.remove('on');
+      await wait(1600);
+    }
+  }
+
+  measure();
+  show(false);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    toast.classList.add('in');
+    show(true);
+    return;
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); show(false); play(); });
+  else play();
+})();
+
+// The trip: scrolling travels through the page's five screens - right, right, down, then left -
+// with a short stay at each. The page is as tall as the trip; the screens stay put while the view moves
 // over them. The squares in the corner show where you are and take you to a screen.
 (function () {
   var world = document.getElementById('world');
@@ -446,8 +532,9 @@
   var stops = [
     { at: [0, 0], stay: 0.05 },
     { at: [1, 0], stay: 0.35 },
-    { at: [1, 1], stay: 0.2 },
-    { at: [0, 1], stay: 0.3 }
+    { at: [2, 0], stay: 0.35 },
+    { at: [2, 1], stay: 0.2 },
+    { at: [1, 1], stay: 0.3 }
   ];
   var MOVE = 0.6;
   var length = stops.reduce(function (n, s) { return n + s.stay; }, 0) + MOVE * (stops.length - 1);
@@ -485,9 +572,10 @@
     y += (target.y - y) * k;
     var settled = Math.abs(target.x - x) < 0.0005 && Math.abs(target.y - y) < 0.0005;
     if (settled) { x = target.x; y = target.y; }
-    // In halves of the ground (which is two screens wide and high), so it needs no measuring.
-    plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
-    // Nearer the demo's screen than any other, the live panel steps aside.
+    // In parts of the ground (three screens wide, two high), so it needs no measuring.
+    plane.style.transform = 'translate3d(' + (-x * 100 / 3) + '%,' + (-y * 50) + '%,0)';
+    // Nearer one of the screens with a panel of its own (the demo's, the resets') than any other,
+    // the live panel steps aside.
     notch.classList.toggle('away', x > 0.5 && y < 0.5);
     if (target.stop !== shown) {
       shown = target.stop;
