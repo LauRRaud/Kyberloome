@@ -1,3 +1,10 @@
+// What the script writes, in the page's language: the page carries it (i18n/build.py makes the
+// pages). Text that goes into markup is escaped.
+var TEXT = JSON.parse(document.getElementById('text').textContent);
+function esc(text) {
+  return String(text).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+}
+
 // The notch at the top of the page behaves like the app's. It opens while the pointer is on it
 // (with a short grace period on leaving); a click shows the reset times, which go again when it
 // closes. It can be dragged: along the top edge, off it to anywhere, or against the left or right
@@ -21,10 +28,10 @@
   // worded once the one before is done; gone after the drag.
   var say = hint && hint.querySelector('.say');
   var touch = window.matchMedia('(hover: none)').matches;
-  var steps = touch ? ['Try it', 'Tap again', 'Drag it'] : ['Try it', 'Click it', 'Drag it'];
+  var steps = touch ? [TEXT.tryIt, TEXT.tapAgain, TEXT.dragIt] : [TEXT.tryIt, TEXT.clickIt, TEXT.dragIt];
   var step = 0, swapTimer = 0;
   // The first step: two words taking turns.
-  if (say) say.innerHTML = '<span class="alt"><b>Try</b><b>' + (touch ? 'Tap it' : 'Click it') + '</b></span>';
+  if (say) say.innerHTML = '<span class="alt"><b>' + esc(TEXT.tryWord) + '</b><b>' + esc(touch ? TEXT.tapIt : TEXT.clickIt) + '</b></span>';
   function reach(n) {
     if (!hint || n <= step) return;
     step = n;
@@ -51,11 +58,12 @@
     } catch (e) { /* not remembered, nothing else lost */ }
   }
 
-  // The countdowns run, as the real ones do.
+  // The countdowns run, as the real ones do, with the app's units in this language.
+  var U = TEXT.units;
   function remaining(minutes) {
-    if (minutes < 60) return Math.max(1, Math.floor(minutes)) + 'm';
-    if (minutes < 1440) return Math.floor(minutes / 60) + 'h ' + Math.floor(minutes % 60) + 'm';
-    return Math.floor(minutes / 1440) + 'd ' + Math.floor((minutes % 1440) / 60) + 'h';
+    if (minutes < 60) return Math.max(1, Math.floor(minutes)) + U.m;
+    if (minutes < 1440) return Math.floor(minutes / 60) + U.h + ' ' + Math.floor(minutes % 60) + U.m;
+    return Math.floor(minutes / 1440) + U.d + ' ' + Math.floor((minutes % 1440) / 60) + U.h;
   }
   function tick() {
     var passed = (Date.now() - loaded) / 60000;
@@ -405,6 +413,11 @@
     }, { threshold: 0.2 }).observe(section);
   } else visible = true;
 
+  // A caption's words, each lighting up in turn as the cursor does it.
+  function words(list) {
+    return list.map(function (w) { return '<span class="w">' + esc(w) + '</span>'; }).join(TEXT.join);
+  }
+
   // The open panel's width now: with a reset to use, its line is longer.
   function openWidth() { return (panel.reset ? size.rowReset : size.rowOpen)[0]; }
 
@@ -419,7 +432,7 @@
       cur.classList.add('on');
 
       // 1. Hover for the numbers, click for the time until each limit resets.
-      step(1, '<span class="w">Hover.</span> <span class="w">Click.</span>', 6200);
+      step(1, words(TEXT.cap1), 6200);
       await wait(400);
       cursor(W / 2, 14, 1100);
       await wait(1150);
@@ -434,7 +447,7 @@
 
       // 2. A limit reset: the notification comes in, and the panel, opened, shows it at the end
       //    of ChatGPT's line - where it stays while the panel is dragged about.
-      step(2, 'Never miss a <span class="fresh">reset</span>.', 6600);
+      step(2, esc(TEXT.cap2[0]) + '<span class="fresh">' + esc(TEXT.cap2[1]) + '</span>' + esc(TEXT.cap2[2]), 6600);
       cursor(800, 430, 800);
       await wait(250);
       panel.open = false; show();
@@ -449,7 +462,7 @@
 
       // 3. Drag it. Pulled down it comes off the top edge; at the right edge it joins it and
       //    stands upright; from there out onto the screen; and back up to the top edge.
-      step(3, '<span class="w">Top.</span> <span class="w">Side.</span> <span class="w">Anywhere.</span>', 13800);
+      step(3, words(TEXT.cap3), 13800);
       toast.classList.remove('in');
       await wait(350);
       word(0);
@@ -772,10 +785,22 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   function wait(ms) { return new Promise(function (done) { setTimeout(done, ms); }); }
 
-  // The tagline, in pieces the size of a model's tokens.
+  // The tagline, in pieces the size of a model's tokens: words, long ones in parts of four
+  // letters; in Chinese, Japanese and Korean two characters at a time.
+  function tokens(text) {
+    var out = [];
+    (text.match(/\s*\S+/g) || []).forEach(function (word) {
+      var lead = word.match(/^\s*/)[0], rest = word.slice(lead.length);
+      var size = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\uff00-\uffef]/.test(rest) ? 2 : 4;
+      if (rest.length <= size + 2) { out.push(word); return; }
+      out.push(lead + rest.slice(0, size));
+      for (var i = size; i < rest.length; i += size) out.push(rest.slice(i, i + size));
+    });
+    return out;
+  }
   var tagline = document.querySelector('.tagline');
-  var TOKENS = ['Your', ' AI', ' lim', 'its', ' and', ' res', 'ets.', ' Always', ' in', ' sight.'];
-  if (tagline && TOKENS.join('') === tagline.textContent) {
+  var TOKENS = tagline ? tokens(tagline.textContent) : [];
+  if (TOKENS.length) {
     tagline.textContent = '';
     var pieces = TOKENS.map(function (t) {
       var span = document.createElement('span');
@@ -935,33 +960,33 @@
   if (!term) return;
   var SESSIONS = [
     [
-      ['you', 'how much of my limit is left?'],
-      ['say', 'Look up. \u2191'],
-      ['you', 'and when it runs low?'],
+      ['you', TEXT.egg[0]],
+      ['say', TEXT.egg[1]],
+      ['you', TEXT.egg[2]],
       ['tool', 'Edit src/notch.ts  +3'],
       ['add', 'if (left < limit.max * 0.1) {'],
       ['add', '  notch.warn(limit.name);'],
       ['add', '}'],
-      ['say', 'It turns red before you run out.']
+      ['say', TEXT.egg[3]]
     ],
     [
-      ['you', 'fix the flaky test'],
-      ['tool', 'Bash npm test  ×50'],
+      ['you', TEXT.flaky[0]],
+      ['tool', 'Bash npm test  \u00d750'],
       ['fail', '  3 of 50 failed'],
       ['tool', 'Edit src/sync.ts  +1 \u22121'],
       ['add', 'await queue.drain();'],
-      ['tool', 'Bash npm test  ×50'],
+      ['tool', 'Bash npm test  \u00d750'],
       ['dim', '  50 passed'],
-      ['say', 'Done. It was a missing await.']
+      ['say', TEXT.flaky[1]]
     ],
     [
-      ['you', 'now rewrite it all in Rust'],
-      ['say', 'That would use most of what is left of your week.'],
-      ['you', 'fine. just the parser'],
+      ['you', TEXT.rust[0]],
+      ['say', TEXT.rust[1]],
+      ['you', TEXT.rust[2]],
       ['tool', 'Write src/parser.rs  +184'],
       ['tool', 'Bash cargo test'],
       ['dim', '  21 passed'],
-      ['say', 'Done. The parser is Rust now.']
+      ['say', TEXT.rust[3]]
     ]
   ];
   var visible = false, resume = null;
@@ -1042,7 +1067,7 @@
     if (!placed) { placed = true; rx = x; ry = y; }
     caret.style.translate = x + 'px ' + y + 'px';
     root.classList.add('cursor-on');
-    root.classList.toggle('cursor-over', !!(e.target.closest && e.target.closest('a, button')));
+    root.classList.toggle('cursor-over', !!(e.target.closest && e.target.closest('a, button, select')));
     root.classList.toggle('cursor-drag', notch.classList.contains('dragging'));
     caret.classList.remove('idle');
     clearTimeout(idleTimer);
@@ -1052,4 +1077,16 @@
   window.addEventListener('pointerdown', function (e) { if (e.pointerType === 'mouse') root.classList.add('cursor-down'); });
   window.addEventListener('pointerup', function () { root.classList.remove('cursor-down', 'cursor-drag'); });
   document.documentElement.addEventListener('mouseleave', function () { root.classList.remove('cursor-on'); });
+})();
+
+// The language picker at the foot of the page: the choice is remembered, so the English page
+// takes you to it next time.
+(function () {
+  var pick = document.getElementById('lang');
+  if (!pick) return;
+  pick.addEventListener('change', function () {
+    var option = pick.options[pick.selectedIndex];
+    try { localStorage.setItem('limitnotch-lang', option.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
+    location.href = option.value;
+  });
 })();

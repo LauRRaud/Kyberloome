@@ -1,0 +1,171 @@
+<!doctype html>
+<!-- Made by i18n/build.py from i18n/page.html and i18n/text.json: edit those, then run it. -->
+<html lang="zh-Hant" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limit Notch：AI 用量限額與重設 – 隨時可見</title>
+<meta name="description" content="在 Windows 螢幕頂端的小瀏海中顯示你的 Claude 和 ChatGPT（Codex）用量限額，額度重設一到就通知你。不需要密碼，不需要權杖，任何資料都不會離開你的電腦。">
+<link rel="canonical" href="https://limitnotch.com/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://limitnotch.com/">
+<link rel="alternate" hreflang="et" href="https://limitnotch.com/et/">
+<link rel="alternate" hreflang="de" href="https://limitnotch.com/de/">
+<link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/">
+<link rel="alternate" hreflang="es" href="https://limitnotch.com/es/">
+<link rel="alternate" hreflang="it" href="https://limitnotch.com/it/">
+<link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/">
+<link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/">
+<link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/">
+<link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/">
+<link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/">
+<link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/">
+<link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/">
+<link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/">
+<link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/">
+<link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/">
+<link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/">
+<link rel="alternate" hreflang="id" href="https://limitnotch.com/id/">
+<link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/">
+<link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://limitnotch.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://limitnotch.com/zh-hant/">
+<meta property="og:title" content="Limit Notch：AI 用量限額與重設">
+<meta property="og:description" content="你的 AI 限額與重設，隨時可見。">
+<meta property="og:image" content="https://limitnotch.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050508">
+<link rel="icon" href="/assets/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Limit Notch", "alternateName": "Limit Notch: AI Usage Limits & Resets", "description": "在 Windows 螢幕頂端的小瀏海中顯示你的 Claude 和 ChatGPT（Codex）用量限額，額度重設一到就通知你。不需要密碼，不需要權杖，任何資料都不會離開你的電腦。", "inLanguage": "zh-Hant", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows 10 (1809 or later), Windows 11", "url": "https://limitnotch.com/zh-hant/", "downloadUrl": "https://apps.microsoft.com/detail/9P65S14KRHFR", "image": "https://limitnotch.com/assets/og.png", "offers": {"@type": "Offer", "price": "1.99", "priceCurrency": "EUR", "url": "https://apps.microsoft.com/detail/9P65S14KRHFR"}, "publisher": {"@type": "Organization", "name": "Kÿberloome", "url": "https://kyberloome.ee/en"}}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/notch.js" defer></script>
+</head>
+<body>
+
+<!-- The product itself, at the top of this window: hover it, click it, drag it. -->
+<button class="np notch" id="notch" type="button" dir="ltr" aria-expanded="false"
+  aria-label="Limit Notch 示範。Claude：5 小時 32%，週 61%。ChatGPT：30 天 18%，另有 1 次額度重設，還可使用 14 天。開啟後再次啟用可查看重設時間。可將它拖曳到頂端、側邊或任何位置。">
+    <span class="lay row" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name">Claude</span><span class="label">5小時</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span></span><span class="label">週</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span class="gap"></span>
+        <span class="name">ChatGPT</span><span class="label">30天</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>14天</span></span></span>
+      </span>
+    </span>
+    <span class="lay stack" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name head">Claude</span>
+        <span class="label">5小時</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="label">週</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="gap"></span>
+        <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>14天</span></span></span></span>
+        <span class="label">30天</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+      </span>
+    </span>
+</button>
+
+<main class="world" id="world">
+<div class="stage">
+<div class="plane" id="plane">
+  <section data-at="0 0" class="panel hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="try" id="try" aria-hidden="true"><span class="pill"><span class="say">試試看</span></span></div>
+    <div class="hero-inner">
+      <h1>Limit Notch</h1>
+      <p class="tagline">你的 AI 限額與重設，隨時可見。</p>
+      <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="在 Microsoft Store 取得 Limit Notch">取得</a></span>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">捲動</div>
+  </section>
+
+  <!-- How it works: a screen where a cursor uses the panel, step by step, in a loop. -->
+  <section data-at="1 0" class="panel demo reveal" aria-label="使用方式：橫條顯示你的限額；將滑鼠移到上方查看數字，按一下查看重設時間，可拖曳到頂端、側邊或任何位置；當 OpenAI 或 Anthropic 給你額度重設時，會有通知提醒，瀏海中也會顯示">
+    <div class="monitor" aria-hidden="true">
+      <div class="screen" id="screen">
+        <div class="desk" id="desk">
+          <div class="aurora small"><span></span><span></span><span></span></div>
+          <div class="term" dir="ltr"><div class="term-bar"><span class="term-tab">Terminal</span><span class="term-win"><svg viewBox="0 0 10 10"><path d="M0 5.5h10"/></svg><svg viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" rx="1.5"/></svg><svg viewBox="0 0 10 10"><path d="M.5.5l9 9M9.5.5l-9 9"/></svg></span></div><div class="term-body" id="term"></div></div>
+          <div class="taskbar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="toast" id="toast">
+            <div class="toast-head"><span>Limit Notch</span><i>···</i><i>✕</i></div>
+            <div class="toast-body"><img src="/assets/icon-64.png" alt=""><div><b>有可用的額度重設</b><span>ChatGPT · 可用：1 · 14天 23小時後到期</span></div></div>
+          </div>
+          <div class="np dn" id="dn" dir="ltr">
+            <span class="lay row">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name">Claude</span><span class="label">5小時</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2小時 14分鐘</span></span><span></span>
+                <span></span><span class="label">週</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2天 9小時</span></span><span></span>
+                <span class="gap"></span>
+                <span class="name">ChatGPT</span><span class="label">30天</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22天 5小時</span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span>
+              </span>
+            </span>
+            <span class="lay stack">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name head">Claude</span>
+                <span class="label">5小時</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2小時 14分鐘</span></span>
+                <span class="label">週</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2天 9小時</span></span>
+                <span class="gap"></span>
+                <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span></span>
+                <span class="label">30天</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22天 5小時</span></span>
+              </span>
+            </span>
+          </div>
+          <span class="ring" id="ring"></span>
+          <svg class="dcur" id="dcur" viewBox="0 0 16 20"><path d="M1 1v15.5l4.2-4 2.9 6.6 2.6-1.1-2.9-6.5H14z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <p class="caption" id="caption" aria-hidden="true">移到上方。按一下。</p>
+  </section>
+
+  <section data-at="1 1" class="panel private reveal">
+    <h2>任何資料都不會離開你的電腦。</h2>
+    <p data-decode>不需要密碼 · 不需要權杖 · 不需要帳戶</p>
+  </section>
+
+  <section data-at="0 1" class="panel get reveal">
+    <span class="get-mark"><img class="get-icon" src="/assets/icon-256.png" alt="" width="128" height="128"></span>
+    <h2 data-decode>Limit Notch</h2>
+    <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="在 Microsoft Store 取得 Limit Notch">取得</a></span>
+    <p class="meta">Windows · Claude Code · Codex</p>
+    <footer>
+      <p>© 2026 <a href="https://kyberloome.ee/en" data-bits>Kÿberloome</a><span>·</span><a href="https://kyberloome.ee/en/privacy/apps">隱私權</a><span>·</span><a href="https://kyberloome.ee/en#contact">聯絡</a><span>·</span><label class="lang"><select id="lang" aria-label="語言"><option value="/" data-code="en">English</option><option value="/et/" data-code="et">Eesti</option><option value="/de/" data-code="de">Deutsch</option><option value="/fr/" data-code="fr">Français</option><option value="/es/" data-code="es">Español</option><option value="/it/" data-code="it">Italiano</option><option value="/pt-br/" data-code="pt-br">Português</option><option value="/nl/" data-code="nl">Nederlands</option><option value="/pl/" data-code="pl">Polski</option><option value="/fi/" data-code="fi">Suomi</option><option value="/sv/" data-code="sv">Svenska</option><option value="/ja/" data-code="ja">日本語</option><option value="/zh-hans/" data-code="zh-hans">简体中文</option><option value="/ko/" data-code="ko">한국어</option><option value="/tr/" data-code="tr">Türkçe</option><option value="/ru/" data-code="ru">Русский</option><option value="/uk/" data-code="uk">Українська</option><option value="/cs/" data-code="cs">Čeština</option><option value="/id/" data-code="id">Bahasa Indonesia</option><option value="/zh-hant/" data-code="zh-hant" selected>繁體中文</option><option value="/ar/" data-code="ar">العربية</option></select></label></p>
+    </footer>
+  </section>
+</div>
+</div>
+</main>
+
+<!-- Where you are, as squares in the screens' own arrangement; each one takes you there. -->
+<nav class="map" id="map" aria-label="章節">
+  <button type="button" data-stop="0" style="grid-area: 1 / 1" aria-label="開始"></button>
+  <button type="button" data-stop="1" style="grid-area: 1 / 2" aria-label="使用方式"></button>
+  <button type="button" data-stop="3" style="grid-area: 2 / 1" aria-label="取得"></button>
+  <button type="button" data-stop="2" style="grid-area: 2 / 2" aria-label="隱私權"></button>
+</nav>
+
+<!-- What the script writes, in this page's language. -->
+<script type="application/json" id="text">{"tryWord": "試試", "tryIt": "試試看", "clickIt": "按一下", "dragIt": "拖曳", "tapIt": "點一下", "tapAgain": "再點一下", "cap1": ["移到上方。", "按一下。"], "cap2": ["不錯過任何一次", "重設", "。"], "cap3": ["頂端。", "側邊。", "任何位置。"], "egg": ["我的限額還剩多少？", "往上看。↑", "快用完時呢？", "用完之前它會變紅。"], "flaky": ["修好那個不穩定的測試", "完成。少了一個 await。"], "rust": ["現在全部用 Rust 重寫", "那會用掉你本週剩餘額度的大部分。", "好吧。只改剖析器", "完成。剖析器現在是 Rust 了。"], "join": "", "units": {"d": "天", "h": "小時", "m": "分鐘"}}</script>
+</body>
+</html>

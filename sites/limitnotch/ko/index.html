@@ -1,0 +1,171 @@
+<!doctype html>
+<!-- Made by i18n/build.py from i18n/page.html and i18n/text.json: edit those, then run it. -->
+<html lang="ko" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limit Notch: AI 사용 한도와 초기화 – 언제나 한눈에</title>
+<meta name="description" content="Claude와 ChatGPT(Codex) 사용 한도를 Windows 화면 위쪽의 작은 노치에 표시하고, 한도 초기화가 도착하면 바로 알려 줍니다. 암호도 토큰도 필요 없고, 아무것도 PC 밖으로 나가지 않습니다.">
+<link rel="canonical" href="https://limitnotch.com/ko/">
+<link rel="alternate" hreflang="en" href="https://limitnotch.com/">
+<link rel="alternate" hreflang="et" href="https://limitnotch.com/et/">
+<link rel="alternate" hreflang="de" href="https://limitnotch.com/de/">
+<link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/">
+<link rel="alternate" hreflang="es" href="https://limitnotch.com/es/">
+<link rel="alternate" hreflang="it" href="https://limitnotch.com/it/">
+<link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/">
+<link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/">
+<link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/">
+<link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/">
+<link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/">
+<link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/">
+<link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/">
+<link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/">
+<link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/">
+<link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/">
+<link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/">
+<link rel="alternate" hreflang="id" href="https://limitnotch.com/id/">
+<link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/">
+<link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://limitnotch.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://limitnotch.com/ko/">
+<meta property="og:title" content="Limit Notch: AI 사용 한도와 초기화">
+<meta property="og:description" content="AI 한도와 초기화를 언제나 한눈에.">
+<meta property="og:image" content="https://limitnotch.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050508">
+<link rel="icon" href="/assets/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Limit Notch", "alternateName": "Limit Notch: AI Usage Limits & Resets", "description": "Claude와 ChatGPT(Codex) 사용 한도를 Windows 화면 위쪽의 작은 노치에 표시하고, 한도 초기화가 도착하면 바로 알려 줍니다. 암호도 토큰도 필요 없고, 아무것도 PC 밖으로 나가지 않습니다.", "inLanguage": "ko", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows 10 (1809 or later), Windows 11", "url": "https://limitnotch.com/ko/", "downloadUrl": "https://apps.microsoft.com/detail/9P65S14KRHFR", "image": "https://limitnotch.com/assets/og.png", "offers": {"@type": "Offer", "price": "1.99", "priceCurrency": "EUR", "url": "https://apps.microsoft.com/detail/9P65S14KRHFR"}, "publisher": {"@type": "Organization", "name": "Kÿberloome", "url": "https://kyberloome.ee/en"}}</script>
+<link rel="stylesheet" href="/style.css">
+<script src="/notch.js" defer></script>
+</head>
+<body>
+
+<!-- The product itself, at the top of this window: hover it, click it, drag it. -->
+<button class="np notch" id="notch" type="button" dir="ltr" aria-expanded="false"
+  aria-label="Limit Notch 데모. Claude: 5시간 32퍼센트, 주간 61퍼센트. ChatGPT: 30일 18퍼센트, 그리고 앞으로 14일 동안 쓸 수 있는 한도 초기화 1개. 열고 한 번 더 누르면 초기화 시간이 보입니다. 위쪽, 옆쪽 또는 원하는 곳으로 끌어 놓을 수 있습니다.">
+    <span class="lay row" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name">Claude</span><span class="label">5시간</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span></span><span class="label">주</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span class="gap"></span>
+        <span class="name">ChatGPT</span><span class="label">30일</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>14일</span></span></span>
+      </span>
+    </span>
+    <span class="lay stack" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name head">Claude</span>
+        <span class="label">5시간</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="label">주</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="gap"></span>
+        <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>14일</span></span></span></span>
+        <span class="label">30일</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+      </span>
+    </span>
+</button>
+
+<main class="world" id="world">
+<div class="stage">
+<div class="plane" id="plane">
+  <section data-at="0 0" class="panel hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="try" id="try" aria-hidden="true"><span class="pill"><span class="say">해 보세요</span></span></div>
+    <div class="hero-inner">
+      <h1>Limit Notch</h1>
+      <p class="tagline">AI 한도와 초기화를 언제나 한눈에.</p>
+      <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="Microsoft Store에서 Limit Notch 받기">받기</a></span>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">스크롤</div>
+  </section>
+
+  <!-- How it works: a screen where a cursor uses the panel, step by step, in a loop. -->
+  <section data-at="1 0" class="panel demo reveal" aria-label="작동 방식: 막대가 한도를 보여 줍니다. 마우스를 올리면 숫자, 클릭하면 초기화 시간이 보이고, 위쪽·옆쪽·원하는 곳으로 끌어 놓을 수 있습니다. OpenAI나 Anthropic이 한도 초기화를 주면 알림으로 알려 주고 노치에도 표시합니다">
+    <div class="monitor" aria-hidden="true">
+      <div class="screen" id="screen">
+        <div class="desk" id="desk">
+          <div class="aurora small"><span></span><span></span><span></span></div>
+          <div class="term" dir="ltr"><div class="term-bar"><span class="term-tab">Terminal</span><span class="term-win"><svg viewBox="0 0 10 10"><path d="M0 5.5h10"/></svg><svg viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" rx="1.5"/></svg><svg viewBox="0 0 10 10"><path d="M.5.5l9 9M9.5.5l-9 9"/></svg></span></div><div class="term-body" id="term"></div></div>
+          <div class="taskbar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="toast" id="toast">
+            <div class="toast-head"><span>Limit Notch</span><i>···</i><i>✕</i></div>
+            <div class="toast-body"><img src="/assets/icon-64.png" alt=""><div><b>한도 초기화 사용 가능</b><span>ChatGPT · 사용 가능: 1 · 14일 23시간 후 만료</span></div></div>
+          </div>
+          <div class="np dn" id="dn" dir="ltr">
+            <span class="lay row">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name">Claude</span><span class="label">5시간</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2시간 14분</span></span><span></span>
+                <span></span><span class="label">주</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2일 9시간</span></span><span></span>
+                <span class="gap"></span>
+                <span class="name">ChatGPT</span><span class="label">30일</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22일 5시간</span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span>
+              </span>
+            </span>
+            <span class="lay stack">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name head">Claude</span>
+                <span class="label">5시간</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2시간 14분</span></span>
+                <span class="label">주</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>2일 9시간</span></span>
+                <span class="gap"></span>
+                <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span></span>
+                <span class="label">30일</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>22일 5시간</span></span>
+              </span>
+            </span>
+          </div>
+          <span class="ring" id="ring"></span>
+          <svg class="dcur" id="dcur" viewBox="0 0 16 20"><path d="M1 1v15.5l4.2-4 2.9 6.6 2.6-1.1-2.9-6.5H14z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <p class="caption" id="caption" aria-hidden="true">올리고. 클릭.</p>
+  </section>
+
+  <section data-at="1 1" class="panel private reveal">
+    <h2>아무것도 PC 밖으로 나가지 않습니다.</h2>
+    <p data-decode>암호 없음 · 토큰 없음 · 계정 없음</p>
+  </section>
+
+  <section data-at="0 1" class="panel get reveal">
+    <span class="get-mark"><img class="get-icon" src="/assets/icon-256.png" alt="" width="128" height="128"></span>
+    <h2 data-decode>Limit Notch</h2>
+    <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="Microsoft Store에서 Limit Notch 받기">받기</a></span>
+    <p class="meta">Windows · Claude Code · Codex</p>
+    <footer>
+      <p>© 2026 <a href="https://kyberloome.ee/en" data-bits>Kÿberloome</a><span>·</span><a href="https://kyberloome.ee/en/privacy/apps">개인정보</a><span>·</span><a href="https://kyberloome.ee/en#contact">연락처</a><span>·</span><label class="lang"><select id="lang" aria-label="언어"><option value="/" data-code="en">English</option><option value="/et/" data-code="et">Eesti</option><option value="/de/" data-code="de">Deutsch</option><option value="/fr/" data-code="fr">Français</option><option value="/es/" data-code="es">Español</option><option value="/it/" data-code="it">Italiano</option><option value="/pt-br/" data-code="pt-br">Português</option><option value="/nl/" data-code="nl">Nederlands</option><option value="/pl/" data-code="pl">Polski</option><option value="/fi/" data-code="fi">Suomi</option><option value="/sv/" data-code="sv">Svenska</option><option value="/ja/" data-code="ja">日本語</option><option value="/zh-hans/" data-code="zh-hans">简体中文</option><option value="/ko/" data-code="ko" selected>한국어</option><option value="/tr/" data-code="tr">Türkçe</option><option value="/ru/" data-code="ru">Русский</option><option value="/uk/" data-code="uk">Українська</option><option value="/cs/" data-code="cs">Čeština</option><option value="/id/" data-code="id">Bahasa Indonesia</option><option value="/zh-hant/" data-code="zh-hant">繁體中文</option><option value="/ar/" data-code="ar">العربية</option></select></label></p>
+    </footer>
+  </section>
+</div>
+</div>
+</main>
+
+<!-- Where you are, as squares in the screens' own arrangement; each one takes you there. -->
+<nav class="map" id="map" aria-label="섹션">
+  <button type="button" data-stop="0" style="grid-area: 1 / 1" aria-label="시작"></button>
+  <button type="button" data-stop="1" style="grid-area: 1 / 2" aria-label="작동 방식"></button>
+  <button type="button" data-stop="3" style="grid-area: 2 / 1" aria-label="받기"></button>
+  <button type="button" data-stop="2" style="grid-area: 2 / 2" aria-label="개인정보"></button>
+</nav>
+
+<!-- What the script writes, in this page's language. -->
+<script type="application/json" id="text">{"tryWord": "해 보기", "tryIt": "해 보세요", "clickIt": "클릭", "dragIt": "드래그", "tapIt": "탭", "tapAgain": "다시 탭", "cap1": ["올리고.", "클릭."], "cap2": ["", "초기화", "를 놓치지 마세요."], "cap3": ["위로.", "옆으로.", "어디든."], "egg": ["내 한도 얼마나 남았어?", "위를 보세요. ↑", "거의 다 쓰면?", "다 쓰기 전에 빨갛게 변합니다."], "flaky": ["불안정한 테스트 고쳐 줘", "완료. await가 빠져 있었습니다."], "rust": ["이제 전부 Rust로 다시 써 줘", "그러면 이번 주 남은 한도의 대부분을 쓰게 됩니다.", "좋아. 파서만", "완료. 이제 파서는 Rust입니다."], "join": " ", "units": {"d": "일", "h": "시간", "m": "분"}}</script>
+</body>
+</html>

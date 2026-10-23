@@ -1,7 +1,528 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://limitnotch.com/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/et/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/pt-br/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/fi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/sv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/zh-hans/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/uk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/cs/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/id/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/zh-hant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
+  </url>
+  <url>
+    <loc>https://limitnotch.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://limitnotch.com/"/>
+    <xhtml:link rel="alternate" hreflang="et" href="https://limitnotch.com/et/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://limitnotch.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://limitnotch.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://limitnotch.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://limitnotch.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://limitnotch.com/pt-br/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://limitnotch.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://limitnotch.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="fi" href="https://limitnotch.com/fi/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://limitnotch.com/sv/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://limitnotch.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://limitnotch.com/zh-hans/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://limitnotch.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://limitnotch.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://limitnotch.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://limitnotch.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://limitnotch.com/cs/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://limitnotch.com/id/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://limitnotch.com/zh-hant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://limitnotch.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limitnotch.com/"/>
   </url>
 </urlset>

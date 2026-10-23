@@ -1,0 +1,150 @@
+<!doctype html>
+<!-- Made by i18n/build.py from i18n/page.html and i18n/text.json: edit those, then run it. -->
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{alternates}}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{ogLocale}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:title" content="{{ogTitle}}">
+<meta property="og:description" content="{{tagline}}">
+<meta property="og:image" content="https://limitnotch.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050508">
+<link rel="icon" href="/assets/icon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+{{jsonld}}
+{{redirect}}<link rel="stylesheet" href="/style.css">
+<script src="/notch.js" defer></script>
+</head>
+<body>
+
+<!-- The product itself, at the top of this window: hover it, click it, drag it. -->
+<button class="np notch" id="notch" type="button" dir="ltr" aria-expanded="false"
+  aria-label="{{notchLabel}}">
+    <span class="lay row" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name">Claude</span><span class="label">{{h5}}</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span></span><span class="label">{{week}}</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span></span>
+        <span class="gap"></span>
+        <span class="name">ChatGPT</span><span class="label">{{d30}}</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>{{exp14}}</span></span></span>
+      </span>
+    </span>
+    <span class="lay stack" aria-hidden="true">
+      <span class="notch-mini">
+        <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+        <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+      </span>
+      <span class="notch-full">
+        <span class="name head">Claude</span>
+        <span class="label">{{h5}}</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time" data-minutes="134"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="label">{{week}}</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time" data-minutes="3420"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+        <span class="gap"></span>
+        <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1<span class="time expiry"><svg viewBox="0 0 12 12"><path d="M2.6 1.6h6.8M2.6 10.4h6.8M3.2 1.6 6 6 3.2 10.4M8.8 1.6 6 6 8.8 10.4"/></svg><span>{{exp14}}</span></span></span></span>
+        <span class="label">{{d30}}</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time" data-minutes="31980"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span></span></span>
+      </span>
+    </span>
+</button>
+
+<main class="world" id="world">
+<div class="stage">
+<div class="plane" id="plane">
+  <section data-at="0 0" class="panel hero">
+    <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="try" id="try" aria-hidden="true"><span class="pill"><span class="say">{{tryIt}}</span></span></div>
+    <div class="hero-inner">
+      <h1>Limit Notch</h1>
+      <p class="tagline">{{tagline}}</p>
+      <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="{{getItLabel}}">{{getIt}}</a></span>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">{{scroll}}</div>
+  </section>
+
+  <!-- How it works: a screen where a cursor uses the panel, step by step, in a loop. -->
+  <section data-at="1 0" class="panel demo reveal" aria-label="{{demoLabel}}">
+    <div class="monitor" aria-hidden="true">
+      <div class="screen" id="screen">
+        <div class="desk" id="desk">
+          <div class="aurora small"><span></span><span></span><span></span></div>
+          <div class="term" dir="ltr"><div class="term-bar"><span class="term-tab">Terminal</span><span class="term-win"><svg viewBox="0 0 10 10"><path d="M0 5.5h10"/></svg><svg viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" rx="1.5"/></svg><svg viewBox="0 0 10 10"><path d="M.5.5l9 9M9.5.5l-9 9"/></svg></span></div><div class="term-body" id="term"></div></div>
+          <div class="taskbar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="toast" id="toast">
+            <div class="toast-head"><span>Limit Notch</span><i>···</i><i>✕</i></div>
+            <div class="toast-body"><img src="/assets/icon-64.png" alt=""><div><b>{{toastTitle}}</b><span>{{toastLine}}</span></div></div>
+          </div>
+          <div class="np dn" id="dn" dir="ltr">
+            <span class="lay row">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name">Claude</span><span class="label">{{h5}}</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t1}}</span></span><span></span>
+                <span></span><span class="label">{{week}}</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t2}}</span></span><span></span>
+                <span class="gap"></span>
+                <span class="name">ChatGPT</span><span class="label">{{d30}}</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t3}}</span></span><span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span>
+              </span>
+            </span>
+            <span class="lay stack">
+              <span class="notch-mini">
+                <span class="mini-group"><i class="mini-bar"><b style="--p:32"></b></i><i class="mini-bar"><b style="--p:61"></b></i></span>
+                <span class="mini-group chatgpt"><i class="mini-bar"><b style="--p:18"></b></i></span>
+              </span>
+              <span class="notch-full">
+                <span class="name head">Claude</span>
+                <span class="label">{{h5}}</span><span class="bar"><b style="--p:32"></b></span><span class="pct">32%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t1}}</span></span>
+                <span class="label">{{week}}</span><span class="bar"><b style="--p:61"></b></span><span class="pct">61%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t2}}</span></span>
+                <span class="gap"></span>
+                <span class="name head">ChatGPT<span class="badge"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg>1</span></span>
+                <span class="label">{{d30}}</span><span class="bar chatgpt"><b style="--p:18"></b></span><span class="pct">18%</span><span class="time"><svg viewBox="0 0 12 12"><path d="M10.2 6.9A4.4 4.4 0 1 1 8.9 2.7"/><path d="M9.6 1 9.2 3.3 6.9 3.1"/></svg><span>{{t3}}</span></span>
+              </span>
+            </span>
+          </div>
+          <span class="ring" id="ring"></span>
+          <svg class="dcur" id="dcur" viewBox="0 0 16 20"><path d="M1 1v15.5l4.2-4 2.9 6.6 2.6-1.1-2.9-6.5H14z"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="steps" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <p class="caption" id="caption" aria-hidden="true">{{cap1}}</p>
+  </section>
+
+  <section data-at="1 1" class="panel private reveal">
+    <h2>{{privateTitle}}</h2>
+    <p data-decode>{{privateLine}}</p>
+  </section>
+
+  <section data-at="0 1" class="panel get reveal">
+    <span class="get-mark"><img class="get-icon" src="/assets/icon-256.png" alt="" width="128" height="128"></span>
+    <h2 data-decode>Limit Notch</h2>
+    <span class="cta"><span class="glow" aria-hidden="true"></span><a class="store" href="https://apps.microsoft.com/detail/9P65S14KRHFR?cid=website" aria-label="{{getItLabel}}">{{getIt}}</a></span>
+    <p class="meta">Windows · Claude Code · Codex</p>
+    <footer>
+      <p>© 2026 <a href="{{makerUrl}}" data-bits>Kÿberloome</a><span>·</span><a href="{{privacyUrl}}">{{privacy}}</a><span>·</span><a href="{{contactUrl}}">{{contact}}</a><span>·</span><label class="lang"><select id="lang" aria-label="{{languageMenu}}">{{languageOptions}}</select></label></p>
+    </footer>
+  </section>
+</div>
+</div>
+</main>
+
+<!-- Where you are, as squares in the screens' own arrangement; each one takes you there. -->
+<nav class="map" id="map" aria-label="{{sections}}">
+  <button type="button" data-stop="0" style="grid-area: 1 / 1" aria-label="{{navStart}}"></button>
+  <button type="button" data-stop="1" style="grid-area: 1 / 2" aria-label="{{navHow}}"></button>
+  <button type="button" data-stop="3" style="grid-area: 2 / 1" aria-label="{{navGet}}"></button>
+  <button type="button" data-stop="2" style="grid-area: 2 / 2" aria-label="{{navPrivate}}"></button>
+</nav>
+
+<!-- What the script writes, in this page's language. -->
+<script type="application/json" id="text">{{textJson}}</script>
+</body>
+</html>

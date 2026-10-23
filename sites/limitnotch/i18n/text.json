@@ -1,0 +1,1559 @@
+{
+ "_about": "The Limit Notch page in every language of the app. `text` is the page's own words; `app` is the app's wording for what the page shows of its panel (from Strings.cs), so both say the same. i18n/build.py makes the pages from i18n/page.html.",
+ "languages": [
+  {
+   "code": "en",
+   "path": "/",
+   "hreflang": "en",
+   "locale": "en_US",
+   "dir": "ltr",
+   "name": "English",
+   "app": {
+    "Week": "Week",
+    "HourUnit": "h",
+    "DayUnit": "d",
+    "MinuteUnit": "m",
+    "ResetsAvailable": "{0} available",
+    "ExpiresIn": "expires in {0}",
+    "NewReset": "Limit reset available",
+    "LanguageMenu": "Language"
+   },
+   "text": {
+    "title": "Limit Notch: AI Usage Limits & Resets – always in sight",
+    "ogTitle": "Limit Notch: AI Usage Limits & Resets",
+    "description": "Your Claude and ChatGPT (Codex) usage limits in a small notch at the top of your Windows screen, and a notification the moment a limit reset arrives. No passwords, no tokens, nothing leaves your PC.",
+    "tagline": "Your AI limits and resets. Always in sight.",
+    "getIt": "Get it",
+    "getItLabel": "Get Limit Notch on Microsoft Store",
+    "scroll": "Scroll",
+    "tryWord": "Try",
+    "tryIt": "Try it",
+    "clickIt": "Click it",
+    "dragIt": "Drag it",
+    "tapIt": "Tap it",
+    "tapAgain": "Tap again",
+    "notchLabel": "Limit Notch demo. Claude: 5 hours 32 percent, week 61 percent. ChatGPT: 30 days 18 percent, and 1 limit reset to use, for 14 more days. Open it, then activate again for the reset times. Drag it to the top, a side or anywhere.",
+    "demoLabel": "How it works: the bars show your limits, hover for the numbers, click for the reset times, drag it to the top, a side or anywhere, and when OpenAI or Anthropic gives you a limit reset, a notification tells you and the panel shows it",
+    "cap1": [
+     "Hover.",
+     "Click."
+    ],
+    "cap2": [
+     "Never miss a ",
+     "reset",
+     "."
+    ],
+    "cap3": [
+     "Top.",
+     "Side.",
+     "Anywhere."
+    ],
+    "privateTitle": "Nothing leaves your PC.",
+    "privateLine": "No passwords · No tokens · No account",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "sections": "Sections",
+    "navStart": "Start",
+    "navHow": "How it works",
+    "navGet": "Get it",
+    "navPrivate": "Private",
+    "egg": [
+     "how much of my limit is left?",
+     "Look up. ↑",
+     "and when it runs low?",
+     "It turns red before you run out."
+    ],
+    "flaky": [
+     "fix the flaky test",
+     "Done. It was a missing await."
+    ],
+    "rust": [
+     "now rewrite it all in Rust",
+     "That would use most of what is left of your week.",
+     "fine. just the parser",
+     "Done. The parser is Rust now."
+    ]
+   }
+  },
+  {
+   "code": "et",
+   "path": "/et/",
+   "hreflang": "et",
+   "locale": "et_EE",
+   "dir": "ltr",
+   "name": "Eesti",
+   "app": {
+    "Week": "Nädal",
+    "HourUnit": " h",
+    "DayUnit": " p",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "{0} saadaval",
+    "ExpiresIn": "aegub {0} pärast",
+    "NewReset": "Limiidi lähtestus on saadaval",
+    "LanguageMenu": "Keel"
+   },
+   "text": {
+    "title": "Limit Notch: AI kasutuslimiidid ja lähtestused – alati silme ees",
+    "ogTitle": "Limit Notch: AI kasutuslimiidid ja lähtestused",
+    "description": "Sinu Claude’i ja ChatGPT (Codex) kasutuslimiidid väikeses näidikus Windowsi ekraani ülaservas ning teavitus kohe, kui saad limiidi lähtestuse. Paroole ega võtmeid pole vaja, midagi ei lahku sinu arvutist.",
+    "tagline": "Sinu AI-limiidid ja lähtestused. Alati silme ees.",
+    "getIt": "Hangi",
+    "getItLabel": "Hangi Limit Notch Microsoft Store’ist",
+    "scroll": "Keri",
+    "tryWord": "Proovi",
+    "tryIt": "Proovi",
+    "clickIt": "Klõpsa",
+    "dragIt": "Lohista",
+    "tapIt": "Puuduta",
+    "tapAgain": "Puuduta uuesti",
+    "notchLabel": "Limit Notchi demo. Claude: 5 tundi 32 protsenti, nädal 61 protsenti. ChatGPT: 30 päeva 18 protsenti ja 1 limiidi lähtestus, mida saab kasutada veel 14 päeva. Ava see ja aktiveeri uuesti, et näha uuenemise aegu. Lohista see ülaserva, külgserva või ükskõik kuhu.",
+    "demoLabel": "Kuidas see töötab: ribad näitavad sinu limiite, vii kursor peale, et näha numbreid, klõpsa, et näha uuenemise aegu, lohista see ülaserva, külgserva või ükskõik kuhu, ja kui OpenAI või Anthropic annab sulle limiidi lähtestuse, annab teavitus sellest teada ja näidik näitab seda",
+    "cap1": [
+     "Kursor peale.",
+     "Klõpsa."
+    ],
+    "cap2": [
+     "Ära maga ",
+     "lähtestust",
+     " maha."
+    ],
+    "cap3": [
+     "Üles.",
+     "Serva.",
+     "Kuhu iganes."
+    ],
+    "privateTitle": "Midagi ei lahku sinu arvutist.",
+    "privateLine": "Paroole pole · Võtmeid pole · Kontot pole",
+    "privacy": "Privaatsus",
+    "contact": "Kontakt",
+    "sections": "Jaotised",
+    "navStart": "Algus",
+    "navHow": "Kuidas see töötab",
+    "navGet": "Hangi",
+    "navPrivate": "Privaatsus",
+    "egg": [
+     "kui palju mu limiidist järel on?",
+     "Vaata üles. ↑",
+     "ja kui see hakkab otsa saama?",
+     "See muutub punaseks enne, kui otsa saab."
+    ],
+    "flaky": [
+     "paranda see ebastabiilne test",
+     "Valmis. Puudu oli üks await."
+    ],
+    "rust": [
+     "kirjuta nüüd kõik Rustis ümber",
+     "See võtaks suurema osa sinu nädala ülejäänud limiidist.",
+     "olgu. ainult parser",
+     "Valmis. Parser on nüüd Rustis."
+    ]
+   }
+  },
+  {
+   "code": "de",
+   "path": "/de/",
+   "hreflang": "de",
+   "locale": "de_DE",
+   "dir": "ltr",
+   "name": "Deutsch",
+   "app": {
+    "Week": "Woche",
+    "HourUnit": " h",
+    "DayUnit": " T",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "{0} verfügbar",
+    "ExpiresIn": "läuft in {0} ab",
+    "NewReset": "Limit-Zurücksetzung verfügbar",
+    "LanguageMenu": "Sprache"
+   },
+   "text": {
+    "title": "Limit Notch: KI-Nutzungslimits & Zurücksetzungen – immer im Blick",
+    "ogTitle": "Limit Notch: KI-Nutzungslimits & Zurücksetzungen",
+    "description": "Deine Nutzungslimits von Claude und ChatGPT (Codex) in einer kleinen Notch am oberen Rand deines Windows-Bildschirms – und eine Benachrichtigung, sobald eine Limit-Zurücksetzung kommt. Keine Passwörter, keine Tokens, nichts verlässt deinen PC.",
+    "tagline": "Deine KI-Limits und Zurücksetzungen. Immer im Blick.",
+    "getIt": "Jetzt holen",
+    "getItLabel": "Limit Notch im Microsoft Store holen",
+    "scroll": "Scrollen",
+    "tryWord": "Probier’s",
+    "tryIt": "Probier’s",
+    "clickIt": "Klick drauf",
+    "dragIt": "Zieh sie",
+    "tapIt": "Tipp drauf",
+    "tapAgain": "Nochmal tippen",
+    "notchLabel": "Limit-Notch-Demo. Claude: 5 Stunden 32 Prozent, Woche 61 Prozent. ChatGPT: 30 Tage 18 Prozent und 1 Limit-Zurücksetzung, noch 14 Tage nutzbar. Öffne sie und aktiviere sie erneut für die Zurücksetzungszeiten. Zieh sie an den oberen Rand, an eine Seite oder irgendwohin.",
+    "demoLabel": "So funktioniert’s: Die Balken zeigen deine Limits, fahr mit der Maus darüber für die Zahlen, klick für die Zurücksetzungszeiten, zieh sie an den oberen Rand, an eine Seite oder irgendwohin – und wenn OpenAI oder Anthropic dir eine Limit-Zurücksetzung gibt, sagt dir eine Benachrichtigung Bescheid und die Notch zeigt sie an",
+    "cap1": [
+     "Drüberfahren.",
+     "Klicken."
+    ],
+    "cap2": [
+     "Verpasse keine ",
+     "Zurücksetzung",
+     "."
+    ],
+    "cap3": [
+     "Oben.",
+     "Seitlich.",
+     "Überall."
+    ],
+    "privateTitle": "Nichts verlässt deinen PC.",
+    "privateLine": "Keine Passwörter · Keine Tokens · Kein Konto",
+    "privacy": "Datenschutz",
+    "contact": "Kontakt",
+    "sections": "Abschnitte",
+    "navStart": "Start",
+    "navHow": "So funktioniert’s",
+    "navGet": "Jetzt holen",
+    "navPrivate": "Privat",
+    "egg": [
+     "wie viel ist von meinem Limit noch übrig?",
+     "Schau nach oben. ↑",
+     "und wenn es knapp wird?",
+     "Sie wird rot, bevor es ausgeht."
+    ],
+    "flaky": [
+     "repariere den flaky Test",
+     "Fertig. Es fehlte ein await."
+    ],
+    "rust": [
+     "schreib jetzt alles in Rust neu",
+     "Das würde den Großteil dessen verbrauchen, was von deiner Woche übrig ist.",
+     "na gut. nur den Parser",
+     "Fertig. Der Parser ist jetzt in Rust."
+    ]
+   }
+  },
+  {
+   "code": "fr",
+   "path": "/fr/",
+   "hreflang": "fr",
+   "locale": "fr_FR",
+   "dir": "ltr",
+   "name": "Français",
+   "app": {
+    "Week": "Semaine",
+    "HourUnit": " h",
+    "DayUnit": " j",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Disponibles : {0}",
+    "ExpiresIn": "expire dans {0}",
+    "NewReset": "Réinitialisation de limite disponible",
+    "LanguageMenu": "Langue"
+   },
+   "text": {
+    "title": "Limit Notch : limites d’utilisation IA et réinitialisations – toujours en vue",
+    "ogTitle": "Limit Notch : limites d’utilisation IA et réinitialisations",
+    "description": "Vos limites d’utilisation de Claude et ChatGPT (Codex) dans une petite encoche en haut de votre écran Windows, et une notification dès qu’une réinitialisation de limite arrive. Aucun mot de passe, aucun jeton, rien ne quitte votre PC.",
+    "tagline": "Vos limites IA et leurs réinitialisations. Toujours en vue.",
+    "getIt": "Obtenir",
+    "getItLabel": "Obtenir Limit Notch sur le Microsoft Store",
+    "scroll": "Défiler",
+    "tryWord": "Essayez",
+    "tryIt": "Essayez",
+    "clickIt": "Cliquez",
+    "dragIt": "Déplacez-la",
+    "tapIt": "Touchez",
+    "tapAgain": "Touchez encore",
+    "notchLabel": "Démo de Limit Notch. Claude : 5 heures 32 pour cent, semaine 61 pour cent. ChatGPT : 30 jours 18 pour cent, et 1 réinitialisation de limite à utiliser pendant encore 14 jours. Ouvrez-la, puis activez-la à nouveau pour les heures de réinitialisation. Faites-la glisser en haut, sur un côté ou n’importe où.",
+    "demoLabel": "Comment ça marche : les barres montrent vos limites ; survolez pour les chiffres, cliquez pour les heures de réinitialisation, faites glisser l’encoche en haut, sur un côté ou n’importe où ; et quand OpenAI ou Anthropic vous offre une réinitialisation de limite, une notification vous prévient et l’encoche l’affiche",
+    "cap1": [
+     "Survolez.",
+     "Cliquez."
+    ],
+    "cap2": [
+     "Ne ratez aucune ",
+     "réinitialisation",
+     "."
+    ],
+    "cap3": [
+     "En haut.",
+     "Sur le côté.",
+     "Partout."
+    ],
+    "privateTitle": "Rien ne quitte votre PC.",
+    "privateLine": "Aucun mot de passe · Aucun jeton · Aucun compte",
+    "privacy": "Confidentialité",
+    "contact": "Contact",
+    "sections": "Sections",
+    "navStart": "Début",
+    "navHow": "Fonctionnement",
+    "navGet": "Obtenir",
+    "navPrivate": "Confidentialité",
+    "egg": [
+     "combien me reste-t-il de ma limite ?",
+     "Regardez en haut. ↑",
+     "et quand elle s’épuise ?",
+     "Elle passe au rouge avant la fin."
+    ],
+    "flaky": [
+     "corrige le test instable",
+     "Terminé. Il manquait un await."
+    ],
+    "rust": [
+     "maintenant réécris tout en Rust",
+     "Cela utiliserait l’essentiel de ce qu’il reste de votre semaine.",
+     "d’accord. juste le parser",
+     "Terminé. Le parser est en Rust maintenant."
+    ]
+   }
+  },
+  {
+   "code": "es",
+   "path": "/es/",
+   "hreflang": "es",
+   "locale": "es_ES",
+   "dir": "ltr",
+   "name": "Español",
+   "app": {
+    "Week": "Semana",
+    "HourUnit": " h",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Disponibles: {0}",
+    "ExpiresIn": "caduca en {0}",
+    "NewReset": "Restablecimiento de límite disponible",
+    "LanguageMenu": "Idioma"
+   },
+   "text": {
+    "title": "Limit Notch: límites de uso de IA y restablecimientos – siempre a la vista",
+    "ogTitle": "Limit Notch: límites de uso de IA y restablecimientos",
+    "description": "Tus límites de uso de Claude y ChatGPT (Codex) en un pequeño notch en la parte superior de tu pantalla de Windows, y una notificación en cuanto llega un restablecimiento de límite. Sin contraseñas, sin tokens, nada sale de tu PC.",
+    "tagline": "Tus límites de IA y restablecimientos. Siempre a la vista.",
+    "getIt": "Obtener",
+    "getItLabel": "Obtener Limit Notch en Microsoft Store",
+    "scroll": "Desplázate",
+    "tryWord": "Pruébalo",
+    "tryIt": "Pruébalo",
+    "clickIt": "Haz clic",
+    "dragIt": "Arrástralo",
+    "tapIt": "Tócalo",
+    "tapAgain": "Toca otra vez",
+    "notchLabel": "Demostración de Limit Notch. Claude: 5 horas 32 por ciento, semana 61 por ciento. ChatGPT: 30 días 18 por ciento, y 1 restablecimiento de límite para usar durante 14 días más. Ábrelo y vuelve a activarlo para ver cuándo se restablecen. Arrástralo arriba, a un lado o a cualquier parte.",
+    "demoLabel": "Cómo funciona: las barras muestran tus límites; pasa el ratón para ver los números, haz clic para ver cuándo se restablecen, arrástralo arriba, a un lado o a cualquier parte; y cuando OpenAI o Anthropic te da un restablecimiento de límite, una notificación te avisa y el notch lo muestra",
+    "cap1": [
+     "Pasa el ratón.",
+     "Haz clic."
+    ],
+    "cap2": [
+     "No te pierdas ningún ",
+     "restablecimiento",
+     "."
+    ],
+    "cap3": [
+     "Arriba.",
+     "A un lado.",
+     "Donde quieras."
+    ],
+    "privateTitle": "Nada sale de tu PC.",
+    "privateLine": "Sin contraseñas · Sin tokens · Sin cuenta",
+    "privacy": "Privacidad",
+    "contact": "Contacto",
+    "sections": "Secciones",
+    "navStart": "Inicio",
+    "navHow": "Cómo funciona",
+    "navGet": "Obtener",
+    "navPrivate": "Privacidad",
+    "egg": [
+     "¿cuánto me queda de mi límite?",
+     "Mira arriba. ↑",
+     "¿y cuando se esté acabando?",
+     "Se pone rojo antes de que se acabe."
+    ],
+    "flaky": [
+     "arregla el test inestable",
+     "Listo. Faltaba un await."
+    ],
+    "rust": [
+     "ahora reescríbelo todo en Rust",
+     "Eso usaría casi todo lo que te queda de la semana.",
+     "vale. solo el parser",
+     "Listo. El parser ya está en Rust."
+    ]
+   }
+  },
+  {
+   "code": "it",
+   "path": "/it/",
+   "hreflang": "it",
+   "locale": "it_IT",
+   "dir": "ltr",
+   "name": "Italiano",
+   "app": {
+    "Week": "Settimana",
+    "HourUnit": " h",
+    "DayUnit": " g",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Disponibili: {0}",
+    "ExpiresIn": "scade tra {0}",
+    "NewReset": "Azzeramento del limite disponibile",
+    "LanguageMenu": "Lingua"
+   },
+   "text": {
+    "title": "Limit Notch: limiti di utilizzo IA e azzeramenti – sempre in vista",
+    "ogTitle": "Limit Notch: limiti di utilizzo IA e azzeramenti",
+    "description": "I tuoi limiti di utilizzo di Claude e ChatGPT (Codex) in un piccolo notch in cima allo schermo di Windows, e una notifica appena arriva un azzeramento del limite. Niente password, niente token, nulla lascia il tuo PC.",
+    "tagline": "I tuoi limiti IA e i loro azzeramenti. Sempre in vista.",
+    "getIt": "Ottieni",
+    "getItLabel": "Ottieni Limit Notch su Microsoft Store",
+    "scroll": "Scorri",
+    "tryWord": "Provalo",
+    "tryIt": "Provalo",
+    "clickIt": "Fai clic",
+    "dragIt": "Trascinalo",
+    "tapIt": "Toccalo",
+    "tapAgain": "Tocca di nuovo",
+    "notchLabel": "Demo di Limit Notch. Claude: 5 ore 32 per cento, settimana 61 per cento. ChatGPT: 30 giorni 18 per cento, e 1 azzeramento del limite da usare per altri 14 giorni. Aprilo, poi attivalo di nuovo per gli orari di azzeramento. Trascinalo in alto, su un lato o ovunque.",
+    "demoLabel": "Come funziona: le barre mostrano i tuoi limiti; passa il mouse per i numeri, fai clic per gli orari di azzeramento, trascinalo in alto, su un lato o ovunque; e quando OpenAI o Anthropic ti offre un azzeramento del limite, una notifica te lo dice e il notch lo mostra",
+    "cap1": [
+     "Passa sopra.",
+     "Fai clic."
+    ],
+    "cap2": [
+     "Non perdere nessun ",
+     "azzeramento",
+     "."
+    ],
+    "cap3": [
+     "In alto.",
+     "Di lato.",
+     "Ovunque."
+    ],
+    "privateTitle": "Nulla lascia il tuo PC.",
+    "privateLine": "Niente password · Niente token · Niente account",
+    "privacy": "Privacy",
+    "contact": "Contatti",
+    "sections": "Sezioni",
+    "navStart": "Inizio",
+    "navHow": "Come funziona",
+    "navGet": "Ottieni",
+    "navPrivate": "Privacy",
+    "egg": [
+     "quanto mi resta del limite?",
+     "Guarda in alto. ↑",
+     "e quando sta per finire?",
+     "Diventa rosso prima che finisca."
+    ],
+    "flaky": [
+     "sistema il test instabile",
+     "Fatto. Mancava un await."
+    ],
+    "rust": [
+     "ora riscrivi tutto in Rust",
+     "Userebbe quasi tutto quello che resta della tua settimana.",
+     "va bene. solo il parser",
+     "Fatto. Il parser ora è in Rust."
+    ]
+   }
+  },
+  {
+   "code": "pt-br",
+   "path": "/pt-br/",
+   "hreflang": "pt-BR",
+   "locale": "pt_BR",
+   "dir": "ltr",
+   "name": "Português",
+   "app": {
+    "Week": "Semana",
+    "HourUnit": " h",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Disponíveis: {0}",
+    "ExpiresIn": "expira em {0}",
+    "NewReset": "Redefinição de limite disponível",
+    "LanguageMenu": "Idioma"
+   },
+   "text": {
+    "title": "Limit Notch: limites de uso de IA e redefinições – sempre à vista",
+    "ogTitle": "Limit Notch: limites de uso de IA e redefinições",
+    "description": "Seus limites de uso do Claude e do ChatGPT (Codex) em um pequeno notch no topo da tela do Windows, e uma notificação assim que chega uma redefinição de limite. Sem senhas, sem tokens, nada sai do seu PC.",
+    "tagline": "Seus limites de IA e redefinições. Sempre à vista.",
+    "getIt": "Obter",
+    "getItLabel": "Obter o Limit Notch na Microsoft Store",
+    "scroll": "Role",
+    "tryWord": "Experimente",
+    "tryIt": "Experimente",
+    "clickIt": "Clique",
+    "dragIt": "Arraste",
+    "tapIt": "Toque",
+    "tapAgain": "Toque de novo",
+    "notchLabel": "Demonstração do Limit Notch. Claude: 5 horas 32 por cento, semana 61 por cento. ChatGPT: 30 dias 18 por cento, e 1 redefinição de limite para usar por mais 14 dias. Abra-o e ative-o de novo para ver os horários de redefinição. Arraste-o para o topo, para um lado ou para qualquer lugar.",
+    "demoLabel": "Como funciona: as barras mostram seus limites; passe o mouse para ver os números, clique para ver os horários de redefinição, arraste-o para o topo, para um lado ou para qualquer lugar; e quando a OpenAI ou a Anthropic dá a você uma redefinição de limite, uma notificação avisa e o notch a mostra",
+    "cap1": [
+     "Passe o mouse.",
+     "Clique."
+    ],
+    "cap2": [
+     "Não perca nenhuma ",
+     "redefinição",
+     "."
+    ],
+    "cap3": [
+     "No topo.",
+     "Do lado.",
+     "Em qualquer lugar."
+    ],
+    "privateTitle": "Nada sai do seu PC.",
+    "privateLine": "Sem senhas · Sem tokens · Sem conta",
+    "privacy": "Privacidade",
+    "contact": "Contato",
+    "sections": "Seções",
+    "navStart": "Início",
+    "navHow": "Como funciona",
+    "navGet": "Obter",
+    "navPrivate": "Privacidade",
+    "egg": [
+     "quanto ainda resta do meu limite?",
+     "Olhe para cima. ↑",
+     "e quando estiver acabando?",
+     "Ele fica vermelho antes de acabar."
+    ],
+    "flaky": [
+     "corrija o teste instável",
+     "Pronto. Faltava um await."
+    ],
+    "rust": [
+     "agora reescreva tudo em Rust",
+     "Isso usaria quase tudo o que resta da sua semana.",
+     "tá bom. só o parser",
+     "Pronto. O parser agora é Rust."
+    ]
+   }
+  },
+  {
+   "code": "nl",
+   "path": "/nl/",
+   "hreflang": "nl",
+   "locale": "nl_NL",
+   "dir": "ltr",
+   "name": "Nederlands",
+   "app": {
+    "Week": "Week",
+    "HourUnit": " u",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "{0} beschikbaar",
+    "ExpiresIn": "verloopt over {0}",
+    "NewReset": "Limietreset beschikbaar",
+    "LanguageMenu": "Taal"
+   },
+   "text": {
+    "title": "Limit Notch: AI-gebruikslimieten en resets – altijd in zicht",
+    "ogTitle": "Limit Notch: AI-gebruikslimieten en resets",
+    "description": "Je gebruikslimieten van Claude en ChatGPT (Codex) in een kleine notch bovenaan je Windows-scherm, en een melding zodra er een limietreset binnenkomt. Geen wachtwoorden, geen tokens, niets verlaat je pc.",
+    "tagline": "Je AI-limieten en resets. Altijd in zicht.",
+    "getIt": "Ophalen",
+    "getItLabel": "Limit Notch ophalen in de Microsoft Store",
+    "scroll": "Scrollen",
+    "tryWord": "Probeer",
+    "tryIt": "Probeer het",
+    "clickIt": "Klik erop",
+    "dragIt": "Sleep hem",
+    "tapIt": "Tik erop",
+    "tapAgain": "Tik nog eens",
+    "notchLabel": "Limit Notch-demo. Claude: 5 uur 32 procent, week 61 procent. ChatGPT: 30 dagen 18 procent, en 1 limietreset om te gebruiken, nog 14 dagen. Open hem en activeer hem opnieuw voor de resettijden. Sleep hem naar de bovenrand, een zijkant of waar je maar wilt.",
+    "demoLabel": "Zo werkt het: de balkjes tonen je limieten; beweeg de muis erover voor de cijfers, klik voor de resettijden, sleep de notch naar de bovenrand, een zijkant of waar je maar wilt; en als OpenAI of Anthropic je een limietreset geeft, laat een melding het weten en toont de notch hem",
+    "cap1": [
+     "Muis erop.",
+     "Klik."
+    ],
+    "cap2": [
+     "Mis nooit een ",
+     "reset",
+     "."
+    ],
+    "cap3": [
+     "Boven.",
+     "Opzij.",
+     "Overal."
+    ],
+    "privateTitle": "Niets verlaat je pc.",
+    "privateLine": "Geen wachtwoorden · Geen tokens · Geen account",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "sections": "Onderdelen",
+    "navStart": "Start",
+    "navHow": "Zo werkt het",
+    "navGet": "Ophalen",
+    "navPrivate": "Privacy",
+    "egg": [
+     "hoeveel is er nog over van mijn limiet?",
+     "Kijk omhoog. ↑",
+     "en als het bijna op is?",
+     "Hij kleurt rood voordat het op is."
+    ],
+    "flaky": [
+     "fix de flaky test",
+     "Klaar. Er ontbrak een await."
+    ],
+    "rust": [
+     "herschrijf nu alles in Rust",
+     "Dat zou het meeste opmaken van wat er van je week over is.",
+     "goed. alleen de parser",
+     "Klaar. De parser is nu Rust."
+    ]
+   }
+  },
+  {
+   "code": "pl",
+   "path": "/pl/",
+   "hreflang": "pl",
+   "locale": "pl_PL",
+   "dir": "ltr",
+   "name": "Polski",
+   "app": {
+    "Week": "Tydzień",
+    "HourUnit": " godz.",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Dostępne: {0}",
+    "ExpiresIn": "wygasa za {0}",
+    "NewReset": "Dostępne odnowienie limitu",
+    "LanguageMenu": "Język"
+   },
+   "text": {
+    "title": "Limit Notch: limity użycia AI i odnowienia – zawsze na widoku",
+    "ogTitle": "Limit Notch: limity użycia AI i odnowienia",
+    "description": "Twoje limity użycia Claude i ChatGPT (Codex) w małym notchu u góry ekranu Windows oraz powiadomienie, gdy tylko pojawi się odnowienie limitu. Bez haseł, bez tokenów, nic nie opuszcza Twojego komputera.",
+    "tagline": "Twoje limity AI i ich odnowienia. Zawsze na widoku.",
+    "getIt": "Pobierz",
+    "getItLabel": "Pobierz Limit Notch ze sklepu Microsoft Store",
+    "scroll": "Przewiń",
+    "tryWord": "Wypróbuj",
+    "tryIt": "Wypróbuj",
+    "clickIt": "Kliknij",
+    "dragIt": "Przeciągnij",
+    "tapIt": "Dotknij",
+    "tapAgain": "Dotknij ponownie",
+    "notchLabel": "Demo Limit Notch. Claude: 5 godzin 32 procent, tydzień 61 procent. ChatGPT: 30 dni 18 procent i 1 odnowienie limitu do wykorzystania jeszcze przez 14 dni. Otwórz go, a potem aktywuj ponownie, aby zobaczyć czasy odnowienia. Przeciągnij go do górnej krawędzi, na bok lub gdziekolwiek.",
+    "demoLabel": "Jak to działa: paski pokazują Twoje limity; najedź myszą, aby zobaczyć liczby, kliknij, aby zobaczyć czasy odnowienia, przeciągnij go do górnej krawędzi, na bok lub gdziekolwiek; a gdy OpenAI lub Anthropic da Ci odnowienie limitu, powiadomienie Cię o tym poinformuje, a notch je pokaże",
+    "cap1": [
+     "Najedź.",
+     "Kliknij."
+    ],
+    "cap2": [
+     "Nie przegap żadnego ",
+     "odnowienia",
+     "."
+    ],
+    "cap3": [
+     "U góry.",
+     "Z boku.",
+     "Gdziekolwiek."
+    ],
+    "privateTitle": "Nic nie opuszcza Twojego komputera.",
+    "privateLine": "Bez haseł · Bez tokenów · Bez konta",
+    "privacy": "Prywatność",
+    "contact": "Kontakt",
+    "sections": "Sekcje",
+    "navStart": "Początek",
+    "navHow": "Jak to działa",
+    "navGet": "Pobierz",
+    "navPrivate": "Prywatność",
+    "egg": [
+     "ile zostało z mojego limitu?",
+     "Spójrz w górę. ↑",
+     "a kiedy zacznie się kończyć?",
+     "Robi się czerwony, zanim się skończy."
+    ],
+    "flaky": [
+     "napraw niestabilny test",
+     "Gotowe. Brakowało await."
+    ],
+    "rust": [
+     "teraz przepisz wszystko w Rust",
+     "To zużyłoby większość tego, co zostało z Twojego tygodnia.",
+     "dobra. tylko parser",
+     "Gotowe. Parser jest teraz w Rust."
+    ]
+   }
+  },
+  {
+   "code": "fi",
+   "path": "/fi/",
+   "hreflang": "fi",
+   "locale": "fi_FI",
+   "dir": "ltr",
+   "name": "Suomi",
+   "app": {
+    "Week": "Viikko",
+    "HourUnit": " h",
+    "DayUnit": " pv",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "{0} käytettävissä",
+    "ExpiresIn": "vanhenee {0} kuluttua",
+    "NewReset": "Rajan nollaus käytettävissä",
+    "LanguageMenu": "Kieli"
+   },
+   "text": {
+    "title": "Limit Notch: tekoälyn käyttörajat ja nollaukset – aina näkyvissä",
+    "ogTitle": "Limit Notch: tekoälyn käyttörajat ja nollaukset",
+    "description": "Claude- ja ChatGPT (Codex) -käyttörajasi pienessä lovessa Windows-näytön yläreunassa ja ilmoitus heti, kun saat rajan nollauksen. Ei salasanoja, ei tunnuksia, mikään ei lähde tietokoneeltasi.",
+    "tagline": "Tekoälyrajasi ja nollaukset. Aina näkyvissä.",
+    "getIt": "Hanki",
+    "getItLabel": "Hanki Limit Notch Microsoft Storesta",
+    "scroll": "Vieritä",
+    "tryWord": "Kokeile",
+    "tryIt": "Kokeile",
+    "clickIt": "Napsauta",
+    "dragIt": "Vedä",
+    "tapIt": "Napauta",
+    "tapAgain": "Napauta uudelleen",
+    "notchLabel": "Limit Notch -esittely. Claude: 5 tuntia 32 prosenttia, viikko 61 prosenttia. ChatGPT: 30 päivää 18 prosenttia ja 1 rajan nollaus, joka on käytettävissä vielä 14 päivää. Avaa se ja aktivoi uudelleen nähdäksesi nollautumisajat. Vedä se yläreunaan, sivulle tai minne tahansa.",
+    "demoLabel": "Näin se toimii: palkit näyttävät rajasi; vie hiiri päälle nähdäksesi luvut, napsauta nähdäksesi nollautumisajat, vedä se yläreunaan, sivulle tai minne tahansa; ja kun OpenAI tai Anthropic antaa sinulle rajan nollauksen, ilmoitus kertoo siitä ja lovi näyttää sen",
+    "cap1": [
+     "Hiiri päälle.",
+     "Napsauta."
+    ],
+    "cap2": [
+     "Älä missaa yhtään ",
+     "nollausta",
+     "."
+    ],
+    "cap3": [
+     "Ylös.",
+     "Sivulle.",
+     "Minne vain."
+    ],
+    "privateTitle": "Mikään ei lähde tietokoneeltasi.",
+    "privateLine": "Ei salasanoja · Ei tunnuksia · Ei tiliä",
+    "privacy": "Tietosuoja",
+    "contact": "Yhteystiedot",
+    "sections": "Osiot",
+    "navStart": "Alku",
+    "navHow": "Näin se toimii",
+    "navGet": "Hanki",
+    "navPrivate": "Tietosuoja",
+    "egg": [
+     "paljonko rajastani on jäljellä?",
+     "Katso ylös. ↑",
+     "entä kun se alkaa loppua?",
+     "Se muuttuu punaiseksi ennen kuin loppuu."
+    ],
+    "flaky": [
+     "korjaa epävakaa testi",
+     "Valmis. Siitä puuttui await."
+    ],
+    "rust": [
+     "kirjoita nyt kaikki uudelleen Rustilla",
+     "Se veisi suurimman osan viikkosi jäljellä olevasta rajasta.",
+     "okei. vain jäsennin",
+     "Valmis. Jäsennin on nyt Rustia."
+    ]
+   }
+  },
+  {
+   "code": "sv",
+   "path": "/sv/",
+   "hreflang": "sv",
+   "locale": "sv_SE",
+   "dir": "ltr",
+   "name": "Svenska",
+   "app": {
+    "Week": "Vecka",
+    "HourUnit": " h",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "Tillgängliga: {0}",
+    "ExpiresIn": "går ut om {0}",
+    "NewReset": "Återställning av gräns tillgänglig",
+    "LanguageMenu": "Språk"
+   },
+   "text": {
+    "title": "Limit Notch: AI-användningsgränser och återställningar – alltid synliga",
+    "ogTitle": "Limit Notch: AI-användningsgränser och återställningar",
+    "description": "Dina användningsgränser för Claude och ChatGPT (Codex) i en liten notch överst på Windows-skärmen, och en avisering så fort en återställning av gränsen kommer. Inga lösenord, inga tokens, inget lämnar din dator.",
+    "tagline": "Dina AI-gränser och återställningar. Alltid synliga.",
+    "getIt": "Skaffa",
+    "getItLabel": "Skaffa Limit Notch i Microsoft Store",
+    "scroll": "Skrolla",
+    "tryWord": "Testa",
+    "tryIt": "Testa",
+    "clickIt": "Klicka",
+    "dragIt": "Dra den",
+    "tapIt": "Tryck",
+    "tapAgain": "Tryck igen",
+    "notchLabel": "Limit Notch-demo. Claude: 5 timmar 32 procent, vecka 61 procent. ChatGPT: 30 dagar 18 procent, och 1 återställning av gränsen att använda i 14 dagar till. Öppna den och aktivera den igen för återställningstiderna. Dra den till överkanten, en sida eller var som helst.",
+    "demoLabel": "Så fungerar det: staplarna visar dina gränser; håll muspekaren över för siffrorna, klicka för återställningstiderna, dra den till överkanten, en sida eller var som helst; och när OpenAI eller Anthropic ger dig en återställning av gränsen talar en avisering om det och notchen visar den",
+    "cap1": [
+     "Peka.",
+     "Klicka."
+    ],
+    "cap2": [
+     "Missa aldrig en ",
+     "återställning",
+     "."
+    ],
+    "cap3": [
+     "Överst.",
+     "På sidan.",
+     "Var som helst."
+    ],
+    "privateTitle": "Inget lämnar din dator.",
+    "privateLine": "Inga lösenord · Inga tokens · Inget konto",
+    "privacy": "Integritet",
+    "contact": "Kontakt",
+    "sections": "Avsnitt",
+    "navStart": "Start",
+    "navHow": "Så fungerar det",
+    "navGet": "Skaffa",
+    "navPrivate": "Integritet",
+    "egg": [
+     "hur mycket av min gräns är kvar?",
+     "Titta upp. ↑",
+     "och när den börjar ta slut?",
+     "Den blir röd innan den tar slut."
+    ],
+    "flaky": [
+     "fixa det instabila testet",
+     "Klart. Det saknades en await."
+    ],
+    "rust": [
+     "skriv nu om allt i Rust",
+     "Det skulle ta det mesta av det som är kvar av din vecka.",
+     "okej. bara parsern",
+     "Klart. Parsern är i Rust nu."
+    ]
+   }
+  },
+  {
+   "code": "ja",
+   "path": "/ja/",
+   "hreflang": "ja",
+   "locale": "ja_JP",
+   "dir": "ltr",
+   "name": "日本語",
+   "app": {
+    "Week": "週",
+    "HourUnit": "時間",
+    "DayUnit": "日",
+    "MinuteUnit": "分",
+    "ResetsAvailable": "利用可能: {0}",
+    "ExpiresIn": "期限まで {0}",
+    "NewReset": "制限のリセットが利用可能",
+    "LanguageMenu": "言語"
+   },
+   "text": {
+    "title": "Limit Notch：AI の利用上限とリセット – いつでも見える",
+    "ogTitle": "Limit Notch：AI の利用上限とリセット",
+    "description": "Claude と ChatGPT（Codex）の利用上限を、Windows 画面上部の小さなノッチに表示。制限のリセットが付与されるとすぐに通知します。パスワードもトークンも不要で、PC の外には何も送りません。",
+    "tagline": "AI の利用上限とリセットを、いつでも目の前に。",
+    "getIt": "入手",
+    "getItLabel": "Microsoft Store で Limit Notch を入手",
+    "scroll": "スクロール",
+    "tryWord": "試す",
+    "tryIt": "試してみて",
+    "clickIt": "クリック",
+    "dragIt": "ドラッグ",
+    "tapIt": "タップ",
+    "tapAgain": "もう一度タップ",
+    "notchLabel": "Limit Notch のデモ。Claude：5 時間 32 パーセント、週 61 パーセント。ChatGPT：30 日 18 パーセント、あと 14 日使える制限のリセットが 1 回。開いてからもう一度操作すると、リセットまでの時間を表示します。上端、左右の端、または好きな場所へドラッグできます。",
+    "demoLabel": "使い方：バーが利用上限を示します。マウスを合わせると数値、クリックするとリセットまでの時間を表示し、上端・左右の端・好きな場所へドラッグできます。OpenAI や Anthropic から制限のリセットが付与されると、通知でお知らせし、ノッチにも表示します",
+    "cap1": [
+     "合わせる。",
+     "クリック。"
+    ],
+    "cap2": [
+     "",
+     "リセット",
+     "を見逃さない。"
+    ],
+    "cap3": [
+     "上に。",
+     "横に。",
+     "どこにでも。"
+    ],
+    "privateTitle": "PC の外には何も出ません。",
+    "privateLine": "パスワード不要 · トークン不要 · アカウント不要",
+    "privacy": "プライバシー",
+    "contact": "お問い合わせ",
+    "sections": "セクション",
+    "navStart": "はじめに",
+    "navHow": "使い方",
+    "navGet": "入手",
+    "navPrivate": "プライバシー",
+    "egg": [
+     "上限はあとどれくらい残ってる？",
+     "上を見て。↑",
+     "残りが少なくなったら？",
+     "なくなる前に赤くなります。"
+    ],
+    "flaky": [
+     "不安定なテストを直して",
+     "完了。await が抜けていました。"
+    ],
+    "rust": [
+     "じゃあ全部 Rust で書き直して",
+     "それだと今週の残りのほとんどを使ってしまいます。",
+     "わかった。パーサーだけ",
+     "完了。パーサーは Rust になりました。"
+    ]
+   }
+  },
+  {
+   "code": "zh-hans",
+   "path": "/zh-hans/",
+   "hreflang": "zh-Hans",
+   "locale": "zh_CN",
+   "dir": "ltr",
+   "name": "简体中文",
+   "app": {
+    "Week": "周",
+    "HourUnit": "小时",
+    "DayUnit": "天",
+    "MinuteUnit": "分钟",
+    "ResetsAvailable": "可用：{0}",
+    "ExpiresIn": "{0}后过期",
+    "NewReset": "有可用的额度重置",
+    "LanguageMenu": "语言"
+   },
+   "text": {
+    "title": "Limit Notch：AI 用量限额与重置 – 始终可见",
+    "ogTitle": "Limit Notch：AI 用量限额与重置",
+    "description": "在 Windows 屏幕顶部的小刘海中显示你的 Claude 和 ChatGPT（Codex）用量限额，额度重置一到就通知你。无需密码，无需令牌，任何数据都不会离开你的电脑。",
+    "tagline": "你的 AI 限额与重置，始终可见。",
+    "getIt": "获取",
+    "getItLabel": "在 Microsoft Store 获取 Limit Notch",
+    "scroll": "滚动",
+    "tryWord": "试试",
+    "tryIt": "试试看",
+    "clickIt": "点击",
+    "dragIt": "拖动",
+    "tapIt": "轻点",
+    "tapAgain": "再点一下",
+    "notchLabel": "Limit Notch 演示。Claude：5 小时 32%，周 61%。ChatGPT：30 天 18%，另有 1 次额度重置，还可使用 14 天。打开后再次激活可查看重置时间。可将它拖到顶部、侧边或任意位置。",
+    "demoLabel": "使用方法：横条显示你的限额；悬停查看数字，点击查看重置时间，可拖到顶部、侧边或任意位置；当 OpenAI 或 Anthropic 给你额度重置时，会有通知提醒，刘海中也会显示",
+    "cap1": [
+     "悬停。",
+     "点击。"
+    ],
+    "cap2": [
+     "不错过任何一次",
+     "重置",
+     "。"
+    ],
+    "cap3": [
+     "顶部。",
+     "侧边。",
+     "任意位置。"
+    ],
+    "privateTitle": "任何数据都不会离开你的电脑。",
+    "privateLine": "无需密码 · 无需令牌 · 无需账户",
+    "privacy": "隐私",
+    "contact": "联系",
+    "sections": "章节",
+    "navStart": "开始",
+    "navHow": "使用方法",
+    "navGet": "获取",
+    "navPrivate": "隐私",
+    "egg": [
+     "我的限额还剩多少？",
+     "往上看。↑",
+     "快用完时呢？",
+     "用完之前它会变红。"
+    ],
+    "flaky": [
+     "修复那个不稳定的测试",
+     "完成。少了一个 await。"
+    ],
+    "rust": [
+     "现在全部用 Rust 重写",
+     "那会用掉你本周剩余额度的大部分。",
+     "好吧。只改解析器",
+     "完成。解析器现在是 Rust 了。"
+    ]
+   }
+  },
+  {
+   "code": "ko",
+   "path": "/ko/",
+   "hreflang": "ko",
+   "locale": "ko_KR",
+   "dir": "ltr",
+   "name": "한국어",
+   "app": {
+    "Week": "주",
+    "HourUnit": "시간",
+    "DayUnit": "일",
+    "MinuteUnit": "분",
+    "ResetsAvailable": "사용 가능: {0}",
+    "ExpiresIn": "{0} 후 만료",
+    "NewReset": "한도 초기화 사용 가능",
+    "LanguageMenu": "언어"
+   },
+   "text": {
+    "title": "Limit Notch: AI 사용 한도와 초기화 – 언제나 한눈에",
+    "ogTitle": "Limit Notch: AI 사용 한도와 초기화",
+    "description": "Claude와 ChatGPT(Codex) 사용 한도를 Windows 화면 위쪽의 작은 노치에 표시하고, 한도 초기화가 도착하면 바로 알려 줍니다. 암호도 토큰도 필요 없고, 아무것도 PC 밖으로 나가지 않습니다.",
+    "tagline": "AI 한도와 초기화를 언제나 한눈에.",
+    "getIt": "받기",
+    "getItLabel": "Microsoft Store에서 Limit Notch 받기",
+    "scroll": "스크롤",
+    "tryWord": "해 보기",
+    "tryIt": "해 보세요",
+    "clickIt": "클릭",
+    "dragIt": "드래그",
+    "tapIt": "탭",
+    "tapAgain": "다시 탭",
+    "notchLabel": "Limit Notch 데모. Claude: 5시간 32퍼센트, 주간 61퍼센트. ChatGPT: 30일 18퍼센트, 그리고 앞으로 14일 동안 쓸 수 있는 한도 초기화 1개. 열고 한 번 더 누르면 초기화 시간이 보입니다. 위쪽, 옆쪽 또는 원하는 곳으로 끌어 놓을 수 있습니다.",
+    "demoLabel": "작동 방식: 막대가 한도를 보여 줍니다. 마우스를 올리면 숫자, 클릭하면 초기화 시간이 보이고, 위쪽·옆쪽·원하는 곳으로 끌어 놓을 수 있습니다. OpenAI나 Anthropic이 한도 초기화를 주면 알림으로 알려 주고 노치에도 표시합니다",
+    "cap1": [
+     "올리고.",
+     "클릭."
+    ],
+    "cap2": [
+     "",
+     "초기화",
+     "를 놓치지 마세요."
+    ],
+    "cap3": [
+     "위로.",
+     "옆으로.",
+     "어디든."
+    ],
+    "privateTitle": "아무것도 PC 밖으로 나가지 않습니다.",
+    "privateLine": "암호 없음 · 토큰 없음 · 계정 없음",
+    "privacy": "개인정보",
+    "contact": "연락처",
+    "sections": "섹션",
+    "navStart": "시작",
+    "navHow": "작동 방식",
+    "navGet": "받기",
+    "navPrivate": "개인정보",
+    "egg": [
+     "내 한도 얼마나 남았어?",
+     "위를 보세요. ↑",
+     "거의 다 쓰면?",
+     "다 쓰기 전에 빨갛게 변합니다."
+    ],
+    "flaky": [
+     "불안정한 테스트 고쳐 줘",
+     "완료. await가 빠져 있었습니다."
+    ],
+    "rust": [
+     "이제 전부 Rust로 다시 써 줘",
+     "그러면 이번 주 남은 한도의 대부분을 쓰게 됩니다.",
+     "좋아. 파서만",
+     "완료. 이제 파서는 Rust입니다."
+    ]
+   }
+  },
+  {
+   "code": "tr",
+   "path": "/tr/",
+   "hreflang": "tr",
+   "locale": "tr_TR",
+   "dir": "ltr",
+   "name": "Türkçe",
+   "app": {
+    "Week": "Hafta",
+    "HourUnit": " sa",
+    "DayUnit": " g",
+    "MinuteUnit": " dk",
+    "ResetsAvailable": "{0} kullanılabilir",
+    "ExpiresIn": "{0} içinde sona erer",
+    "NewReset": "Limit sıfırlama kullanılabilir",
+    "LanguageMenu": "Dil"
+   },
+   "text": {
+    "title": "Limit Notch: Yapay zekâ kullanım limitleri ve sıfırlamalar – hep gözünüzün önünde",
+    "ogTitle": "Limit Notch: Yapay zekâ kullanım limitleri ve sıfırlamalar",
+    "description": "Claude ve ChatGPT (Codex) kullanım limitleriniz Windows ekranınızın üstündeki küçük bir çentikte; bir limit sıfırlaması geldiği anda da bildirim. Parola yok, token yok, hiçbir şey bilgisayarınızdan çıkmaz.",
+    "tagline": "Yapay zekâ limitleriniz ve sıfırlamalar. Hep gözünüzün önünde.",
+    "getIt": "Edinin",
+    "getItLabel": "Limit Notch’u Microsoft Store’dan edinin",
+    "scroll": "Kaydırın",
+    "tryWord": "Deneyin",
+    "tryIt": "Deneyin",
+    "clickIt": "Tıklayın",
+    "dragIt": "Sürükleyin",
+    "tapIt": "Dokunun",
+    "tapAgain": "Tekrar dokunun",
+    "notchLabel": "Limit Notch demosu. Claude: 5 saat yüzde 32, hafta yüzde 61. ChatGPT: 30 gün yüzde 18 ve 14 gün daha kullanılabilecek 1 limit sıfırlaması. Açın, sıfırlanma süreleri için tekrar etkinleştirin. Üst kenara, bir yana veya istediğiniz yere sürükleyin.",
+    "demoLabel": "Nasıl çalışır: çubuklar limitlerinizi gösterir; sayılar için fareyle üzerine gelin, sıfırlanma süreleri için tıklayın, üst kenara, bir yana veya istediğiniz yere sürükleyin; OpenAI veya Anthropic size bir limit sıfırlaması verdiğinde bir bildirim haber verir ve çentik bunu gösterir",
+    "cap1": [
+     "Üzerine gelin.",
+     "Tıklayın."
+    ],
+    "cap2": [
+     "Hiçbir ",
+     "sıfırlamayı",
+     " kaçırmayın."
+    ],
+    "cap3": [
+     "Üstte.",
+     "Yanda.",
+     "Her yerde."
+    ],
+    "privateTitle": "Hiçbir şey bilgisayarınızdan çıkmaz.",
+    "privateLine": "Parola yok · Token yok · Hesap yok",
+    "privacy": "Gizlilik",
+    "contact": "İletişim",
+    "sections": "Bölümler",
+    "navStart": "Başlangıç",
+    "navHow": "Nasıl çalışır",
+    "navGet": "Edinin",
+    "navPrivate": "Gizlilik",
+    "egg": [
+     "limitimden ne kadar kaldı?",
+     "Yukarı bakın. ↑",
+     "ya bitmeye yaklaşınca?",
+     "Bitmeden önce kırmızıya döner."
+    ],
+    "flaky": [
+     "kararsız testi düzelt",
+     "Bitti. Bir await eksikti."
+    ],
+    "rust": [
+     "şimdi hepsini Rust ile yeniden yaz",
+     "Bu, haftanızdan kalanın çoğunu harcar.",
+     "peki. sadece ayrıştırıcıyı",
+     "Bitti. Ayrıştırıcı artık Rust."
+    ]
+   }
+  },
+  {
+   "code": "ru",
+   "path": "/ru/",
+   "hreflang": "ru",
+   "locale": "ru_RU",
+   "dir": "ltr",
+   "name": "Русский",
+   "app": {
+    "Week": "Неделя",
+    "HourUnit": " ч",
+    "DayUnit": " д",
+    "MinuteUnit": " мин",
+    "ResetsAvailable": "Доступно: {0}",
+    "ExpiresIn": "истекает через {0}",
+    "NewReset": "Доступен сброс лимита",
+    "LanguageMenu": "Язык"
+   },
+   "text": {
+    "title": "Limit Notch: лимиты использования ИИ и сбросы – всегда на виду",
+    "ogTitle": "Limit Notch: лимиты использования ИИ и сбросы",
+    "description": "Ваши лимиты Claude и ChatGPT (Codex) в маленькой «чёлке» вверху экрана Windows и уведомление, как только приходит сброс лимита. Без паролей, без токенов, ничего не покидает ваш компьютер.",
+    "tagline": "Ваши лимиты ИИ и их сбросы. Всегда на виду.",
+    "getIt": "Получить",
+    "getItLabel": "Получить Limit Notch в Microsoft Store",
+    "scroll": "Прокрутите",
+    "tryWord": "Попробуйте",
+    "tryIt": "Попробуйте",
+    "clickIt": "Щёлкните",
+    "dragIt": "Перетащите",
+    "tapIt": "Коснитесь",
+    "tapAgain": "Ещё раз",
+    "notchLabel": "Демо Limit Notch. Claude: 5 часов 32 процента, неделя 61 процент. ChatGPT: 30 дней 18 процентов и 1 сброс лимита, который можно использовать ещё 14 дней. Откройте её, затем активируйте ещё раз, чтобы увидеть время сброса. Перетащите её к верхнему краю, в сторону или куда угодно.",
+    "demoLabel": "Как это работает: полоски показывают ваши лимиты; наведите указатель, чтобы увидеть цифры, щёлкните, чтобы увидеть время сброса, перетащите её к верхнему краю, в сторону или куда угодно; а когда OpenAI или Anthropic даёт вам сброс лимита, уведомление сообщит об этом, и «чёлка» его покажет",
+    "cap1": [
+     "Наведите.",
+     "Щёлкните."
+    ],
+    "cap2": [
+     "Не пропустите ни одного ",
+     "сброса",
+     "."
+    ],
+    "cap3": [
+     "Сверху.",
+     "Сбоку.",
+     "Где угодно."
+    ],
+    "privateTitle": "Ничего не покидает ваш компьютер.",
+    "privateLine": "Без паролей · Без токенов · Без аккаунта",
+    "privacy": "Конфиденциальность",
+    "contact": "Контакты",
+    "sections": "Разделы",
+    "navStart": "Начало",
+    "navHow": "Как это работает",
+    "navGet": "Получить",
+    "navPrivate": "Конфиденциальность",
+    "egg": [
+     "сколько осталось от моего лимита?",
+     "Посмотрите наверх. ↑",
+     "а когда он будет заканчиваться?",
+     "Она краснеет до того, как он закончится."
+    ],
+    "flaky": [
+     "почини нестабильный тест",
+     "Готово. Не хватало await."
+    ],
+    "rust": [
+     "теперь перепиши всё на Rust",
+     "Это израсходует большую часть того, что осталось от вашей недели.",
+     "ладно. только парсер",
+     "Готово. Парсер теперь на Rust."
+    ]
+   }
+  },
+  {
+   "code": "uk",
+   "path": "/uk/",
+   "hreflang": "uk",
+   "locale": "uk_UA",
+   "dir": "ltr",
+   "name": "Українська",
+   "app": {
+    "Week": "Тиждень",
+    "HourUnit": " год",
+    "DayUnit": " д",
+    "MinuteUnit": " хв",
+    "ResetsAvailable": "Доступно: {0}",
+    "ExpiresIn": "спливає через {0}",
+    "NewReset": "Доступне скидання ліміту",
+    "LanguageMenu": "Мова"
+   },
+   "text": {
+    "title": "Limit Notch: ліміти використання ШІ та скидання – завжди на виду",
+    "ogTitle": "Limit Notch: ліміти використання ШІ та скидання",
+    "description": "Ваші ліміти Claude і ChatGPT (Codex) у маленькому «вирізі» вгорі екрана Windows і сповіщення, щойно надходить скидання ліміту. Без паролів, без токенів, ніщо не залишає ваш комп’ютер.",
+    "tagline": "Ваші ліміти ШІ та їх скидання. Завжди на виду.",
+    "getIt": "Отримати",
+    "getItLabel": "Отримати Limit Notch у Microsoft Store",
+    "scroll": "Прокрутіть",
+    "tryWord": "Спробуйте",
+    "tryIt": "Спробуйте",
+    "clickIt": "Клацніть",
+    "dragIt": "Перетягніть",
+    "tapIt": "Торкніться",
+    "tapAgain": "Ще раз",
+    "notchLabel": "Демо Limit Notch. Claude: 5 годин 32 відсотки, тиждень 61 відсоток. ChatGPT: 30 днів 18 відсотків і 1 скидання ліміту, яке можна використати ще 14 днів. Відкрийте його, потім активуйте ще раз, щоб побачити час скидання. Перетягніть його до верхнього краю, убік або куди завгодно.",
+    "demoLabel": "Як це працює: смужки показують ваші ліміти; наведіть вказівник, щоб побачити цифри, клацніть, щоб побачити час скидання, перетягніть його до верхнього краю, убік або куди завгодно; а коли OpenAI чи Anthropic дає вам скидання ліміту, сповіщення повідомить про це, і «виріз» його покаже",
+    "cap1": [
+     "Наведіть.",
+     "Клацніть."
+    ],
+    "cap2": [
+     "Не пропустіть жодного ",
+     "скидання",
+     "."
+    ],
+    "cap3": [
+     "Угорі.",
+     "Збоку.",
+     "Будь-де."
+    ],
+    "privateTitle": "Ніщо не залишає ваш комп’ютер.",
+    "privateLine": "Без паролів · Без токенів · Без облікового запису",
+    "privacy": "Конфіденційність",
+    "contact": "Контакти",
+    "sections": "Розділи",
+    "navStart": "Початок",
+    "navHow": "Як це працює",
+    "navGet": "Отримати",
+    "navPrivate": "Конфіденційність",
+    "egg": [
+     "скільки лишилося від мого ліміту?",
+     "Подивіться вгору. ↑",
+     "а коли він закінчуватиметься?",
+     "Він червоніє, перш ніж закінчиться."
+    ],
+    "flaky": [
+     "полагодь нестабільний тест",
+     "Готово. Бракувало await."
+    ],
+    "rust": [
+     "тепер перепиши все на Rust",
+     "Це витратить більшу частину того, що лишилося від вашого тижня.",
+     "гаразд. лише парсер",
+     "Готово. Парсер тепер на Rust."
+    ]
+   }
+  },
+  {
+   "code": "cs",
+   "path": "/cs/",
+   "hreflang": "cs",
+   "locale": "cs_CZ",
+   "dir": "ltr",
+   "name": "Čeština",
+   "app": {
+    "Week": "Týden",
+    "HourUnit": " h",
+    "DayUnit": " d",
+    "MinuteUnit": " min",
+    "ResetsAvailable": "K dispozici: {0}",
+    "ExpiresIn": "vyprší za {0}",
+    "NewReset": "K dispozici je obnovení limitu",
+    "LanguageMenu": "Jazyk"
+   },
+   "text": {
+    "title": "Limit Notch: limity využití AI a obnovení – vždy na očích",
+    "ogTitle": "Limit Notch: limity využití AI a obnovení",
+    "description": "Vaše limity využití Claude a ChatGPT (Codex) v malém výřezu nahoře na obrazovce Windows a oznámení, jakmile dorazí obnovení limitu. Žádná hesla, žádné tokeny, nic neopustí váš počítač.",
+    "tagline": "Vaše limity AI a jejich obnovení. Vždy na očích.",
+    "getIt": "Získat",
+    "getItLabel": "Získat Limit Notch v Microsoft Storu",
+    "scroll": "Posuňte",
+    "tryWord": "Zkuste",
+    "tryIt": "Zkuste to",
+    "clickIt": "Klikněte",
+    "dragIt": "Přetáhněte",
+    "tapIt": "Klepněte",
+    "tapAgain": "Klepněte znovu",
+    "notchLabel": "Ukázka Limit Notch. Claude: 5 hodin 32 procent, týden 61 procent. ChatGPT: 30 dní 18 procent a 1 obnovení limitu k použití ještě 14 dní. Otevřete ho a aktivujte znovu pro časy obnovení. Přetáhněte ho k hornímu okraji, na stranu nebo kamkoli.",
+    "demoLabel": "Jak to funguje: pruhy ukazují vaše limity; najeďte myší pro čísla, klikněte pro časy obnovení, přetáhněte ho k hornímu okraji, na stranu nebo kamkoli; a když vám OpenAI nebo Anthropic dá obnovení limitu, oznámení vám to řekne a výřez ho ukáže",
+    "cap1": [
+     "Najeďte.",
+     "Klikněte."
+    ],
+    "cap2": [
+     "Nepropásněte žádné ",
+     "obnovení",
+     "."
+    ],
+    "cap3": [
+     "Nahoře.",
+     "Na boku.",
+     "Kdekoli."
+    ],
+    "privateTitle": "Nic neopustí váš počítač.",
+    "privateLine": "Žádná hesla · Žádné tokeny · Žádný účet",
+    "privacy": "Soukromí",
+    "contact": "Kontakt",
+    "sections": "Oddíly",
+    "navStart": "Začátek",
+    "navHow": "Jak to funguje",
+    "navGet": "Získat",
+    "navPrivate": "Soukromí",
+    "egg": [
+     "kolik mi zbývá z limitu?",
+     "Podívejte se nahoru. ↑",
+     "a když bude docházet?",
+     "Zčervená dřív, než dojde."
+    ],
+    "flaky": [
+     "oprav ten nestabilní test",
+     "Hotovo. Chyběl tam await."
+    ],
+    "rust": [
+     "teď to celé přepiš do Rustu",
+     "To by spotřebovalo většinu toho, co vám zbývá z týdne.",
+     "dobře. jen parser",
+     "Hotovo. Parser je teď v Rustu."
+    ]
+   }
+  },
+  {
+   "code": "id",
+   "path": "/id/",
+   "hreflang": "id",
+   "locale": "id_ID",
+   "dir": "ltr",
+   "name": "Bahasa Indonesia",
+   "app": {
+    "Week": "Minggu",
+    "HourUnit": " jam",
+    "DayUnit": " hr",
+    "MinuteUnit": " mnt",
+    "ResetsAvailable": "{0} tersedia",
+    "ExpiresIn": "kedaluwarsa dalam {0}",
+    "NewReset": "Pengaturan ulang batas tersedia",
+    "LanguageMenu": "Bahasa"
+   },
+   "text": {
+    "title": "Limit Notch: batas penggunaan AI dan pengaturan ulang – selalu terlihat",
+    "ogTitle": "Limit Notch: batas penggunaan AI dan pengaturan ulang",
+    "description": "Batas penggunaan Claude dan ChatGPT (Codex) Anda di notch kecil di bagian atas layar Windows, dan notifikasi begitu pengaturan ulang batas tiba. Tanpa kata sandi, tanpa token, tidak ada yang keluar dari PC Anda.",
+    "tagline": "Batas AI Anda dan pengaturan ulangnya. Selalu terlihat.",
+    "getIt": "Dapatkan",
+    "getItLabel": "Dapatkan Limit Notch di Microsoft Store",
+    "scroll": "Gulir",
+    "tryWord": "Coba",
+    "tryIt": "Cobalah",
+    "clickIt": "Klik",
+    "dragIt": "Seret",
+    "tapIt": "Ketuk",
+    "tapAgain": "Ketuk lagi",
+    "notchLabel": "Demo Limit Notch. Claude: 5 jam 32 persen, minggu 61 persen. ChatGPT: 30 hari 18 persen, dan 1 pengaturan ulang batas yang bisa dipakai 14 hari lagi. Buka, lalu aktifkan lagi untuk melihat waktu pengaturan ulang. Seret ke tepi atas, ke samping, atau ke mana saja.",
+    "demoLabel": "Cara kerjanya: bilah menunjukkan batas Anda; arahkan mouse untuk melihat angka, klik untuk melihat waktu pengaturan ulang, seret ke tepi atas, ke samping, atau ke mana saja; dan saat OpenAI atau Anthropic memberi Anda pengaturan ulang batas, notifikasi memberi tahu dan notch menampilkannya",
+    "cap1": [
+     "Arahkan.",
+     "Klik."
+    ],
+    "cap2": [
+     "Jangan lewatkan ",
+     "pengaturan ulang",
+     "."
+    ],
+    "cap3": [
+     "Di atas.",
+     "Di samping.",
+     "Di mana saja."
+    ],
+    "privateTitle": "Tidak ada yang keluar dari PC Anda.",
+    "privateLine": "Tanpa kata sandi · Tanpa token · Tanpa akun",
+    "privacy": "Privasi",
+    "contact": "Kontak",
+    "sections": "Bagian",
+    "navStart": "Awal",
+    "navHow": "Cara kerjanya",
+    "navGet": "Dapatkan",
+    "navPrivate": "Privasi",
+    "egg": [
+     "berapa sisa batas saya?",
+     "Lihat ke atas. ↑",
+     "dan kalau hampir habis?",
+     "Berubah merah sebelum habis."
+    ],
+    "flaky": [
+     "perbaiki tes yang tidak stabil",
+     "Selesai. Ada await yang hilang."
+    ],
+    "rust": [
+     "sekarang tulis ulang semuanya dalam Rust",
+     "Itu akan memakai sebagian besar sisa batas minggu Anda.",
+     "baik. parser saja",
+     "Selesai. Parser sekarang dalam Rust."
+    ]
+   }
+  },
+  {
+   "code": "zh-hant",
+   "path": "/zh-hant/",
+   "hreflang": "zh-Hant",
+   "locale": "zh_TW",
+   "dir": "ltr",
+   "name": "繁體中文",
+   "app": {
+    "Week": "週",
+    "HourUnit": "小時",
+    "DayUnit": "天",
+    "MinuteUnit": "分鐘",
+    "ResetsAvailable": "可用：{0}",
+    "ExpiresIn": "{0}後到期",
+    "NewReset": "有可用的額度重設",
+    "LanguageMenu": "語言"
+   },
+   "text": {
+    "title": "Limit Notch：AI 用量限額與重設 – 隨時可見",
+    "ogTitle": "Limit Notch：AI 用量限額與重設",
+    "description": "在 Windows 螢幕頂端的小瀏海中顯示你的 Claude 和 ChatGPT（Codex）用量限額，額度重設一到就通知你。不需要密碼，不需要權杖，任何資料都不會離開你的電腦。",
+    "tagline": "你的 AI 限額與重設，隨時可見。",
+    "getIt": "取得",
+    "getItLabel": "在 Microsoft Store 取得 Limit Notch",
+    "scroll": "捲動",
+    "tryWord": "試試",
+    "tryIt": "試試看",
+    "clickIt": "按一下",
+    "dragIt": "拖曳",
+    "tapIt": "點一下",
+    "tapAgain": "再點一下",
+    "notchLabel": "Limit Notch 示範。Claude：5 小時 32%，週 61%。ChatGPT：30 天 18%，另有 1 次額度重設，還可使用 14 天。開啟後再次啟用可查看重設時間。可將它拖曳到頂端、側邊或任何位置。",
+    "demoLabel": "使用方式：橫條顯示你的限額；將滑鼠移到上方查看數字，按一下查看重設時間，可拖曳到頂端、側邊或任何位置；當 OpenAI 或 Anthropic 給你額度重設時，會有通知提醒，瀏海中也會顯示",
+    "cap1": [
+     "移到上方。",
+     "按一下。"
+    ],
+    "cap2": [
+     "不錯過任何一次",
+     "重設",
+     "。"
+    ],
+    "cap3": [
+     "頂端。",
+     "側邊。",
+     "任何位置。"
+    ],
+    "privateTitle": "任何資料都不會離開你的電腦。",
+    "privateLine": "不需要密碼 · 不需要權杖 · 不需要帳戶",
+    "privacy": "隱私權",
+    "contact": "聯絡",
+    "sections": "章節",
+    "navStart": "開始",
+    "navHow": "使用方式",
+    "navGet": "取得",
+    "navPrivate": "隱私權",
+    "egg": [
+     "我的限額還剩多少？",
+     "往上看。↑",
+     "快用完時呢？",
+     "用完之前它會變紅。"
+    ],
+    "flaky": [
+     "修好那個不穩定的測試",
+     "完成。少了一個 await。"
+    ],
+    "rust": [
+     "現在全部用 Rust 重寫",
+     "那會用掉你本週剩餘額度的大部分。",
+     "好吧。只改剖析器",
+     "完成。剖析器現在是 Rust 了。"
+    ]
+   }
+  },
+  {
+   "code": "ar",
+   "path": "/ar/",
+   "hreflang": "ar",
+   "locale": "ar_SA",
+   "dir": "rtl",
+   "name": "العربية",
+   "app": {
+    "Week": "الأسبوع",
+    "HourUnit": " س",
+    "DayUnit": " ي",
+    "MinuteUnit": " د",
+    "ResetsAvailable": "المتاح: {0}",
+    "ExpiresIn": "تنتهي خلال {0}",
+    "NewReset": "إعادة تعيين الحد متاحة",
+    "LanguageMenu": "اللغة"
+   },
+   "text": {
+    "title": "Limit Notch: حدود استخدام الذكاء الاصطناعي وإعادة تعيينها – دائمًا أمام عينيك",
+    "ogTitle": "Limit Notch: حدود استخدام الذكاء الاصطناعي وإعادة تعيينها",
+    "description": "حدود استخدام Claude وChatGPT (Codex) في نتوء صغير أعلى شاشة Windows، وإشعار فور وصول إعادة تعيين للحد. بلا كلمات مرور، بلا رموز، ولا يغادر أي شيء جهازك.",
+    "tagline": "حدود الذكاء الاصطناعي وإعادة تعيينها. دائمًا أمام عينيك.",
+    "getIt": "احصل عليه",
+    "getItLabel": "احصل على Limit Notch من Microsoft Store",
+    "scroll": "مرّر",
+    "tryWord": "جرّبه",
+    "tryIt": "جرّبه",
+    "clickIt": "انقر",
+    "dragIt": "اسحبه",
+    "tapIt": "المسه",
+    "tapAgain": "المسه مجددًا",
+    "notchLabel": "عرض توضيحي لـ Limit Notch. Claude: 5 ساعات 32 بالمئة، الأسبوع 61 بالمئة. ChatGPT: 30 يومًا 18 بالمئة، وإعادة تعيين واحدة للحد متاحة للاستخدام لمدة 14 يومًا أخرى. افتحه ثم فعّله مرة أخرى لرؤية مواعيد إعادة التعيين. اسحبه إلى الحافة العلوية أو إلى جانب أو إلى أي مكان.",
+    "demoLabel": "طريقة العمل: تعرض الأشرطة حدودك؛ مرّر المؤشر لرؤية الأرقام، وانقر لرؤية مواعيد إعادة التعيين، واسحبه إلى الحافة العلوية أو إلى جانب أو إلى أي مكان؛ وعندما تمنحك OpenAI أو Anthropic إعادة تعيين للحد، يخبرك إشعار بذلك ويعرضها النتوء",
+    "cap1": [
+     "مرّر.",
+     "انقر."
+    ],
+    "cap2": [
+     "لا تفوّت أي ",
+     "إعادة تعيين",
+     "."
+    ],
+    "cap3": [
+     "في الأعلى.",
+     "على الجانب.",
+     "في أي مكان."
+    ],
+    "privateTitle": "لا يغادر أي شيء جهازك.",
+    "privateLine": "بلا كلمات مرور · بلا رموز · بلا حساب",
+    "privacy": "الخصوصية",
+    "contact": "اتصل بنا",
+    "sections": "الأقسام",
+    "navStart": "البداية",
+    "navHow": "طريقة العمل",
+    "navGet": "احصل عليه",
+    "navPrivate": "الخصوصية",
+    "egg": [
+     "كم تبقّى من حدي؟",
+     "انظر إلى الأعلى. ↑",
+     "وعندما يوشك على النفاد؟",
+     "يتحوّل إلى الأحمر قبل أن ينفد."
+    ],
+    "flaky": [
+     "أصلح الاختبار غير المستقر",
+     "تم. كان ينقص await."
+    ],
+    "rust": [
+     "أعد الآن كتابة كل شيء بلغة Rust",
+     "سيستهلك ذلك معظم ما تبقّى من أسبوعك.",
+     "حسنًا. المحلّل فقط",
+     "تم. أصبح المحلّل بلغة Rust."
+    ]
+   }
+  }
+ ]
+}
