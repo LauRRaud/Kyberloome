@@ -845,7 +845,7 @@ html::-webkit-scrollbar { display: none; }
 /* ---- the languages: a wheel at the left edge (script places each row) ------------------ */
 
 .wheel {
-  --size: 15;
+  --size: 19;
   --rows: 1.9;
   --tilt: 9;
   --blur: 1.4;
@@ -854,9 +854,9 @@ html::-webkit-scrollbar { display: none; }
   z-index: 40;
   left: 0;
   top: 50%;
-  width: 210px;
-  height: 300px;
-  margin-top: -150px;
+  width: 260px;
+  height: 380px;
+  margin-top: -190px;
   touch-action: none;
   user-select: none;
   -webkit-user-select: none;
@@ -866,19 +866,20 @@ html:not(.wheel-on) .wheel { display: none; }
 .wheel ul { margin: 0; padding: 0; list-style: none; }
 .wheel a {
   position: absolute;
-  left: 46px;
+  left: 52px;
   top: 50%;
   margin-top: -.6em;
-  font: 500 15px/1.2 var(--font);
-  letter-spacing: .02em;
-  color: rgba(255, 255, 255, .6);
+  font: 400 19px/1.2 var(--font);
+  letter-spacing: .03em;
+  color: var(--muted);
   text-decoration: none;
   white-space: nowrap;
   transform-origin: 0 50%;
   will-change: transform, opacity, filter;
   transition: color .25s ease-out;
 }
-.wheel a.mid { color: #fff; }
+/* In the middle: the page's own soft white, not pure white. */
+.wheel a.mid { color: rgba(243, 243, 246, .86); }
 .wheel a:focus-visible { outline: 2px solid rgba(255, 255, 255, .6); outline-offset: 4px; border-radius: 3px; }
 /* This page's language: a dot before it. */
 .wheel a.now::before {
@@ -892,20 +893,24 @@ html:not(.wheel-on) .wheel { display: none; }
   border-radius: 50%;
   background: var(--claude);
 }
-/* Another language in the middle: a caret after it, as at a prompt - a click goes there. */
-.wheel a.mid:not(.now)::after {
-  content: "";
-  display: inline-block;
-  width: .5em;
-  height: 1.05em;
-  margin-left: 6px;
-  vertical-align: -.18em;
-  background: var(--claude);
-  animation: blink 1s steps(1) infinite;
-}
 .wheel.away { opacity: 0; translate: -24px 0; pointer-events: none; }
 /* On a phone, lower down and smaller, out of the way of the words. */
 @media (max-width: 760px) {
-  .wheel { --size: 13; --fade: .4; top: auto; bottom: 64px; margin-top: 0; height: 170px; width: 170px; }
-  .wheel a { left: 26px; font-size: 13px; }
+  .wheel { --size: 15; --fade: .5; top: auto; bottom: 70px; margin-top: 0; height: 150px; width: 170px; }
+  .wheel a { left: 28px; font-size: 15px; }
+}
+
+/* Without the trip (less motion wanted), the wheel is there only at the top of the page. */
+html:not(.travel).scrolled .wheel { opacity: 0; translate: -24px 0; pointer-events: none; }
+
+/* Where scrolling comes to rest (script places them): one screen a push or a swipe. */
+html.travel { scroll-snap-type: y mandatory; }
+.travel .snap {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  pointer-events: none;
 }

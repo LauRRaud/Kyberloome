@@ -1,5 +1,7 @@
 // What the script writes, in the page's language: the page carries it (i18n/build.py makes the
-// pages). Text that goes into markup is escaped.
+// pages). Text that goes into markup is escaped. When the language wheel puts another language in
+// place, TEXT changes and a "language" event goes to the document; whatever shows words of it
+// writes them anew.
 var TEXT = JSON.parse(document.getElementById('text').textContent);
 function esc(text) {
   return String(text).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
@@ -28,17 +30,22 @@ function esc(text) {
   // worded once the one before is done; gone after the drag.
   var say = hint && hint.querySelector('.say');
   var touch = window.matchMedia('(hover: none)').matches;
-  var steps = touch ? [TEXT.tryIt, TEXT.tapAgain, TEXT.dragIt] : [TEXT.tryIt, TEXT.clickIt, TEXT.dragIt];
+  function steps() { return touch ? [TEXT.tryIt, TEXT.tapAgain, TEXT.dragIt] : [TEXT.tryIt, TEXT.clickIt, TEXT.dragIt]; }
   var step = 0, swapTimer = 0;
-  // The first step: two words taking turns.
-  if (say) say.innerHTML = '<span class="alt"><b>' + esc(TEXT.tryWord) + '</b><b>' + esc(touch ? TEXT.tapIt : TEXT.clickIt) + '</b></span>';
+  // The first step is two words taking turns; the others one.
+  function word() {
+    if (!say) return;
+    if (step === 0) say.innerHTML = '<span class="alt"><b>' + esc(TEXT.tryWord) + '</b><b>' + esc(touch ? TEXT.tapIt : TEXT.clickIt) + '</b></span>';
+    else if (step < 3) say.textContent = steps()[step];
+  }
+  word();
   function reach(n) {
     if (!hint || n <= step) return;
     step = n;
-    if (step >= steps.length) { hint.classList.add('seen'); return; }
+    if (step >= 3) { hint.classList.add('seen'); return; }
     hint.classList.add('swap');
     clearTimeout(swapTimer);
-    swapTimer = setTimeout(function () { say.textContent = steps[step]; hint.classList.remove('swap'); }, 180);
+    swapTimer = setTimeout(function () { word(); hint.classList.remove('swap'); }, 180);
   }
 
   function viewport() { return { w: document.documentElement.clientWidth, h: window.innerHeight }; }
@@ -59,8 +66,8 @@ function esc(text) {
   }
 
   // The countdowns run, as the real ones do, with the app's units in this language.
-  var U = TEXT.units;
   function remaining(minutes) {
+    var U = TEXT.units;
     if (minutes < 60) return Math.max(1, Math.floor(minutes)) + U.m;
     if (minutes < 1440) return Math.floor(minutes / 60) + U.h + ' ' + Math.floor(minutes % 60) + U.m;
     return Math.floor(minutes / 1440) + U.d + ' ' + Math.floor((minutes % 1440) / 60) + U.h;
@@ -260,6 +267,8 @@ function esc(text) {
   if (at.dock !== 'top' && hint) hint.classList.add('seen');
   tick();
   setInterval(tick, 30000);
+  // Another language: other words, other widths.
+  document.addEventListener('language', function () { word(); tick(); measure(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   else measure();
 
@@ -380,8 +389,24 @@ function esc(text) {
     return wait(240).then(function () { dn.classList.remove('morph'); });
   }
 
+  // The caption of step n, in the page's language.
+  function words(list) {
+    return list.map(function (w) { return '<span class="w">' + esc(w) + '</span>'; }).join(TEXT.join);
+  }
+  function captionOf(n) {
+    if (n === 2) return esc(TEXT.cap2[0]) + '<span class="fresh">' + esc(TEXT.cap2[1]) + '</span>' + esc(TEXT.cap2[2]);
+    return words(n === 3 ? TEXT.cap3 : TEXT.cap1);
+  }
+  var shownStep = 1;
+  document.addEventListener('language', function () {
+    caption.innerHTML = captionOf(shownStep);
+    measure();
+    if (panel) show(220);
+  });
+
   // Step n of three: its bar fills for as long as the step lasts.
   function step(n, text, ms) {
+    shownStep = n;
     Array.prototype.forEach.call(steps, function (bar, i) {
       bar.style.transition = 'none';
       bar.style.width = i < n - 1 ? '100%' : '0';
@@ -413,11 +438,6 @@ function esc(text) {
     }, { threshold: 0.2 }).observe(section);
   } else visible = true;
 
-  // A caption's words, each lighting up in turn as the cursor does it.
-  function words(list) {
-    return list.map(function (w) { return '<span class="w">' + esc(w) + '</span>'; }).join(TEXT.join);
-  }
-
   // The open panel's width now: with a reset to use, its line is longer.
   function openWidth() { return (panel.reset ? size.rowReset : size.rowOpen)[0]; }
 
@@ -432,7 +452,7 @@ function esc(text) {
       cur.classList.add('on');
 
       // 1. Hover for the numbers, click for the time until each limit resets.
-      step(1, words(TEXT.cap1), 6200);
+      step(1, captionOf(1), 6200);
       await wait(400);
       cursor(W / 2, 14, 1100);
       await wait(1150);
@@ -447,7 +467,7 @@ function esc(text) {
 
       // 2. A limit reset: the notification comes in, and the panel, opened, shows it at the end
       //    of ChatGPT's line - where it stays while the panel is dragged about.
-      step(2, esc(TEXT.cap2[0]) + '<span class="fresh">' + esc(TEXT.cap2[1]) + '</span>' + esc(TEXT.cap2[2]), 6600);
+      step(2, captionOf(2), 6600);
       cursor(800, 430, 800);
       await wait(250);
       panel.open = false; show();
@@ -462,7 +482,7 @@ function esc(text) {
 
       // 3. Drag it. Pulled down it comes off the top edge; at the right edge it joins it and
       //    stands upright; from there out onto the screen; and back up to the top edge.
-      step(3, words(TEXT.cap3), 13800);
+      step(3, captionOf(3), 13800);
       toast.classList.remove('in');
       await wait(350);
       word(0);
@@ -547,8 +567,19 @@ function esc(text) {
   ];
   var MOVE = 0.7;
   var length = stops.reduce(function (n, s) { return n + s.stay; }, 0) + MOVE * (stops.length - 1);
-  function size() { world.style.height = (length + 1) * window.innerHeight + 'px'; }
-  size();
+  // Where scrolling comes to rest: the middle of each screen's stay. One push of the wheel, or one
+  // swipe, goes on to the next screen and no further.
+  var snaps = stops.map(function () {
+    var mark = document.createElement('i');
+    mark.className = 'snap';
+    mark.setAttribute('aria-hidden', 'true');
+    world.appendChild(mark);
+    return mark;
+  });
+  function size() {
+    world.style.height = (length + 1) * window.innerHeight + 'px';
+    snaps.forEach(function (mark, i) { mark.style.top = (i ? startOf(i) : 0) + 'px'; });
+  }
 
   // Soft at both ends, but moving from the first bit of scrolling.
   function ease(t) { return t * t * (3 - 2 * t); }
@@ -585,7 +616,8 @@ function esc(text) {
     plane.style.transform = 'translate3d(' + (-x * 50) + '%,' + (-y * 50) + '%,0)';
     // Nearer the demo's screen than any other, the live panel steps aside.
     notch.classList.toggle('away', x > 0.5 && y < 0.5);
-    if (wheel) wheel.classList.toggle('away', x > 0.5 && y < 0.5);
+    // The languages are chosen on the first screen; elsewhere the wheel steps aside.
+    if (wheel) wheel.classList.toggle('away', x > 0.5 || y > 0.5);
     if (target.stop !== shown) {
       shown = target.stop;
       Array.prototype.forEach.call(squares, function (b) { b.classList.toggle('on', +b.getAttribute('data-stop') === shown); });
@@ -601,6 +633,7 @@ function esc(text) {
       window.scrollTo({ top: startOf(+b.getAttribute('data-stop')), behavior: 'smooth' });
     });
   });
+  size();
   // Arriving from a link or a reload part-way: start where the scroll already is.
   var first = where(window.scrollY / window.innerHeight);
   x = first.x; y = first.y;
@@ -800,11 +833,12 @@ function esc(text) {
     });
     return out;
   }
-  var tagline = document.querySelector('.tagline');
-  var TOKENS = tagline ? tokens(tagline.textContent) : [];
-  if (TOKENS.length) {
+  var tagline = document.querySelector('.tagline'), streaming = 0;
+  function stream(delay) {
+    var pieces = tokens(tagline.textContent), mine = ++streaming;
+    if (!pieces.length) return;
     tagline.textContent = '';
-    var pieces = TOKENS.map(function (t) {
+    pieces = pieces.map(function (t) {
       var span = document.createElement('span');
       span.className = 'tk';
       span.textContent = t;
@@ -815,8 +849,8 @@ function esc(text) {
     caret.className = 'caret';
     tagline.insertBefore(caret, pieces[0]);
     (async function () {
-      await wait(700);
-      for (var i = 0; i < pieces.length; i++) {
+      await wait(delay);
+      for (var i = 0; i < pieces.length && mine === streaming; i++) {
         pieces[i].classList.add('on');
         pieces[i].after(caret);
         await wait(105 + Math.random() * 35);
@@ -824,6 +858,10 @@ function esc(text) {
       await wait(2200);
       caret.classList.add('gone');
     })();
+  }
+  if (tagline) {
+    stream(700);
+    document.addEventListener('language', function () { stream(120); });
   }
 
   // Lines that decode as they come into view: each letter in turn, out of code characters.
@@ -868,6 +906,7 @@ function esc(text) {
     }, { threshold: 0.6 });
     Array.prototype.forEach.call(lines, function (el) { seen.observe(el); });
   }
+  document.addEventListener('language', function () { Array.prototype.forEach.call(lines, decode); });
 
   // The maker's name in the footer, as on its own site: its letters show as ones and zeros, which
   // flicker and settle into the letters one by one, in no order - when it comes into view, and
@@ -960,37 +999,39 @@ function esc(text) {
   // talked down to what is left of the week. The numbers are the panel's on the screen above.
   var term = document.getElementById('term');
   if (!term) return;
-  var SESSIONS = [
-    [
-      ['you', TEXT.egg[0]],
-      ['say', TEXT.egg[1]],
-      ['you', TEXT.egg[2]],
-      ['tool', 'Edit src/notch.ts  +3'],
-      ['add', 'if (left < limit.max * 0.1) {'],
-      ['add', '  notch.warn(limit.name);'],
-      ['add', '}'],
-      ['say', TEXT.egg[3]]
-    ],
-    [
-      ['you', TEXT.flaky[0]],
-      ['tool', 'Bash npm test  \u00d750'],
-      ['fail', '  3 of 50 failed'],
-      ['tool', 'Edit src/sync.ts  +1 \u22121'],
-      ['add', 'await queue.drain();'],
-      ['tool', 'Bash npm test  \u00d750'],
-      ['dim', '  50 passed'],
-      ['say', TEXT.flaky[1]]
-    ],
-    [
-      ['you', TEXT.rust[0]],
-      ['say', TEXT.rust[1]],
-      ['you', TEXT.rust[2]],
-      ['tool', 'Write src/parser.rs  +184'],
-      ['tool', 'Bash cargo test'],
-      ['dim', '  21 passed'],
-      ['say', TEXT.rust[3]]
-    ]
-  ];
+  function sessions() {
+    return [
+      [
+        ['you', TEXT.egg[0]],
+        ['say', TEXT.egg[1]],
+        ['you', TEXT.egg[2]],
+        ['tool', 'Edit src/notch.ts  +3'],
+        ['add', 'if (left < limit.max * 0.1) {'],
+        ['add', '  notch.warn(limit.name);'],
+        ['add', '}'],
+        ['say', TEXT.egg[3]]
+      ],
+      [
+        ['you', TEXT.flaky[0]],
+        ['tool', 'Bash npm test  \u00d750'],
+        ['fail', '  3 of 50 failed'],
+        ['tool', 'Edit src/sync.ts  +1 \u22121'],
+        ['add', 'await queue.drain();'],
+        ['tool', 'Bash npm test  \u00d750'],
+        ['dim', '  50 passed'],
+        ['say', TEXT.flaky[1]]
+      ],
+      [
+        ['you', TEXT.rust[0]],
+        ['say', TEXT.rust[1]],
+        ['you', TEXT.rust[2]],
+        ['tool', 'Write src/parser.rs  +184'],
+        ['tool', 'Bash cargo test'],
+        ['dim', '  21 passed'],
+        ['say', TEXT.rust[3]]
+      ]
+    ];
+  }
   var visible = false, resume = null;
   function ready() { return visible ? Promise.resolve() : new Promise(function (done) { resume = done; }); }
   if ('IntersectionObserver' in window) {
@@ -1010,7 +1051,7 @@ function esc(text) {
   }
   (async function () {
     for (var run = 0; ; run++) {
-      var SESSION = SESSIONS[run % SESSIONS.length];
+      var all = sessions(), SESSION = all[run % all.length];
       for (var i = 0; i < SESSION.length; i++) {
         await ready();
         var kind = SESSION[i][0], text = SESSION[i][1];
@@ -1083,9 +1124,10 @@ function esc(text) {
 
 // The languages, as a wheel at the left edge of the window: this page's in the middle, the others
 // curving away above and below it - tilted, fading and blurring the further they are, as on a
-// dial seen from its edge. The mouse wheel, a drag or the arrow keys turn it; it settles on a
-// language, and a click or Enter goes there (the choice is remembered). Without the script it
-// is not shown; its links are still there for search engines.
+// dial seen from its edge. The mouse wheel, a drag or the arrow keys turn it; where it comes to
+// rest, that language takes the page's place at once: its words are put in, the address becomes
+// its own, and the choice is remembered. Without the script it is not shown; its links are still
+// there for search engines.
 (function () {
   var wheel = document.getElementById('wheel');
   if (!wheel) return;
@@ -1093,7 +1135,7 @@ function esc(text) {
   var now = 0;
   links.forEach(function (a, i) { if (a.classList.contains('now')) now = i; });
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pos = now, target = now, last = 0, running = false, near = false, drag = null, wheeled = 0;
+  var pos = now, target = now, last = 0, running = false, near = false, drag = null, wheeled = 0, settle = 0;
   document.documentElement.classList.add('wheel-on');
 
   // Its look, from the style sheet: the font size, rows apart, degrees between rows, blur and
@@ -1133,11 +1175,62 @@ function esc(text) {
     pos += (target - pos) * k;
     if (Math.abs(target - pos) < 0.0015) pos = target;
     draw();
-    if (pos === target && !drag) { running = false; last = 0; return; }
+    if (pos === target && !drag) { running = false; last = 0; rested(); return; }
     requestAnimationFrame(frame);
   }
-  function wake() { if (!running) { running = true; requestAnimationFrame(frame); } }
+  function wake() { clearTimeout(settle); if (!running) { running = true; requestAnimationFrame(frame); } }
   function turnTo(i) { target = Math.max(0, Math.min(links.length - 1, i)); wake(); }
+  // At rest on another language a moment, it takes the page.
+  function rested() {
+    clearTimeout(settle);
+    if (target !== now) settle = setTimeout(function () { become(target); }, 320);
+  }
+
+  // The same page in another language: fetched once, its words put in place of these.
+  var pages = {}, asked = 0;
+  function load(path) {
+    if (!pages[path]) {
+      pages[path] = fetch(path).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.text();
+      }).then(function (html) { return new DOMParser().parseFromString(html, 'text/html'); });
+    }
+    return pages[path];
+  }
+  var WORDS = ['.store', '.scroll-hint', '.tagline', '#notch .label', '#notch .expiry > span', '#dn .label', '#dn .time > span',
+    '#toast .toast-body b', '#toast .toast-body div > span', '.private h2', '.private p', 'footer .foot a:not([data-bits])'];
+  var NAMES = [['#notch', 'aria-label'], ['.store', 'aria-label'], ['.demo', 'aria-label'], ['#map', 'aria-label'],
+    ['#map button', 'aria-label'], ['#wheel', 'aria-label'], ['footer .foot a', 'href']];
+  function put(doc) {
+    WORDS.forEach(function (sel) {
+      var from = doc.querySelectorAll(sel), to = document.querySelectorAll(sel);
+      for (var i = 0; i < to.length && i < from.length; i++) to[i].textContent = from[i].textContent;
+    });
+    NAMES.forEach(function (pair) {
+      var from = doc.querySelectorAll(pair[0]), to = document.querySelectorAll(pair[0]);
+      for (var i = 0; i < to.length && i < from.length; i++) to[i].setAttribute(pair[1], from[i].getAttribute(pair[1]));
+    });
+    document.documentElement.lang = doc.documentElement.lang;
+    document.documentElement.dir = doc.documentElement.dir;
+    document.title = doc.title;
+    TEXT = JSON.parse(doc.getElementById('text').textContent);
+    document.dispatchEvent(new CustomEvent('language'));
+  }
+  function become(i) {
+    var a = links[i], path = a.getAttribute('href'), mine = ++asked;
+    load(path).then(function (doc) {
+      if (mine !== asked) return;
+      put(doc);
+      links.forEach(function (l, j) {
+        l.classList.toggle('now', j === i);
+        if (j === i) l.setAttribute('aria-current', 'page'); else l.removeAttribute('aria-current');
+      });
+      now = i;
+      try { localStorage.setItem('limitnotch-lang', a.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
+      history.replaceState(null, '', path + location.hash);
+      draw();
+    }).catch(function () { location.href = path; });
+  }
 
   // The mouse wheel turns it a row a notch; a touchpad's small steps add up to rows.
   wheel.addEventListener('wheel', function (e) {
@@ -1174,8 +1267,12 @@ function esc(text) {
   wheel.addEventListener('pointercancel', letGo);
 
   links.forEach(function (a, i) {
-    a.addEventListener('click', function () {
-      try { localStorage.setItem('limitnotch-lang', a.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
+    // A click (or Enter) turns the wheel to it and puts it in place.
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      turnTo(i);
+      clearTimeout(settle);
+      become(i);
     });
     a.addEventListener('focus', function () { turnTo(i); });
     a.addEventListener('keydown', function (e) {
