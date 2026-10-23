@@ -64,7 +64,7 @@ def redirect(languages):
     return ('<script>(function(){try{var P=' + json.dumps(pages, separators=(',', ':')) + ',A=' + json.dumps(asked, separators=(',', ':'))
             + ',k=localStorage.getItem("limitnotch-lang"),go=k&&P[k];'
             + 'if(!k){var l=navigator.languages||[navigator.language||""];for(var i=0;i<l.length&&!go;i++){var c=String(l[i]).toLowerCase();go=A[c]||A[c.split("-")[0]];}}'
-            + 'if(go&&go!=="/")location.replace(go+location.hash);}catch(e){}})();</script>\n')
+            + 'if(go&&go!=="/")location.replace(go+location.search+location.hash);}catch(e){}})();</script>\n')
 
 
 def page(template, language, languages):

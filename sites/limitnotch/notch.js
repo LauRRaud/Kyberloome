@@ -7,6 +7,21 @@ function esc(text) {
   return String(text).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
 }
 
+// The channel a visitor came from (limitnotch.com/?c=reddit) goes on to the Store with them as its
+// campaign ID, so Partner Center can tell which channel sells; without one it stays "website". It
+// is kept for the visit, as the address loses it when another language is put in.
+(function () {
+  var asked = /[?&]c=([a-z0-9_-]{1,16})(?:&|$)/i.exec(location.search), cid = asked && asked[1].toLowerCase();
+  try {
+    if (cid) sessionStorage.setItem('limitnotch-c', cid);
+    else cid = sessionStorage.getItem('limitnotch-c');
+  } catch (e) { /* then only from the address */ }
+  if (!cid) return;
+  Array.prototype.forEach.call(document.querySelectorAll('a.store'), function (a) {
+    a.href = a.href.replace(/([?&]cid=)[^&#]*/, '$1' + cid);
+  });
+})();
+
 // The notch at the top of the page behaves like the app's. It opens while the pointer is on it
 // (with a short grace period on leaving); a click shows the reset times, which go again when it
 // closes. It can be dragged: along the top edge, off it to anywhere, or against the left or right
@@ -1382,7 +1397,7 @@ function esc(text) {
       });
       now = i;
       try { localStorage.setItem('limitnotch-lang', a.getAttribute('data-code')); } catch (e) { /* only not remembered */ }
-      history.replaceState(null, '', path + location.hash);
+      history.replaceState(null, '', path + location.search + location.hash);
       draw();
     }).catch(function () { location.href = path; });
   }
