@@ -15,7 +15,7 @@
   var loaded = Date.now();
   var size = {};
   var open = false, times = false;
-  var closeTimer = 0, morphTimer = 0, drag = null, dragged = false;
+  var closeTimer = 0, timesTimer = 0, drag = null, dragged = false;
 
   // "Try it": three short steps under the panel - open it, click for the times, drag it - each
   // worded once the one before is done; gone after the drag.
@@ -70,18 +70,26 @@
     if (side()) return times ? size.stackTimes : size.stackOpen;
     return times ? size.rowTimes : size.rowOpen;
   }
-  // Puts the panel where `at` says, at its current size, inside the window.
-  function layout() {
+  // Where `at` puts the panel, at its current size, inside the window.
+  function target() {
     var v = viewport(), s = current(), left, top = 0;
     if (at.dock === 'left') left = 0;
     else if (at.dock === 'right') left = v.w - s[0];
     else left = Math.max(0, Math.min(v.w - s[0], at.x - s[0] / 2));
     if (at.dock !== 'top') top = Math.max(0, Math.min(v.h - s[1], at.y));
-    notch.style.left = left + 'px';
-    notch.style.top = top + 'px';
-    notch.style.width = s[0] + 'px';
-    notch.style.height = s[1] + 'px';
-    if (hint) { hint.style.left = left + s[0] / 2 + 'px'; hint.style.top = s[1] + 14 + 'px'; }
+    return { left: left, top: top, w: s[0], h: s[1] };
+  }
+  function put(r) {
+    notch.style.left = r.left + 'px';
+    notch.style.top = r.top + 'px';
+    notch.style.width = r.w + 'px';
+    notch.style.height = r.h + 'px';
+  }
+  // Puts the panel there - or, while it glides to a new edge, leaves the place to the glide.
+  function layout() {
+    var r = target();
+    if (!glideFrom) put(r);
+    if (hint) { hint.style.left = r.left + r.w / 2 + 'px'; hint.style.top = r.h + 14 + 'px'; }
     notch.classList.toggle('open', open);
     notch.classList.toggle('times', times);
     notch.classList.toggle('side', side());
@@ -90,9 +98,48 @@
     notch.classList.toggle('loose', at.dock === 'loose');
     notch.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
-  // The panel's top centre as it now stands, after any fitting into the window.
+  // The panel's top centre where it stands (or is gliding to), after any fitting into the window.
   function standing() {
-    return { x: parseFloat(notch.style.left) + current()[0] / 2, y: parseFloat(notch.style.top) };
+    var r = target();
+    return { x: r.left + r.w / 2, y: r.top };
+  }
+
+  // Joining or leaving an edge, as in the app: one short glide from where the glass is to its
+  // new shape, drawn frame by frame towards the panel's place in that frame. So while the drag
+  // goes on the glass follows the pointer, and it ends on the panel - where a transition would
+  // start over with every move and trail behind it.
+  var GLIDE_MS = 220, glideFrom = null, glideStart = 0, glideFrame = 0;
+  // The app's curve, cubic-bezier(.4, 0, .2, 1): its progress at time t.
+  function curve(t) {
+    var lo = 0, hi = 1, u = t;
+    for (var i = 0; i < 20; i++) {
+      u = (lo + hi) / 2;
+      var x = 3 * u * (1 - u) * (1 - u) * 0.4 + 3 * u * u * (1 - u) * 0.2 + u * u * u;
+      if (x < t) lo = u; else hi = u;
+    }
+    return 3 * u * u * (1 - u) + u * u * u;
+  }
+  function glide() {
+    var r = notch.getBoundingClientRect();
+    glideFrom = { left: r.left, top: r.top, w: r.width, h: r.height };
+    glideStart = performance.now();
+    // Without the transitions of place and size, it starts exactly where the glass was.
+    notch.classList.add('morph');
+    put(glideFrom);
+    if (!glideFrame) glideFrame = requestAnimationFrame(glideStep);
+  }
+  function glideStep(now) {
+    var t = (now - glideStart) / GLIDE_MS, b = target(), a = glideFrom;
+    if (t >= 1) {
+      glideFrom = null;
+      glideFrame = 0;
+      put(b);
+      notch.classList.remove('morph');
+      return;
+    }
+    var k = curve(Math.max(0, t));
+    put({ left: a.left + (b.left - a.left) * k, top: a.top + (b.top - a.top) * k, w: a.w + (b.w - a.w) * k, h: a.h + (b.h - a.h) * k });
+    glideFrame = requestAnimationFrame(glideStep);
   }
 
   // Its sizes in both layouts come from the content, as in the app; measured without motion.
@@ -115,7 +162,11 @@
     clearTimeout(closeTimer);
     if (open === value) return;
     open = value;
-    if (!open) times = false;
+    if (!open) {
+      times = false;
+      clearTimeout(timesTimer);
+      notch.classList.remove('times-out');
+    }
     layout();
     if (open) reach(1);
   }
@@ -130,6 +181,7 @@
       : near('left', x - s[0] / 2) ? 'left'
       : near('right', v.w - (x + s[0] / 2)) ? 'right'
       : 'loose';
+    if (dock !== before) glide();
     at = { dock: dock, x: x, y: y };
     if (dock === before) { layout(); return; }
     // Off a side edge it is wider again: it starts clear of that edge.
@@ -138,9 +190,6 @@
       if (before === 'right') at.x = Math.min(at.x, v.w - DETACH - half);
       if (before === 'left') at.x = Math.max(at.x, DETACH + half);
     }
-    notch.classList.add('morph');
-    clearTimeout(morphTimer);
-    morphTimer = setTimeout(function () { notch.classList.remove('morph'); }, 230);
     layout();
     // The hold is taken anew on the panel as it now is, so its jump is not taken for a pull away.
     var p = standing();
@@ -169,7 +218,7 @@
     if (!drag || e.pointerId !== drag.id) return;
     if (drag.moved) { dragged = true; save(); }
     drag = null;
-    notch.classList.remove('dragging', 'morph');
+    notch.classList.remove('dragging');
     // Let go outside the panel: it closes, as when the pointer leaves it.
     if (e.pointerType === 'mouse' && !notch.matches(':hover')) closeSoon();
   }
@@ -179,8 +228,19 @@
     // The end of a drag is no click.
     if (dragged) { dragged = false; return; }
     if (!open) setOpen(true);
-    else { times = !times; layout(); if (times) reach(2); }
+    else if (!times) { times = true; layout(); reach(2); }
+    else hideTimes();
   });
+  // As in the app: the times fade out first, and only then does the panel narrow.
+  function hideTimes() {
+    notch.classList.add('times-out');
+    clearTimeout(timesTimer);
+    timesTimer = setTimeout(function () {
+      notch.classList.remove('times-out');
+      times = false;
+      layout();
+    }, 120);
+  }
   // From the keyboard: opens on focus, closes on leaving; Enter or Space shows the times.
   notch.addEventListener('focus', function () { if (notch.matches(':focus-visible')) setOpen(true); });
   notch.addEventListener('blur', closeSoon);
@@ -471,7 +531,7 @@
     { at: [1, 1], stay: 0.2 },
     { at: [0, 1], stay: 0.3 }
   ];
-  var MOVE = 0.6;
+  var MOVE = 0.7;
   var length = stops.reduce(function (n, s) { return n + s.stay; }, 0) + MOVE * (stops.length - 1);
   function size() { world.style.height = (length + 1) * window.innerHeight + 'px'; }
   size();
@@ -501,7 +561,7 @@
   var x = 0, y = 0, running = false, last = 0, shown = -1;
   function frame(now) {
     var target = where(window.scrollY / window.innerHeight);
-    var k = last ? 1 - Math.pow(1 - 0.16, (now - last) / 16.7) : 1;
+    var k = last ? 1 - Math.pow(1 - 0.11, (now - last) / 16.7) : 1;
     last = now;
     x += (target.x - x) * k;
     y += (target.y - y) * k;

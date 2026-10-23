@@ -137,6 +137,8 @@ h1, h2, p { margin: 0; }
   opacity: 1;
   transition: max-width 420ms var(--glide), padding 420ms var(--glide), opacity 220ms ease-out 160ms;
 }
+/* Going: they fade out while the panel keeps its width. */
+.np.times.times-out .time { opacity: 0; transition: opacity 110ms ease-out; }
 /* A pixel lower, as in the app, so the icons sit level with the digits beside them. */
 .time svg { width: 12px; height: 12px; margin-top: 1px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 /* Sizes are measured once, without any motion. */
@@ -180,9 +182,10 @@ h1, h2, p { margin: 0; }
 .notch.away.left { translate: calc(-100% - 12px) 0; }
 .notch.away.right { translate: calc(100% + 12px) 0; }
 .notch.away.loose { translate: 0 -16px; }
-/* While dragged it follows the pointer at once; joining or leaving an edge glides. */
+/* While dragged it follows the pointer at once; joining or leaving an edge glides, drawn frame by
+   frame by the script (so no transition of place or size then). */
 .notch.dragging { cursor: grabbing; transition: width 420ms var(--glide), height 420ms var(--glide), border-radius 260ms var(--glide); }
-.notch.dragging.morph { transition: left 220ms var(--glide), top 220ms var(--glide), width 220ms var(--glide), height 220ms var(--glide), border-radius 220ms var(--glide); }
+.notch.morph { transition: border-radius 220ms var(--glide), translate 520ms var(--glide), opacity 420ms var(--glide); }
 .notch:focus-visible { outline: 2px solid rgba(255, 255, 255, .7); outline-offset: 2px; }
 
 /* ---- hero ---------------------------------------------------------------------------- */
