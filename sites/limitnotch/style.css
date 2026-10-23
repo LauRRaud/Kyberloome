@@ -264,7 +264,7 @@ h1 {
 /* The tagline comes in a few letters at a time, the way an AI's answer streams, with a caret
    that blinks a while at its end. Script splits it up; without script it is just there. */
 /* Each piece comes out of a blur, gently, while the next ones follow. */
-.tagline .tk { opacity: 0; filter: blur(7px); transition: opacity .55s ease-out, filter .7s var(--glide); }
+.tagline .tk { opacity: 0; filter: blur(7px); transition: opacity .4s ease-out, filter .5s var(--glide); }
 .tagline .tk.on { opacity: 1; filter: blur(0); }
 .caret { position: relative; display: inline-block; width: 0; }
 .caret::after {

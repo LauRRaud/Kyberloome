@@ -853,14 +853,14 @@ function esc(text) {
       for (var i = 0; i < pieces.length && mine === streaming; i++) {
         pieces[i].classList.add('on');
         pieces[i].after(caret);
-        await wait(105 + Math.random() * 35);
+        await wait(70 + Math.random() * 20);
       }
       await wait(2200);
       caret.classList.add('gone');
     })();
   }
   if (tagline) {
-    stream(700);
+    stream(450);
     document.addEventListener('language', function () { stream(120); });
   }
 
